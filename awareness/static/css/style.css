@@ -1,0 +1,58 @@
+body {
+    padding-top: 56px;
+}
+
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.carousel-hyperlink {
+    text-decoration: none;
+    color: #69BDBB;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.carousel-hyperlink:hover {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.intro {
+    background: #69BDBB;
+    margin: 0;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.intro p{
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+}
+
+.t2b-h1 {
+font-family: 'Roboto', sans-serif;
+}
+
+.t2b-breadcrumb-a{
+    color: #009389;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+}
+
+.t2b-breadcrumb-a:hover{
+    color: #000;
+    font-weight: 700;
+} 

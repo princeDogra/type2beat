@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Type2Beat | exercises {% endblock title %} 
+{% block header %}
+<header>
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-5 mb-3 t2b-h1">Exercises for Preventing Diabetes</h1>
+    
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}" class="t2b-breadcrumb-a">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Exercises</li>
+        </ol>
+    
+        <!-- Image Header -->
+        <img class="img-fluid rounded mb-4" src="{% static 'images/exercise-1.jpg' %}" alt="">
+    </div>
+</header>
+{% endblock header %}
+
+{% block main %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header">Exercise 1</h4>
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header">Exercise 2</h4>
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header">Exercise 3</h4>
+                <div class="card-body">
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+              </div>
+            </div>
+        </div>
+          <!-- /.row -->
+    </div>
+</main>
+{% endblock main %}
