@@ -12,3 +12,9 @@ def exercises(request):
 
 def healthy_diets(request):
     return render(request, 'healthy_diets.html')
+
+def prevention(request):
+    return render(request, 'prevention.html')
+
+def services(request):
+    return render(request, 'services.html')

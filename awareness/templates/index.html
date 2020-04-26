@@ -46,48 +46,73 @@
 {% endblock header %}
 
 {% block main %}
-<div class="container-fluid intro">
+<div class="container-fluid t2b-section-1">
     <div class="container">
         <div class="row">
-            <h1 class="my-4 t2b-h1">Welcome to Type2Beat</h1>
+            <h1 class="my-4 t2b-h1">WELCOME TO Type2Beat</h1>
             <p>Welcome to Type2Beat - an interactive platform for Australian Senior Citizen below the age of 65 
                 with little or no symptoms of diabetes. We understand, though you have no signs of diabetes
                 but as per the studies more than half of the people get affected by it after the age of 65. 
                 So, through this platform we would help you to monitor your daily glucose intake and manage your medical records
                 and help you & your doctor to view your progress. Additionally, we have various exercises
                 and healthy meal plans that would help you to replenish your strength and prevent diabetes.
-            </p>        
+            </p>    
+            <a href="" class="btn btn-primary t2b-navi-2"> JOIN US TODAY</a>    
     </div>
     
     </div>
 </div>
 <!-- Page Content -->
-<div class="container">
+<div class="container my-5">
 
     <!-- Features Section -->
     <div class="row">
         <div class="col-lg-6">
-          <h2>Modern Business Features</h2>
-          <p>The Modern Business template by Start Bootstrap includes:</p>
+          <h2>TYPE 2 DIABETES AND PREVENTION</h2>
+          <p>1  in every 6 Australian senior citizens age above 65 years 
+            suffers from diabetes and its rate increases with age. Therefore
+             it's important to monitor one’s glucose level between the 
+            age of 55-65 for taking preventive measures during prediabetic phase.</p>
+          <strong>To prevent Type 2 Diabetes one should:</strong>
           <ul>
-            <li>
-              <strong>Bootstrap v4</strong>
-            </li>
-            <li>jQuery</li>
-            <li>Font Awesome</li>
-            <li>Working contact form with validation</li>
-            <li>Unstyled page elements for easy customization</li>
+            <li>Eat healthy food</li>
+            <li>Drink enough water</li>
+            <li>Exercise regularly</li>
+            <li>Avoid fasting</li>
           </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+          <a href="{$ url 'prevention' $}" class="btn t2b-navi-1">EXPLORE TYPE 2 DIABETES PREVENTION</a>
         </div>
         <div class="col-lg-6">
-          <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+          <img class="img-fluid rounded" src="{% static 'images/prevention-700x450.jpg' %}" alt="">
         </div>
     </div>
     <!-- /.row -->
+</div>
 
+<div class="container-fluid t2b-section-2">
 
+  <div class="row">
+    <div class="container">
+      <h1 class="my-4 t2b-h1">OUR SERVICES</h1>
+      <div class="row">
+        <div class="col-lg-6 t2b-section-service-1">
+          <h1>MAINTAIN MONTHY RECORDS</h1>
+        </div>
+        <div class="col-lg-6 t2b-section-service-1">
+          <h1>RECORD GLUCOSE INTAKE</h1>
+        </div>
+        <div class="col-lg-6 t2b-section-service-1">
+          <h1>PERIODIC REMINDER</h1>
+        </div>
+        <div class="col-lg-6 t2b-section-service-1">
+          <h1>MEALS AND EXERCISES</h1>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Marketing Icons Section -->
+    
+
     <div class="row">
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
