@@ -75,7 +75,7 @@ font-family: 'Roboto', sans-serif;
     color: #fff;
 }
 
-.t2b-navi-2 {
+.t2b-btn-2 {
     margin: 0.7rem auto;
     text-decoration: none;
     padding: 1rem;
@@ -87,7 +87,7 @@ font-family: 'Roboto', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 
-.t2b-navi-2:hover{
+.t2b-btn-2:hover{
     text-decoration: none;
     background-color: #fff;
     color: #009389;
@@ -98,9 +98,38 @@ font-family: 'Roboto', sans-serif;
 }
 
 .t2b-section-service-1{
-    min-height: 200px;
+    min-height: 400px;
     background: #000;
-    font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #f0f0f0;
+    padding: 5px;
+}
+
+.t2b-section-service-1-inner {
+    height: 100%;
+    padding: 10px;
+    color: #fff;
+}
+
+.t2b-section-service-1-inner h2 {
+    padding-top: 30px;
+}
+
+.opp-1{
+    background-color: #fff;
+    color: #0c0c0c;
+}
+
+.opp-2 {
+    background-color: #c0c0c0;
+    color: #0d0d0d;
+}
+
+.hr-white {
+    background-color: #fff;
+}
+
+.blockquote { 
+    font-weight: 400;
+    font-size: medium;
 }

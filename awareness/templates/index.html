@@ -15,13 +15,13 @@
         <div class="carousel-item active" style="background-image: url('{% static 'images/carousel-4.jpg' %}')">
           <div class="carousel-caption d-none d-md-block">
             <h3>Diabetes: Prevention is better than Cure</h3>
-            <p>Type2Beat can help you preventing diabetes. <a href="#" class="carousel-hyperlink">Learn More</a></p>
+            <p>Type2Beat can help preventing you from diabetes. <a href="{% url 'services' %}" class="carousel-hyperlink">Learn More</a></p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('{% static 'images/carousel-2.jpg' %}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
+            <h3>Stay together</h3>
             <p>This is a description for the second slide.</p>
           </div>
         </div>
@@ -57,7 +57,7 @@
                 and help you & your doctor to view your progress. Additionally, we have various exercises
                 and healthy meal plans that would help you to replenish your strength and prevent diabetes.
             </p>    
-            <a href="" class="btn btn-primary t2b-navi-2"> JOIN US TODAY</a>    
+            <a href="" class="btn btn-primary t2b-btn-2"> JOIN US TODAY</a>    
     </div>
     
     </div>
@@ -94,65 +94,52 @@
   <div class="row">
     <div class="container">
       <h1 class="my-4 t2b-h1">OUR SERVICES</h1>
-      <div class="row">
-        <div class="col-lg-6 t2b-section-service-1">
-          <h1>MAINTAIN MONTHY RECORDS</h1>
+      <div class="row t2b-container">
+        <div class="col-lg-3 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-med-record.jpg' %}')">
+            <h2>Maintain Health Records</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              It will allow you to maintain your historical medical data.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+            <hr>
+          </div>
         </div>
-        <div class="col-lg-6 t2b-section-service-1">
-          <h1>RECORD GLUCOSE INTAKE</h1>
+        <div class="col-lg-3 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-glucose.jpg' %}')">
+            <h2>Record Glucose Intake</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              It will allow you to maintain your historical medical data.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
         </div>
-        <div class="col-lg-6 t2b-section-service-1">
-          <h1>PERIODIC REMINDER</h1>
+        <div class="col-lg-3 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-reminder.jpg' %}')"> 
+            <h2>Periodic reminders</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              It will allow you to maintain your historical medical data.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
         </div>
-        <div class="col-lg-6 t2b-section-service-1">
-          <h1>MEALS AND EXERCISES</h1>
+        <div class="col-lg-3 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-food.jpg' %}')">
+            <h2>Meals and Exercises</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              It will allow you to maintain your historical medical data.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
         </div>
+        <hr class="hr-white">
+        <a href="#" class="btn btn-primary t2b-btn-3">COME JOIN US</a>
       </div>
     </div>
   </div>
-    <!-- Marketing Icons Section -->
-    
-
-    <div class="row">
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /.row -->
-    
-
-    <hr>
-
-
 </div>
 {% endblock main %}
