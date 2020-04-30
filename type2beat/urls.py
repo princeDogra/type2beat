@@ -19,6 +19,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from awareness import views as awareness_views
+from dashboard import views as dash_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +28,6 @@ urlpatterns = [
     url(r'^exercises/', awareness_views.exercises, name='exercises'),
     url(r'^healthy_diets/', awareness_views.healthy_diets, name='healthy_diets'),
     url(r'^prevention/', awareness_views.prevention, name="prevention"),
-    url(r'^services/', awareness_views.services, name="services")
+    url(r'^services/', awareness_views.services, name="services"),
+    url(r'^dashboard/', dash_views.dash_landing, name="dash-landing"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
