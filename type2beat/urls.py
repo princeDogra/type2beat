@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^prevention/', awareness_views.prevention, name="prevention"),
     url(r'^services/', awareness_views.services, name="services"),
     url(r'^dashboard/', dash_views.dash_landing, name="dash-landing"),
+    url(r'^dashboard_glucose/', dash_views.glucose_dash, name="dashboard_glucose"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
