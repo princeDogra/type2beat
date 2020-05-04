@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import GlucoseTracker
 
-# Register your models here.
+# register the glucose model
+admin.site.register(GlucoseTracker)
