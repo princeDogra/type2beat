@@ -1,33 +1,68 @@
-<footer class="py-5 bg-dark">
-    <div class="container-fluid padding">
-		<div class="row text-center text-white">
-		<div class="col-md-4">
-			<p>555-555-555</p>
-			<p>email@gmail.com</p>
-			<p>100 State street</p>
-			<p>State, City, 00000</p>
-		</div>
-		<div class="col-md-4">
-			<p>Contact Hour</p>
-			<p>Monday: 9am-5pm</p>
-			<p>Friday:10am-2pm</p>
-			<p>Saturday&Sunday:close</p>
-		</div>
-		<div class="col-md-4">
-			<a href="Contact.html">Contact</a>
-			<br>
-			<a href="AboutUs.html">About Us</a>
-		</div>
-		<div class="col-md-12">
-			<p class="m-0 text-center text-white">Copyright &copy; Type2Beat.live 2020</p>
-		</div>
-		</div>
-    </div>
-    <!-- /.container -->
-	<footer>
+{% load static %}
+
+<footer id = "footer" class = "py-5 bg-t2b-dark tg-haslayout">
+	<script src="https://kit.fontawesome.com/c90a5212ef.js" crossorigin="anonymous"></script>
+	<div class ="tg-threecolumn">
 		<div class="container-fluid padding">
-			<div class="row text-center">
-				
+			<div class = "row text-white">
+				<div class = "col-md-4">
+					<div class = "tg-footercol">
+							<img src="{% static 'images/logo.png' %}">
+						<div class="tg-description">
+							<p>Content on Type2Beat does not replace the relationship between you and doctors or other healthcare professionals nor the advice you receive from them. </p>
+							<div>
+								<i class="fad fa-envelope"></i>
+								<em>&nbsp &nbsp info@domain.com</em>
+								<br>
+								<i class="fad fa-phone-alt"></i>
+								<em>&nbsp &nbsp +420 954 120</em>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="tg-footercol">
+						<div class="tg-description">
+							<h2>Working Hours</h2>
+						</div>
+					</div>
+					<div class="tg-widget tg-usefullinks">
+						<div>
+							<p>Monday to Thursday: 9am - 5pm</p>
+							<br>
+							<p>Friday: 10am - 2pm</p>
+							<br>
+							<p>Saturday & Sunday: Close</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="tg-footercol">
+						<div class="tg-description">
+							<h2>Useful links</h2>
+						</div>
+						<div class="tg-widget tg-usefullinks">
+							<div>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Terms and Conditions</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Contact Us</a></li>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
+
+<section id ="footer" class ="bg-secondary">
+	<div class="tg-footerbar bg-dark tg-haslayout">
+		<div class="tg-copyrights text-center">
+			<p class="m-0 text-center text-white"> 2020 All Rights Reserved © Type2Beat.live 2020</p>
+		</div>
+	</div>
+</section>
+
