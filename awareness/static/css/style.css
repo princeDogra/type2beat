@@ -1,9 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Source+Sans+Pro:wght@200;400&display=swap');
+
+/* colors {
+    primary: #009389
+    secondary: #69BDBB
+    bg-dark: #272727
+    bg-light: #c0c0c0
+} */
+
+:root {
+    --font-family-sans-serif: 'Source Sans Pro',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-serif: Merriweather, serif;
+
+    --gray: #404040;
+    --primary: #69BDBB;
+    --primary-light: #b8f2e6;
+    --secondary: #009389;
+    --dark: #000;
+    --light: #c0c0c0;
+    --white: #ffffff;
+
+    --color-text: var(--dark);
+    --font-family-text: var(--font-family-serif);
+}
+
+
 body {
     padding-top: 56px;
 }
 
 .bg-t2b-dark {
-    background-color: #000;
+    background-color: var(--dark);
 }
 
 .carousel-item {
@@ -29,7 +55,7 @@ body {
 
 .carousel-hyperlink:hover {
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     font-weight: 500;
     font-size: 18px;
 }
@@ -59,7 +85,7 @@ font-family: 'Roboto', sans-serif;
 .t2b-breadcrumb-a:hover{
     color: #000;
     font-weight: 700;
-} 
+}
 
 .t2b-navi-1 {
     font-family: 'Roboto', sans-serif;
@@ -70,13 +96,52 @@ font-family: 'Roboto', sans-serif;
     background-color: #69BDBB;
     color: white;
     border-color: #009389;
-    
+
 }
 
 .t2b-navi-1:hover {
     text-decoration: none;
     background-color: #009389;
-    color: #fff;
+    color: var(--white);
+}
+
+.t2b-form {
+  display: grid;
+  width: min(450px, 70%);
+  padding: 5%;
+  background: var(--primary);
+  border-radius: 1%;
+  margin: 5% auto;
+  align-items: center;
+  -webkit-box-shadow: 0px 10px 40px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 40px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 40px -6px rgba(0,0,0,0.75);
+}
+
+.t2b-form-group {
+  display: grid;
+  width: 100%
+}
+
+.t2b-btn-1 {
+  display: grid;
+  margin: 1rem auto;
+  text-decoration: none;
+  padding: 0.75rem 2.95rem;
+  transition: 0.3s ease-in-out;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-family-serif);
+  -webkit-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+}
+
+.t2b-btn-1:hover {
+  box-shadow: 1px 1px 4px var(--dark);
+  transition: .3s ease-in-out;
 }
 
 .t2b-btn-2 {
@@ -133,7 +198,7 @@ font-family: 'Roboto', sans-serif;
     background-color: #fff;
 }
 
-.blockquote { 
+.blockquote {
     font-weight: 400;
     font-size: medium;
 }

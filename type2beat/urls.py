@@ -18,8 +18,10 @@ from django.urls import path
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 from awareness import views as awareness_views
 from dashboard import views as dash_views
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +29,11 @@ urlpatterns = [
     url(r'^contacts/', awareness_views.contacts, name='contacts'),
     url(r'^exercises/', awareness_views.exercises, name='exercises'),
     url(r'^healthy_diets/', awareness_views.healthy_diets, name='healthy_diets'),
-    url(r'^prevention/', awareness_views.prevention, name="prevention"),
-    url(r'^services/', awareness_views.services, name="services"),
-    url(r'^dashboard/', dash_views.dash_landing, name="dash-landing"),
-    url(r'^dashboard_glucose/', dash_views.glucose_dash, name="dashboard_glucose"),
+    url(r'^prevention/', awareness_views.prevention, name='prevention'),
+    url(r'^services/', awareness_views.services, name='services'),
+    url(r'^dashboard/', dash_views.dashboard, name='dashboard'),
+    url(r'^dashboard_glucose/', dash_views.glucose_dash, name='dashboard_glucose'),
+    url(r'^register/', user_views.register, name='register'),
+    url(r'^login/', user_views.login, name='login'),
+    url(r'^logout/', user_views.logout, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

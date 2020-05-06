@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Login | type2beat {% endblock title %}
+{% block header %}
+<header>
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-5 mb-3 t2b-h1">Login</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}" class="t2b-breadcrumb-a">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Login</li>
+        </ol>
+    </div>
+</header>
+{% endblock header %}
+
+{% block main %}
+<main>
+  <div class="container">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    <div class="t2b-form">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="t2b-form-group">
+          {{ form }}
+        </fieldset>
+        <div class="form-group">
+          <button type="submit" name="button" class="t2b-btn-1">Login</button>
+        </div>
+      </form>
+      <div class="border-top pt-3">
+        <small class="text-dark">
+          Need An Account? <a href="{% url 'register' %}"><strong>Sign Up</strong></a>
+        </small>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main %}

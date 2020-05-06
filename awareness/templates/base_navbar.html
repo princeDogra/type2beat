@@ -2,7 +2,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-md navbar-dark fixed-top bg-t2b-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a>
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,10 +23,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="{% url 'services' %}">Services</a>
                 </li>
-                <li class="nav-item">
-                    <form class="form-inline">
-                        <button class="btn btn-outline-success" type="button">Login/Register</button>
-                    </form>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
             </ul>
         </div>
