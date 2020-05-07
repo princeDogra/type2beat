@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GlucoseTracker
+from .models import FoodItem
 
-# register the glucose model
-admin.site.register(GlucoseTracker)
+# register the FoodItem model
+admin.site.register(FoodItem)
