@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class FoodItem(models.Model):
     product_name = models.TextField(blank=False)
@@ -18,3 +18,12 @@ class FoodItem(models.Model):
 
     def __str__(self):
         return self.product_name
+
+class MedicalRecord(models.Model):
+    timestamp = models.DateTimeField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    h2_plasma_glucose = models.DecimalField(max_digits=8, decimal_places=5, blank=True)
+    fasting_plasma_glucose = models.DecimalField(max_digits=8, decimal_places=5, blank=True)
+
+    def __str__(self):
+        return (self.user.username + ' - ' + str(self.timestamp))
