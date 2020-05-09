@@ -1,9 +1,8 @@
 {% extends "dash-base.html" %}
 {% load static %}
 {% csrf_token %}
-
+{% block title %}Dashboard | Type2Beat{% endblock title %}
 {% block main %}
-<div class="grid-container bg-dark">
-  <h1 class="lead">Welcome {{ request.user }}</h1>
-</div>
 {% endblock main %}
+
+{% block secondary %}{% endblock secondary %}

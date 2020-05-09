@@ -6,8 +6,8 @@
         <div class="sidebar-heading">Type2Beat.live</div>
             <div class="list-group list-group-flush">
                 <a href="{% url 'dashboard' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
-                <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Medical Record</a>
-                <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Record Glucose</a>
+                <a href="{% url 'medical' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Medical Record</a>
+                <a href="{% url 'glucose' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Record Glucose</a>
                 <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-info-circle" aria-hidden="true"></i>Exercises</a>
                 <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-cutlery" aria-hidden="true"></i>Food</a>
                 <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-bell" aria-hidden="true"></i>Notification</a>
@@ -37,11 +37,8 @@
                 </section>
             </nav>
 
-            <div class="container-fluid">
-                <!-- <h1 class="mt-4">Simple Sidebar</h1>
-                <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p> -->
-            </div>
+            {% block main %}{% endblock main %}
+            {% block secondary %}{% endblock secondary %}
         </div>
     </div>
 </div>

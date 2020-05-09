@@ -1,0 +1,44 @@
+{% extends "dash-base.html" %}
+{% load static %}
+{% block title %}Glucose Tracker | Type2Beat{% endblock title %}
+{% block main %}
+<div class="t2b-container-2">
+  <div class="t2b-box1">
+    <h1 class="t2b-h1 t2b-centre">
+      Record you Glucose Intake
+    </h1>
+    <hr>
+    <div class="t2b-container-3">
+      <div class="search-box">
+        <form class="" action="{% url 'glucose' %}" method="get">
+          <input type="text" name="q" value="{{request.GET.q}}"  placeholder="Search..." class="form-control">
+          <button type="submit" name="button" class="btn btn-success"> Search</button>
+        </form>
+      </div>
+      <div class="food-item-box">
+        {% if items %}
+        <ul>
+          {% for item in items %}
+            <li>{{ item.product_name }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+          <h1>Nothing to show</h1>
+        {% endif %}
+      </div>
+      <div class="content">
+        <p>No content</p>
+      </div>
+    </div>
+  </div>
+  <div class="t2b-box2">
+
+  </div>
+</div>
+{% endblock main %}
+
+{% block secondary %}
+<div class="t2b-container">
+  this is a secondary
+</div>
+{% endblock secondary %}
