@@ -20,7 +20,7 @@ def glucose(request):
         #
         #     for fooditem in fooditems:
         #         queryset.append(fooditem)
-        fooditems = FoodItem.objects.filter(Q(product_name__icontains=query))
+        fooditems = FoodItem.objects.filter(Q(product_name__icontains=query)).distinct()
         for fooditem in fooditems:
             queryset.append(fooditem)
         # print(f'query set is as follows: {type(queryset[0])}')

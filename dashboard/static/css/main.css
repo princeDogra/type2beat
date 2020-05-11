@@ -56,6 +56,14 @@ body {
     color: var(--light);
 }
 
+.t2b-bg-white {
+  background-color: var(--white);
+}
+
+.t2b-bg-light {
+  background-color: var(--light);
+}
+
 .t2b-bg-dark:hover, .t2b-bg-dark:active {
     color: var(--white);
     background: var(--dark);
@@ -129,8 +137,9 @@ body {
     background-color: #fff;
 }
 
+
+
 .t2b-container {
-    background: var(--gray-dark);
     width: 100%;
     position: relative;
     height: max(200px, 15%);
@@ -148,7 +157,6 @@ body {
 }
 
 .t2b-container-2{
-  background: var(--light);
   position: relative;
   display: grid;
   grid-template-columns: 70% auto;
@@ -162,15 +170,46 @@ body {
   background: var(--light);
   position: relative;
   display: grid;
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 30% auto;
   padding: 1%;
   grid-gap: 1%;
   border-radius: 1%;
   grid-auto-rows: auto-fil;
 }
 
+.t2b-card-body {
+  padding: 4%;
+  display: grid;
+  grid-template-columns: 80% auto;
+}
+
 .search-box {
   width: 100%;
+}
+
+.t2b-btn-1 {
+  background-color: var(--secondary);
+  padding: 5px 25px;
+  color: var(--white);
+  transition: 0.2s ease-out;
+  text-decoration: none;
+  border: 1px solid var(--secondary);
+  border-radius: 10%;
+  transition: 0.2 ease-out;
+  margin: 5px auto;
+}
+
+.t2b-btn-1:hover {
+  transition: 0.2s ease-in;
+  -webkit-box-shadow: 0px 4px 10px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 10px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 10px -6px rgba(0,0,0,0.75);
+  border: 2px solid var(--primary);
+}
+
+.search-box .button{
+  margin: auto;
+  align-content: center;
 }
 
 .food-item-box {

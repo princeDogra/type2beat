@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Glucose Tracker | Type2Beat{% endblock title %}
 {% block main %}
-<div class="t2b-container-2">
+<div class="t2b-container-2 t2b-bg-light">
   <div class="t2b-box1">
     <h1 class="t2b-h1 t2b-centre">
       Record you Glucose Intake
@@ -12,33 +12,71 @@
       <div class="search-box">
         <form class="" action="{% url 'glucose' %}" method="get">
           <input type="text" name="q" value="{{request.GET.q}}"  placeholder="Search..." class="form-control">
-          <button type="submit" name="button" class="btn btn-success"> Search</button>
+          <button type="submit" name="button" class="t2b-btn-1"> Search</button>
+          <br>
+          <br>
+          <h3><strong>Meal Type</strong></h3>
+          <div class="radio">
+            <input type="radio" name="meal" value="Breakfast"> Breakfast
+          </div>
+          <div class="radio">
+            <input type="radio" name="meal" value="lunch"> Lunch
+          </div>
+          <div class="radio">
+            <input type="radio" name="meal" value="Dinner"> Dinner
+          </div>
+          <div class="radio">
+            <input type="radio" name="meal" value="snack" checked> Snack
+          </div>
         </form>
       </div>
       <div class="food-item-box">
-        {% if items %}
-        <ul>
+        <div class="accordion" id="t2b_accordion">
+          {% if items %}
           {% for item in items %}
-            <li>{{ item.product_name }}</li>
+          <div class="card">
+            <div class="card-header" id="{{forloop.counter0}}">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter0}}" aria-expanded="true" aria-controls="collapse{{forloop.counter0}}">
+                  {{ item.product_name }}
+                </button>
+              </h2>
+            </div>
+            <div id="collapse{{forloop.counter0}}" class="collapse" aria-labelledby="index{{forloop.counter0}}" data-parent="#t2b_accordion">
+              <div class="t2b-card-body">
+                <div>
+                  <h6><mark>Sugar : <small class="text-muted">{{item.sugars_100g}} /100g</small></mark></h6>
+                  <h6>Carbohydrates : <small class="text-muted">{{item.carbohydrates_100g}} /100g</small></h6>
+                  <h6>Cholesterol : <small class="text-muted">{{item.cholesterol_100g}} /100g</small></h6>
+                  <h6>Fat : <small class="text-muted">{{item.fat_100g}} /100g</small></h6>
+                  <h6>Fiber : <small class="text-muted">{{item.fiber_100g}} /100g</small></h6>
+                  <h6>Proteins : <small class="text-muted">{{item.proteins_100g}} /100g</small></h6>
+                  <h6>Salt : <small class="text-muted">{{item.salt_100g}} /100g</small></h6>
+                  <h6>Sodium : <small class="text-muted">{{item.sodium_100g}} /100g</small></h6>
+                </div>
+                <div>
+                  <button type="button" name="button" class="btn btn-success">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
           {% endfor %}
-        </ul>
-        {% else %}
-          <h1>Nothing to show</h1>
-        {% endif %}
+          {% else %}
+            <h1 class="lead text-center"> No results found </h1>
+          {% endif %}
+        </div>
       </div>
-      <div class="content">
-        <p>No content</p>
-      </div>
-    </div>
-  </div>
-  <div class="t2b-box2">
-
   </div>
 </div>
 {% endblock main %}
 
 {% block secondary %}
-<div class="t2b-container">
-  this is a secondary
+<div class="t2b-container t2b-bg-white">
+  <div class="t2b-box1">
+    <h1 class="t2b-h1 t2b-centre">
+      Glucose intake this meal
+    </h1>
+    <hr>
+  </div>
 </div>
 {% endblock secondary %}
