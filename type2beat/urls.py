@@ -22,6 +22,7 @@ from django.contrib.auth import views as auth_views
 from awareness import views as awareness_views
 from dashboard import views as dash_views
 from users import views as user_views
+from dashboard.views import MedicalChartData
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,9 +34,10 @@ urlpatterns = [
     url(r'^services/', awareness_views.services, name='services'),
     url(r'^dashboard/', dash_views.dashboard, name='dashboard'),
     url(r'^glucose/', dash_views.glucose, name='glucose'),
-    url(r'^medical/', dash_views.glucose, name='medical'),
+    url(r'^medical/', dash_views.medical, name='medical'),
     url(r'^reminder/', dash_views.glucose, name='reminder'),
     url(r'^register/', user_views.register, name='register'),
     url(r'^login/', user_views.login, name='login'),
     url(r'^logout/', user_views.logout, name='logout'),
+    url(r'^api/chart/data/medical', MedicalChartData.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

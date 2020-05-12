@@ -38,7 +38,7 @@ body {
 .t2b-h1 {
   font-family: var(--font-family-serif);
   color: var(--dark);
-  font-size: 2em;
+  font-size: cal(0.9em + 0.9vw);
 }
 
 .t2b-navbar-item a{
@@ -67,6 +67,25 @@ body {
 .t2b-bg-dark:hover, .t2b-bg-dark:active {
     color: var(--white);
     background: var(--dark);
+}
+
+.t2b-form {
+  display: grid;
+  width: 100%;
+  font-size: 1.2vw;
+}
+
+.t2b-form table {
+  width: 100%;
+}
+
+.t2b-table {
+  padding: 1vw;
+}
+
+.t2b-table td {
+  padding: 0.2rem;
+  font-size: cal(1em + 1vw);
 }
 
 .menu-btn {
@@ -136,8 +155,6 @@ body {
 .navbar-toggle .icon-bar {
     background-color: #fff;
 }
-
-
 
 .t2b-container {
     width: 100%;
@@ -250,15 +267,13 @@ body {
 .t2b-box1 {
   width: 100%;
   padding: 2%;
-  background: var(--white);
   height: 100%;
 }
 
 .t2b-box2 {
   width: 100%;
   padding: 2%;
-  background: var(--gray);
-  height: 100%;
+  height: 30vw;
 }
 
 #sidebar-wrapper {
@@ -272,7 +287,7 @@ body {
 
 #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
 }
 
 #sidebar-wrapper .list-group {

@@ -3,14 +3,14 @@
 {% block title %}Glucose Tracker | Type2Beat{% endblock title %}
 {% block main %}
 <div class="t2b-container-2 t2b-bg-light">
-  <div class="t2b-box1">
+  <div class="t2b-box1 t2b-bg-white">
     <h1 class="t2b-h1 t2b-centre">
       Record you Glucose Intake
     </h1>
     <hr>
     <div class="t2b-container-3">
       <div class="search-box">
-        <form class="" action="{% url 'glucose' %}" method="get">
+        <form action="{% url 'glucose' %}" method="get">
           <input type="text" name="q" value="{{request.GET.q}}"  placeholder="Search..." class="form-control">
           <button type="submit" name="button" class="t2b-btn-1"> Search</button>
           <br>
@@ -74,9 +74,10 @@
 <div class="t2b-container t2b-bg-white">
   <div class="t2b-box1">
     <h1 class="t2b-h1 t2b-centre">
-      Glucose intake this meal
+      Total Glucose Intake
     </h1>
     <hr>
+
   </div>
 </div>
 {% endblock secondary %}

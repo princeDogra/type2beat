@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'awareness.apps.AwarenessConfig',
     'dashboard.apps.DashboardConfig',
     'users.apps.UsersConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

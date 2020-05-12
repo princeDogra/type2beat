@@ -3,6 +3,7 @@
 {% csrf_token %}
 {% block title %}Dashboard | Type2Beat{% endblock title %}
 {% block main %}
+<h1>Welcome {{request.user.username}}</h1>
 {% endblock main %}
 
 {% block secondary %}{% endblock secondary %}

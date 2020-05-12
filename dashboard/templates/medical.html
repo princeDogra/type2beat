@@ -1,5 +1,140 @@
-{% extends "dash-base" %}
+{% extends "dash-base.html" %}
 {% load static %}
 {% block title %}Medical Records | Type2Beat{% endblock title %}
-{% block main %}{% endblock main %}
-{% block secondary %}{% endblock secondary %}
+{% block main %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+<div class="t2b-container-2 t2b-bg-light">
+  <div class="t2b-box1 t2b-bg-white">
+    <h1 class="t2b-h1 t2b-centre">
+      Record you Report Data
+    </h1>
+    <hr>
+    <div class="t2b-form">
+      <form action="{% url 'medical' %}" method="post">{% csrf_token %}
+        <table>
+          {{ medicalform.as_table }}
+          <tr>
+            <td></td>
+            <td><input type="submit" name="Submit" value="Record" class="t2b-btn-1"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <canvas id="myChart"></canvas>
+  </div>
+  <div class="t2b-box1 t2b-bg-white">
+    <h1 class="t2b-h1 t2b-centre">
+      Diagnostic Criteria
+    </h1>
+    <hr>
+    <table class="t2b-table table-borderless">
+      <tr>
+        <td collapse="2" class="lead">Diabetes</td>
+      </tr>
+      <tr>
+        <td>Fasting plasma glucose</td>
+        <td>&#x2265; 7.0 mmol/L (126 mg/dl)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><strong>or</strong></td>
+      </tr>
+      <tr>
+        <td>2-h plasma glucose*</td>
+        <td>&#x2265; 11.1 mmol/L (200 mg/dl)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><strong>or</strong></td>
+      </tr>
+      <tr>
+        <td>HbA1c</td>
+        <td>&#x2265; 6.5%</td>
+      </tr>
+      <tr>
+        <td collapse="2" class="lead">Impaired glucose tolerance (IGT)</td>
+      </tr>
+      <tr>
+        <td>Fasting plasma glucose</td>
+        <td>&#x227A; 7.0 mmol/L (126 mg/dl)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><strong>and</strong></td>
+      </tr>
+      <tr>
+        <td>2-h plasma glucose*</td>
+        <td>&#x2265; 7.8 and &#x227A; 11.1 mmol/L (140 mg/dl and 200 mg/dl)</td>
+      </tr>
+      <tr>
+        <td collapse="2" class="lead">Impaired fasting glucose (IFG)</td>
+      </tr>
+      <tr>
+        <td>Fasting plasma glucose</td>
+        <td>&#x227A; 6.1 to 6.9 mmol/L (110 mg/dl to 125 mg/dl)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><strong>and (if measured)</strong></td>
+      </tr>
+      <tr>
+        <td>2-h plasma glucose*</td>
+        <td>&#x2265; 7.8 mmol/L (140 mg/dl)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock main %}
+
+{% block secondary %}
+
+{% endblock secondary %}
+
+{% block script %}
+<script>
+const ENDPOINT = '/api/chart/data/medical';
+var defaultData = [];
+var labels = [];
+$.ajax ({
+  method: "GET",
+  url: ENDPOINT,
+  success: function(data) {
+    labels = data.labels
+    defaultData = data.datasets
+
+    setChart()
+  },
+  error: function(error_data) {
+    console.log("error")
+    console.log(error_data)
+  }
+})
+
+let setChart = ()=>{
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: labels,
+          datasets: defaultData
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+}
+</script>
+{% endblock script %}
