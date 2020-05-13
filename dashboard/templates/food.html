@@ -15,40 +15,12 @@
           <button type="button" name="button" class="t2b-btn-1" id="search-food-item"> Search</button>
         </form>
       </div>
-      <div class="food-item-box">
-        <div class="accordion" id="t2b_accordion">
-          {% if items %}
-          {% for item in items %}
-          <div class="card">
-            <div class="card-header" id="{{forloop.counter0}}">
-              <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter0}}" aria-expanded="true" aria-controls="collapse{{forloop.counter0}}">
-                  {{ item.product_name }}
-                </button>
-              </h2>
-            </div>
-            <div id="collapse{{forloop.counter0}}" class="collapse" aria-labelledby="index{{forloop.counter0}}" data-parent="#t2b_accordion">
-              <div class="t2b-card-body">
-                <div>
-                  <h6><mark>Sugar : <small class="text-muted">{{item.sugars_100g}} /100g</small></mark></h6>
-                  <h6>Carbohydrates : <small class="text-muted">{{item.carbohydrates_100g}} /100g</small></h6>
-                  <h6>Cholesterol : <small class="text-muted">{{item.cholesterol_100g}} /100g</small></h6>
-                  <h6>Fat : <small class="text-muted">{{item.fat_100g}} /100g</small></h6>
-                  <h6>Fiber : <small class="text-muted">{{item.fiber_100g}} /100g</small></h6>
-                  <h6>Proteins : <small class="text-muted">{{item.proteins_100g}} /100g</small></h6>
-                  <h6>Salt : <small class="text-muted">{{item.salt_100g}} /100g</small></h6>
-                  <h6>Sodium : <small class="text-muted">{{item.sodium_100g}} /100g</small></h6>
-                </div>
-                <div>
-                  <button type="button" name="button" class="btn btn-success t2b-select">Select</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-          {% else %}
-            <h1 class="lead text-center"> No results found </h1>
-          {% endif %}
+      <div class="food-item-box t2b-bg-white">
+        <ul id="food-item-holder"></ul>
+      </div>
+      <div class="food-item-box t2b-bg-white">
+        <div id="projector">
+
         </div>
       </div>
   </div>
@@ -59,22 +31,4 @@
 {% endblock secondary %}
 
 {% block script %}
-<script type="text/javascript">
-  document.querySelector('#search-food-item').addEventListener('click', (e)=> {
-    let searchItem  = document.querySelector('#searchItem').value;
-    const ENDPOINT = "/api/data/food/?search="+searchItem;
-    let foodData = [];
-    $.ajax({
-      method: "GET",
-      url: ENDPOINT,
-      success: function(data){
-        foodData = data
-        console.log(foodData)
-      },
-      error: function(error_data){
-        console.log(error_data)
-      }
-    })
-  })
-</script>
 {% endblock script %}
