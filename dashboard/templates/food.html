@@ -10,24 +10,9 @@
     <hr>
     <div class="t2b-container-3">
       <div class="search-box">
-        <form action="{% url 'glucose' %}" method="get">
-          <input type="text" name="q" value="{{request.GET.q}}"  placeholder="Search..." class="form-control">
-          <button type="submit" name="button" class="t2b-btn-1"> Search</button>
-          <br>
-          <br>
-          <h3><strong>Meal Type</strong></h3>
-          <div class="radio">
-            <input type="radio" name="meal" value="Breakfast"> Breakfast
-          </div>
-          <div class="radio">
-            <input type="radio" name="meal" value="lunch"> Lunch
-          </div>
-          <div class="radio">
-            <input type="radio" name="meal" value="Dinner"> Dinner
-          </div>
-          <div class="radio">
-            <input type="radio" name="meal" value="snack" checked> Snack
-          </div>
+        <form>
+          <input type="text" placeholder="Search..." class="form-control" id="searchItem">
+          <button type="button" name="button" class="t2b-btn-1" id="search-food-item"> Search</button>
         </form>
       </div>
       <div class="food-item-box">
@@ -71,16 +56,25 @@
 {% endblock main %}
 
 {% block secondary %}
-<div class="t2b-container t2b-bg-white">
-  <div class="t2b-box1">
-    <h1 class="t2b-h1 t2b-centre">
-      Total Glucose Intake
-    </h1>
-    <hr>
-
-  </div>
-</div>
 {% endblock secondary %}
 
 {% block script %}
+<script type="text/javascript">
+  document.querySelector('#search-food-item').addEventListener('click', (e)=> {
+    let searchItem  = document.querySelector('#searchItem').value;
+    const ENDPOINT = "/api/data/food/?search="+searchItem;
+    let foodData = [];
+    $.ajax({
+      method: "GET",
+      url: ENDPOINT,
+      success: function(data){
+        foodData = data
+        console.log(foodData)
+      },
+      error: function(error_data){
+        console.log(error_data)
+      }
+    })
+  })
+</script>
 {% endblock script %}

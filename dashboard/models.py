@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 class FoodItem(models.Model):
+    id = models.AutoField(primary_key=True)
     product_name = models.TextField(blank=False)
     ingredients_text = models.TextField(blank=True)
     allergens = models.TextField(blank=True)
