@@ -30,3 +30,14 @@ def diabetes(request):
 
 def impact(request):
     return render(request, 'negativeDiabetes.html')
+
+def heart(request):
+    return render(request, 'heart.html')
+
+def eyes(request):
+    return render(request,'eyes.html')
+
+def kidney(request):
+    return render(request,'kidney.html')
+
+
