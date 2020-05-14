@@ -136,6 +136,7 @@ body {
 .t2b-btn-1:hover {
   box-shadow: 1px 1px 4px var(--dark);
   transition: .3s ease-in-out;
+  background: var(--secondary);
 }
 
 .t2b-btn-2 {
@@ -199,6 +200,7 @@ body {
     font-weight: 400;
     font-size: medium;
 }
+<<<<<<< HEAD
 /* -------------------------------------------------------------------------- */
 /* story style */
 
@@ -443,3 +445,8 @@ img::-moz-selection {
 .space {
   padding: cal(2rem+2em);
 }
+=======
+
+
+
+>>>>>>> 1413ceba1bfaed61e5d00c22085a2c0505245b90

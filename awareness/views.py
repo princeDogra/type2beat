@@ -18,3 +18,15 @@ def prevention(request):
 
 def services(request):
     return render(request, 'services.html')
+
+def water(request):
+    return render(request, 'water.html')
+
+def fast(request):
+    return render(request, 'fast.html')
+
+def diabetes(request):
+    return render(request, 'diabetes.html')
+
+def impact(request):
+    return render(request, 'negativeDiabetes.html')

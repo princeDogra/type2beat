@@ -16,7 +16,7 @@
         </ol>
     
         <!-- Image Header -->
-        <img class="img-fluid rounded mb-4" src="{% static 'images/banner.jpg' %}" alt="">
+        <img class="img-fluid rounded mb-4" src="{% static 'images/preventglucosemeter.jpg' %}" alt="">
     </div>
 </header>
 {% endblock header %}
@@ -24,6 +24,8 @@
 {% block main %}
 <main>
     <div class="container">
+      <p class ="lead text-body">According to Diabetes Australia, the prevention program can help prevent type 2 diabetes( <a href="{% url 'diabetes' %}" class="carousel-hyperlink"> <strong>Learn More</strong></a> about different types of diabetes) in up to 58% of cases. There are many things you can do to reduce the risk, check our tips below.</p>
+      <br>
         <div class="row">
             <div class="col-lg-6 mb-4">
               <div class="card h-100">
@@ -32,13 +34,7 @@
                   </i> &nbsp &nbsp Eat Health Food</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/Eating.jpg' %}" alt="">
-                  <p class="card-text">Learning about food is one of the best ways to control type 2 diabetes, but eating a healthy diet can benefit all people with diabetes.</p>
-                </div>
-                <div class = "card-body">
-                  <p class ="card-text">Eating the right diet for your individual condition means learning about different foods, how they affect your body, food preparation, when and how much of it you should eat, and what it will do to your blood glucose levels.</p>
-                </div>
-                <div class="card-footer">
-                  <a class="btn btn-primary carousel-hyperlink text-white btn-sm" href="{% url 'healthy_diets' %}">Learn More</a>
+                  <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">LEARN MORE</a>
                 </div>
               </div>
             </div>
@@ -49,13 +45,7 @@
                   </i> &nbsp &nbsp Drink Enough Water</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/Drinking.jpg' %}" alt="">
-                  <p class="card-text">As water contains no carbohydrate or calories, it is the perfect drink for people with diabetes. Studies have also shown that drinking water could help control blood glucose levels.</p>
-                </div>
-                <div class = "card-body">
-                  <p class="card-text">In addition, the high blood sugar levels can cause dehydration for the diabetics. Thus, drinking enough water can help your body eliminate excess glucose through urine. </p>
-                </div>
-                <div class="card-footer">
-                  <a class="btn btn-primary carousel-hyperlink text-white btn-sm" href="#">Learn More</a>
+                  <a href="{% url 'water' %}" class="btn btn-primary t2b-btn-1 btn-md">LEARN MORE</a>
                 </div>
               </div>
             </div>
@@ -63,13 +53,10 @@
               <div class="card h-100">
                 <h4 class="card-header">
                   <i class="fad fa-dumbbell"></i>
-                  </i> &nbsp &nbsp Exerise Regularly</h4>
+                  </i> &nbsp &nbsp Exercise Regularly</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/Walking.jpg' %}" alt="">
-                  <p class="card-text">People with diabetes are recommended to exercise regularly for better blood sugar control and to reduce the risk of cardiovascular diseases. The reason for this is that muscles which are working use more glucose than those that are resting. Muscle movement leads to greater sugar uptake by muscle cells and lower blood sugar levels. In addition, exercise regularly can bring lots of benefit for diabetes include a healthier heart, better weight control and stress management. </p>
-                </div>
-                <div class="card-footer">
-                  <a class="btn btn-primary carousel-hyperlink text-white btn-sm" href="{% url 'exercises' %}">Learn More</a>
+                  <a href="{% url 'exercises' %}" class="btn btn-primary t2b-btn-1 btn-md">LEARN MORE</a>
                 </div>
               </div>
             </div>
@@ -81,13 +68,7 @@
                   </i> &nbsp &nbsp Avoid Fasting</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/AvoidTooFast.jpg' %}" alt="">
-                  <p class="card-text" >Fasting may not be part of your daily work, but this is something that many people do occasionally. For example, believers in Buddhism and Islam need to observe fasting. Or in some operations involving anesthesia, fasting is also necessary.</p>
-                </div>
-                <div class = "card-body">
-                  <p class="card-text">But if you have diabetes, fasting requires a special and professional plan. That's because you don't want to risk taking too much blood sugar, which will seriously affect your health. We will refer to the recommendations of professional health personnel to provide patients with fasting guidelines.</p>
-                </div>
-                <div class="card-footer">
-                  <a class="btn btn-primary carousel-hyperlink text-white btn-sm" href="#">Learn More</a>
+                  <a href="{% url 'fast' %}" class="btn btn-primary t2b-btn-1 btn-md">LEARN MORE</a>
                 </div>
               </div>
             </div>
