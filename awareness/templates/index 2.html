@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Type2Beat - 1  in every 6 Australian senior citizens age above 65 years suffers from diabetes and its rate increases with age. Its therefore crucial to monitor one’s glucose level between the age of 55-65 for taking preventive during prediabetic phase. Moreover, to prevent diabetes, healthy food consumption and regular exercise also needs to be incorporated into their daily lives.{% endblock title %} 
+
+{% block header %}
+
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('{% static 'images/carousel-5.jpg' %}')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Do you know Diabetes Type 2 can be prevented?</h2>
+            <p>If you are new to type2beat, then come <a href="{% url 'services' %}" class="carousel-hyperlink"> <strong>join us</strong></a> and Learn
+            how to prevent diabetes type 2.</p>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('{% static 'images/carousel-4.jpg' %}')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Diabetes: Prevention is better than Cure</h2>
+            <p>Type2Beat can help preventing you from diabetes. <a href="{% url 'prevention' %}" class="carousel-hyperlink"> <strong>Learn More</strong> </a></p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('{% static 'images/carousel-1.jpg' %}')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>What healthy eating options are there?</h2>
+            <p>We can help you to provide health eating options that can be cooked quickly and easily.
+            <a href="{% url 'healthy_diets' %}" class="carousel-hyperlink"> <strong>Explore More</strong></a></p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+{% endblock header %}
+
+{% block main %}
+<div class="container-fluid t2b-section-1">
+    <div class="container">
+        <div class="row">
+            <h1 class="my-4 t2b-h1">WELCOME TO Type2Beat</h1>
+            <p>Welcome to Type2Beat - an interactive platform for Australian Senior Citizen below the age of 65 
+                with little or no symptoms of diabetes. We understand, though you have no signs of diabetes
+                but as per the studies more than half of the people get affected by it after the age of 65. 
+                So, through this platform we would help you to monitor your daily glucose intake and manage your medical records
+                and help you & your doctor to view your progress. Additionally, we have various exercises
+                and healthy meal plans that would help you to replenish your strength and prevent diabetes.
+            </p>    
+            <a href="" class="btn btn-primary t2b-btn-2"> JOIN US TODAY</a>    
+    </div>
+    
+    </div>
+</div>
+<!-- Page Content -->
+<div class="container my-5">
+
+    <!-- Features Section -->
+    <div class="row">
+        <div class="col-lg-6">
+          <h2>WHY DO YOU NEED PREVENTION?</h2>
+          <p>1  in every 6 Australian senior citizens age above 65 years 
+            suffers from diabetes and its rate increases with age. Therefore
+             it's important to monitor one’s glucose level between the 
+            age of 55-65 for taking preventive measures during prediabetic phase.</p>
+          <a href="{% url 'prevention' %}" class="btn t2b-navi-1">EXPLORE TYPE 2 DIABETES PREVENTION</a>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-fluid rounded" src="{% static 'images/prevention-700x450.jpg' %}" alt="">
+        </div>
+    </div>
+
+    
+
+
+    <!-- /.row -->
+</div>
+
+<div class="container-fluid t2b-section-2">
+
+  <div class="row">
+    <div class="container">
+      <h1 class="my-4 t2b-h1">HOW WE CAN HELP YOU</h1>
+      <div class="row t2b-container">
+
+        <div class="col-lg-6 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-info-record.jpg' %}')">
+            <h2>Maintain Health Records</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              Where you can store your medical report as images, or simply record some key diabetes-related parameters.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+            <hr>
+          </div>
+        </div>
+
+        <div class="col-lg-6 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-glucose.jpg' %}')">
+            <h2>Record Sugar Intake</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              Record your daily sugar intake based on your diet.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-6 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-info.jpg' %}')"> 
+            <h2>Periodic Reminders</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              It will allow you to maintain your historical medical data.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
+        </div> -->
+        
+        <div class="col-lg-6 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-diet.jpg' %}')">
+            <h2>Meals</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              We will recommend suitable meals for you to prevent diabates.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 t2b-section-service-1 opp-1">
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-exercise.jpg' %}')">
+            <h2>Exercise</h2>
+            <hr class="hr-white">
+            <blockquote class="blockquote">
+              We will recommend suitable meals for you to prevent diabates.
+            </blockquote>
+            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
+          </div>
+        </div>
+
+        <hr class="hr-white">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}
