@@ -10,19 +10,46 @@
     <hr>
     <div class="t2b-container-3">
       <div class="search-box">
-        <form>
+        <form class="searchform">
           <input type="text" placeholder="Search..." class="form-control" id="searchItem">
-          <button type="button" name="button" class="t2b-btn-1" id="search-food-item"> Search</button>
+          <button type="button" name="button" id="search-food-item"><i class="fa fa-search"></i></button>
         </form>
-      </div>
-      <div class="food-item-box t2b-bg-white">
-        <ul id="food-item-holder"></ul>
-      </div>
-      <div class="food-item-box t2b-bg-white">
-        <div id="projector">
-
+        <div class="food-item-box t2b-bg-white">
+          <ul id="food-item-holder"></ul>
         </div>
       </div>
+      <div class="projection t2b-bg-white">
+        <div id="projector"></div>
+      </div>
+      <div class="projection t2b-bg-white">
+        <form class="t2b-form">
+          <h3 class="lead"><strong>Meal Type</strong></h3>
+          <div class="radio">
+            <input type="radio" name="meal" value="Breakfast"> Breakfast
+          </div>
+          <div class="radio">
+            <input type="radio" name="meal" value="lunch"> Lunch
+          </div>
+          <div class="radio">
+            <input type="radio" name="meal" value="Dinner"> Dinner
+          </div>
+          <div class="radio">
+            <input type="radio" name="meal" value="snack" checked> Snack
+          </div>
+          <button type="submit" name="button" class="t2b-btn-1">Select</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="t2b-box1 t2b-bg-white">
+    <div class="t2b-box1 t2b-bg-white">
+      <h1 class="t2b-h1 t2b-centre">
+        Nutrition Intake
+      </h1>
+      <hr>
+      <table class="table" id="cart">
+      </table>
+    </div>
   </div>
 </div>
 {% endblock main %}

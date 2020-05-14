@@ -187,7 +187,7 @@ body {
   background: var(--light);
   position: relative;
   display: grid;
-  grid-template-columns: 25% 30% auto;
+  grid-template-columns: 35% 35% auto;
   padding: 1%;
   grid-gap: 1%;
   border-radius: 1%;
@@ -224,17 +224,47 @@ body {
   border: 2px solid var(--primary);
 }
 
-.search-box .button{
-  margin: auto;
-  align-content: center;
-}
-
 .food-item-box {
   width: 100%;
   height: 300px;
   overflow-y: scroll;
-  border-radius: 1%;
-  margin-left: 5px;
+}
+
+.projection {
+  width: 100%;
+  height: 340px;
+  overflow-y: scroll;
+}
+
+.searchform input[type=text]{
+  padding: 5px;
+  float: left;
+  width: 80%;
+  border-radius: none;
+}
+
+.searchform button{
+  float: left;
+  width: 20%;
+  margin-left: 0;
+  border-left: none;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 2px solid var(--secondary);
+  padding: 10px;
+  transition: 0.2 ease-out;
+}
+
+.searchform button:hover {
+  transition: 0.2s ease-in;
+  -webkit-box-shadow: 0px 4px 10px -6px var(--dark);
+  -moz-box-shadow: 0px 4px 10px -6px var(--dark);
+  box-shadow: 0px 4px 10px -6px var(--dark);
+  border: 2px solid var(--primary);
+}
+
+.searchform button:active{
+  border: 2px solid var(--primary);
 }
 
 .food-item-box li {

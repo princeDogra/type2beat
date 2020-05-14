@@ -29,3 +29,12 @@ class MedicalRecord(models.Model):
 
     def __str__(self):
         return (self.user.username + ' - ' + str(self.timestamp))
+
+class NutritionIntake(models.Model):
+    food = models.ForeignKey(FoodItem, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    meal_type = models.CharField(blank=False, max_length=10)
+    timestamp = models.DateTimeField(blank=False)
+
+    def __str__(self):
+        return ('{username} - {food} - {date}').format(username=self.user.username, food=food.product_name, date=timestamp)
