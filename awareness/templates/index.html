@@ -49,77 +49,94 @@
 
 {% block main %}
 <div class="container-fluid t2b-section-1">
-    <div class="container">
-        <div class="row">
-            <h1 class="my-4 t2b-h1">WELCOME TO Type2Beat</h1>
-            <p>Welcome to Type2Beat - an interactive platform for Australian Senior Citizen below the age of 65
-                with little or no symptoms of diabetes. We understand, though you have no signs of diabetes
-                but as per the studies more than half of the people get affected by it after the age of 65.
-                So, through this platform we would help you to monitor your daily glucose intake and manage your medical records
-                and help you & your doctor to view your progress. Additionally, we have various exercises
-                and healthy meal plans that would help you to replenish your strength and prevent diabetes.
-            </p>
-            <a href="" class="btn btn-primary t2b-btn-2"> JOIN US TODAY</a>
-    </div>
-
+    <div class="container p-5">
+      <h1 class="my-4 t2b-h1">"Start your Healthy Life Journey"</h1>
+      <h4>Track your health everyday</h4>
+      <h6>and</h6>
+      <h4>prevent Diabetes</h4>
     </div>
 </div>
 <!-- Page Content -->
 <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Do you Know?</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+      <ul class="timeline">
+          <li>
+              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/1.jpg' %}" alt="" /></div>
+              <div class="timeline-panel">
+                  <div class="timeline-heading">
+                      <h4>we are in an age</h4>
+                      <h4 class="subheading">where diabetes is a threat and</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">1 in every 6 Australian senior citizens
+                      aged over 65 reported having diabetes, over 1 million hospitalizations
+                      were associated with diabetes in 2016-2017, it is associated with a
+                      myriad of complications which affect the feet, eyes, kidney, and cardiovascular
+                      health.
+                    </p>
+                    <a class="know-more" href="#">know more</a>
+                  </div>
+              </div>
+          </li>
+          <li class="timeline-inverted">
+              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/2.jpg' %}" alt="" /></div>
+              <div class="timeline-panel">
+                  <div class="timeline-heading">
+                      <h4> what causes it?</h4>
+                      <h4 class="subheading">As per the experts</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">bad eating habits, Overweight or family
+                      history are the main causes of it.
+                    </p>
+                    <a class="know-more" href="#">know more</a>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/3.jpg' %}" alt="" /></div>
+              <div class="timeline-panel">
+                  <div class="timeline-heading">
+                      <h4>It can be preveted</h4>
+                      <h4 class="subheading">by following few things like</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Cutting excessive sugar and salt intake,
+                      keeping track of your health conditions and regular exercise.
+                    </p>
+                    <a class="know-more" href="#">know more</a>
+                  </div>
+              </div>
+          </li>
+          <li class="timeline-inverted">
+              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/4.jpg' %}" alt="" /></div>
+              <div class="timeline-panel">
+                  <div class="timeline-heading">
+                      <h4>We care for you</h4>
+                      <h4 class="subheading">and can help you in</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">recording your sugar, fat, and carbs intake
+                      based on your diet, and glucose level and other key parameters
+                      from your medical report, ensuring that you are able to keep
+                      track of your diet and health.
+                  </p>
+                  <a class="know-more" href="#">know more</a>
                 </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/about/1.jpg' %}" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2012</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2014</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>Be Part<br />Of Our<br />Story!</h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
+              </div>
+          </li>
+          <li class="timeline-inverted">
+              <a class="timeline-image come-join-us" href="#">
+                  <h4>Come Join<br />Us<br />Today</h4>
+              </a>
+          </li>
+      </ul>
+  </div>
+</section>
 
 
 <div class="container my-5">
