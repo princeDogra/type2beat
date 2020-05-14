@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Type2Beat - 1  in every 6 Australian senior citizens age above 65 years suffers from diabetes and its rate increases with age. Its therefore crucial to monitor one’s glucose level between the age of 55-65 for taking preventive during prediabetic phase. Moreover, to prevent diabetes, healthy food consumption and regular exercise also needs to be incorporated into their daily lives.{% endblock title %} 
+{% block title %} Type2Beat - 1  in every 6 Australian senior citizens age above 65 years suffers from diabetes and its rate increases with age. Its therefore crucial to monitor one’s glucose level between the age of 55-65 for taking preventive during prediabetic phase. Moreover, to prevent diabetes, healthy food consumption and regular exercise also needs to be incorporated into their daily lives.{% endblock title %}
 
 {% block header %}
 <header>
@@ -52,28 +52,85 @@
     <div class="container">
         <div class="row">
             <h1 class="my-4 t2b-h1">WELCOME TO Type2Beat</h1>
-            <p>Welcome to Type2Beat - an interactive platform for Australian Senior Citizen below the age of 65 
+            <p>Welcome to Type2Beat - an interactive platform for Australian Senior Citizen below the age of 65
                 with little or no symptoms of diabetes. We understand, though you have no signs of diabetes
-                but as per the studies more than half of the people get affected by it after the age of 65. 
+                but as per the studies more than half of the people get affected by it after the age of 65.
                 So, through this platform we would help you to monitor your daily glucose intake and manage your medical records
                 and help you & your doctor to view your progress. Additionally, we have various exercises
                 and healthy meal plans that would help you to replenish your strength and prevent diabetes.
-            </p>    
-            <a href="" class="btn btn-primary t2b-btn-2"> JOIN US TODAY</a>    
+            </p>
+            <a href="" class="btn btn-primary t2b-btn-2"> JOIN US TODAY</a>
     </div>
-    
+
     </div>
 </div>
 <!-- Page Content -->
+<section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/about/1.jpg' %}" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2009-2011</h4>
+                                <h4 class="subheading">Our Humble Beginnings</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>March 2011</h4>
+                                <h4 class="subheading">An Agency is Born</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>December 2012</h4>
+                                <h4 class="subheading">Transition to Full Service</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>July 2014</h4>
+                                <h4 class="subheading">Phase Two Expansion</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>Be Part<br />Of Our<br />Story!</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
 <div class="container my-5">
 
     <!-- Features Section -->
     <div class="row">
         <div class="col-lg-6">
           <h2>TYPE 2 DIABETES AND PREVENTION</h2>
-          <p>1  in every 6 Australian senior citizens age above 65 years 
+          <p>1  in every 6 Australian senior citizens age above 65 years
             suffers from diabetes and its rate increases with age. Therefore
-             it's important to monitor one’s glucose level between the 
+             it's important to monitor one’s glucose level between the
             age of 55-65 for taking preventive measures during prediabetic phase.</p>
           <strong>To prevent Type 2 Diabetes one should:</strong>
           <ul>
@@ -119,7 +176,7 @@
           </div>
         </div>
         <div class="col-lg-3 t2b-section-service-1 opp-1">
-          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-reminder.jpg' %}')"> 
+          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-reminder.jpg' %}')">
             <h2>Periodic reminders</h2>
             <hr class="hr-white">
             <blockquote class="blockquote">
@@ -128,7 +185,7 @@
             <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
           </div>
         </div>
-        
+
         <div class="col-lg-3 t2b-section-service-1 opp-1">
           <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/pro-info-food.jpg' %}')">
             <h2>Meals and Exercises</h2>
