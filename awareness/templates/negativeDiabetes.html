@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Type2Beat | healthy diets {% endblock title %} 
+{% block header %}
+<header>
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-5 mb-3 t2b-h1">Negative Aspects of Diabetes for Our Body</h1>
+    
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}" class="t2b-breadcrumb-a">Home</a>
+            </li>
+            <!-- <li class="breadcrumb-item">
+              <a href="{% url 'prevention' %}" class="t2b-breadcrumb-a">Prevention</a>
+            </li> -->
+            <li class="breadcrumb-item active">Negative Affect of Diabetes</li>
+        </ol>
+    
+        <!-- Image Header -->
+        <img class="img-fluid rounded mb-4" src="{% static 'images/negative.jpg' %}" alt="">
+    </div>
+    
+    <div class = "container">
+      <p class ="lead">Diabetes can cause long term damage to our body, the long term damage is commonly referred to as diabetic complication. Diabetes affects our blood vessels and nerves and therefore can affect any part of the body. However, certain parts of our body are affected more than other parts.  </p>
+      <!-- <h4 class ="mt-5 mb-3 t2b-h1"><strong>WHICH DIET IS RIGHT FOR ME?</strong></h4> -->
+      <!-- <h4><strong>Which parts of body?</strong></h4> -->
+
+    </div>
+</header>
+{% endblock header %}
+
+{% block main %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header"> 
+                  <i class="fad fa-heartbeat"></i>
+                  </i> &nbsp &nbsp Diabetes and Heart</h4>
+                <div class="card-body">
+                  <img class="img-fluid rounded mb-4" src="{% static 'images/effectHeart.jpg' %}" alt="">
+                  <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">Learn More</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header"> 
+                    <i class="fad fa-eye"></i>
+                    </i> &nbsp &nbsp Diabetes and Eyes</h4>
+                <div class="card-body">
+                  <img class="img-fluid rounded mb-4" src="{% static 'images/effectEyes.jpg' %}" alt="">
+                  <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">Learn More</a>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <h4 class="card-header"> 
+                    <i class="fad fa-kidneys"></i>
+                    </i> &nbsp &nbsp Effect of Diabetes on the Kidneys</h4>
+                  <div class="card-body">
+                    <img class="img-fluid rounded mb-4" src="{% static 'images/effectkidney.jpg' %}" alt="">
+                    <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">Learn More</a>
+                  </div>
+                </div>
+            </div>
+            
+
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <h4 class="card-header"> 
+                        <i class="fad fa-spider-web"></i>
+                        </i> &nbsp &nbsp Effect of Diabetes on the Nerves</h4>
+                    <div class="card-body">
+                        <img class="img-fluid rounded mb-4" src="{% static 'images/EffectNerves.jpg' %}" alt="">
+                        <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header"> 
+                    <i class="fad fa-stomach"></i>
+                    </i> &nbsp &nbsp Effect of Diabetes on Digestion</h4>
+                <div class="card-body">
+                  <img class="img-fluid rounded mb-4" src="{% static 'images/effectdigestion.jpg' %}" alt="">
+                  <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                  <h4 class="card-header"> 
+                    <i class="fad fa-notes-medical"></i>
+                    </i> &nbsp &nbsp Effect of Diabetes on the Skin</h4>
+                  <div class="card-body">
+                    <img class="img-fluid rounded mb-4" src="{% static 'images/effectskin.jpg' %}" alt="">
+                    <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-1 btn-md">Learn More</a>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+          <!-- /.row -->
+    </div>
+    <div class="container-fluid t2b-section-2">
+
+      <div class="row">
+        <div class="container">
+          <!-- <h4 class="my-4 t2b-h1">HOW WE CAN HELP YOU</h4> -->
+          <h4><strong>Read This Next</strong></h4>
+          <div class="row t2b-container">
+    
+            <div class="col-lg-4 t2b-section-service-1 opp-1">
+              <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/runforlink.jpg' %}')">
+                <h2>Exercise Regularly</h2>
+                <hr class="hr-white">
+                <br>
+                <br>
+                <br>
+                <a href="{% url 'exercises' %}" class="btn btn-primary t2b-btn-1">EXPLORE MORE</a>
+              </div>
+            </div>
+    
+            <div class="col-lg-4 t2b-section-service-1 opp-1">
+              <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/Avoidforlink.jpg' %}')"> 
+                <h2>Avoid Fasting</h2>
+                <hr class="hr-white">
+                <br>
+                <br>
+                <br>
+                <a href="{% url 'fast' %}" class="btn btn-primary t2b-btn-1">EXPLORE MORE</a>
+              </div>
+            </div>
+    
+            <div class="col-lg-4 t2b-section-service-1 opp-1">
+              <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/waterforlink.jpg' %}')"> 
+                <h2>Water and Diabetes</h2>
+                <hr class="hr-white">
+                <br>
+                <br>
+                <br>
+                <a href="{% url 'water' %}" class="btn btn-primary btn btn-primary t2b-btn-1">EXPLORE MORE</a>
+              </div>
+            </div>
+
+            <hr class="hr-white">
+          </div>
+        </div>
+      </div>
+    </div> 
+</main>
+{% endblock main %}
+
+
+
