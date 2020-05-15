@@ -31,6 +31,7 @@ document.querySelector('#search-food-item').addEventListener('click', (e)=> {
   else {
     searchItem.style.border = "3px solid #69BDBB";
     const ENDPOINT = "/api/data/food/?search="+searchItem.value;
+    // make an ajax call to the rest-api
     $.ajax({
       method: "GET",
       url: ENDPOINT,
@@ -67,7 +68,6 @@ let displayData = () => {
     childNode.id = counter;
     childNode.addEventListener('click', (e)=>{
       item = element;
-      console.log(item);
       projector.innerHTML = element.product_name;
       projector.append(createDiv(element));
     });
@@ -77,6 +77,7 @@ let displayData = () => {
   });
 };
 
+// creting projection div to display the content of the selected item
 let createDiv = (item)=>{
   const KEYS = Object.keys(item);
   const VALUES = Object.values(item);
@@ -98,7 +99,46 @@ let createDiv = (item)=>{
   }
   return table;
 };
+
+// cart contains the objects of selected food
 let cart = []
-document.querySelector(".projection .t2b-form button").addEventListener('click', ()=>{
-  cart.append(item);
+
+// adding item to cart and displaying on cartview
+document.querySelector(".projection form button").addEventListener('click', ()=>{
+  cart.push(item);
+  if (cart.length > 0) {
+    document.querySelector('#record-nutrition').disabled = false;
+  }
+  document.querySelector('#cart-view ul').innerHTML = "";
+  cart.forEach(updateCart);
 })
+
+
+let updateCart = (element, index, array)=>{
+  listItem = document.createElement('li');
+  delButton = document.createElement('button');
+  delButton.innerHTML = "Delete";
+  delButton.classList.add('t2b-btn-delete');
+  listItem.appendChild(document.createTextNode(element.product_name));
+  listItem.appendChild(delButton);
+  document.querySelector('#cart-view ul').appendChild(listItem);
+  delButton.addEventListener('click', (e)=> {
+    // find the index of the current node in the parent list
+    indexOfItemToDelete = Array.from(e.currentTarget.parentNode.parentNode.children).indexOf(e.currentTarget.parentNode);
+    e.currentTarget.parentNode.remove();
+    cart.splice(indexOfItemToDelete, 1);
+    if(cart.length == 0){
+      document.querySelector('#record-nutrition').disabled = true;
+    }
+  });
+}
+
+// record button functionality onclick
+document.querySelector('#record-nutrition').addEventListener('click', (e)=> {
+  if (e.currentTarget.disabled == true){
+    console.log('i cannot do anything');
+  }
+  else {
+    e.currentTarget.submit();
+  }
+});
