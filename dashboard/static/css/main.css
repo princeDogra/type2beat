@@ -351,14 +351,14 @@ body {
   position: relative;
 }
 
-.t2b-box3>form>button {
+.t2b-box3>button {
   position: absolute;
   width: 100%;
   right: 0;
   bottom: 0;
 }
 
-.t2b-box3>form>button:disabled {
+.t2b-box3>button:disabled {
   box-shadow: none;
   background-color: var(--primary);
   border: 2px solid var(--secondary);

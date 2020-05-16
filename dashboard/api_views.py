@@ -1,5 +1,5 @@
-from rest_framework.generics import ListAPIView
-from dashboard.serializers import FoodItemSerializer
+from rest_framework.generics import ListAPIView, CreateAPIView
+from dashboard.serializers import FoodItemSerializer, NutritionIntakeSerializer
 from dashboard.models import FoodItem, MedicalRecord
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
 
 class FoodItemList(ListAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -54,3 +55,13 @@ class MedicalChartData(APIView):
             "datasets": default_items,
         }
         return Response(data)
+
+
+class CreateNutritionIntake(CreateAPIView):
+    serializer_class = NutritionIntakeSerializer
+    pass
+    # def create(self, request, *args, **kwargs):
+    #     try:
+    #         food_id = request.data.get('food')
+    #         food_item = FoodItem.objects.get(pk=food_id)
+    #         user =

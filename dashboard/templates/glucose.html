@@ -2,10 +2,18 @@
 {% load static %}
 {% block title %}Glucose Tracker | Type2Beat{% endblock title %}
 {% block main %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
 <div class="t2b-container-2 t2b-bg-light">
   <div class="t2b-box1 t2b-bg-white">
     <h1 class="t2b-h1 t2b-centre">
-      Record you Glucose Intake
+      Record you Sugar Intake
     </h1>
     <hr>
     <div class="t2b-container-3">
@@ -23,16 +31,16 @@
       </div>
       <div class="projection t2b-bg-white p-3">
         <h3 class="lead"><strong>Meal Type</strong></h3>
-        <form>
-          <input type="radio" name="meal" value="Breakfast"> Breakfast<br>
-          <input type="radio" name="meal" value="lunch"> Lunch<br>
-          <input type="radio" name="meal" value="Dinner"> Dinner<br>
-          <input type="radio" name="meal" value="snack" checked> Snack<br>
-
+        <form action="{% url 'glucose' %}" method="POST" id="nutritionIntakeForm">
+          {% csrf_token %}
+          <input type="radio" name="mealType" value="Breakfast"> Breakfast<br>
+          <input type="radio" name="mealType" value="lunch"> Lunch<br>
+          <input type="radio" name="mealType" value="Dinner"> Dinner<br>
+          <input type="radio" name="mealType" value="snack" checked> Snack<br>
           <h3 class="lead mt-3"><strong>Meal Date</strong></h3>
-          <input type="date" name="" value="">
-          <button type="button" name="button" class="t2b-btn-1 mt-3">Select</button>
+          <input type="date" name="mealDate" value="" required>
         </form>
+        <button type="button" name="button" class="t2b-btn-1 mt-3">Select</button>
       </div>
     </div>
   </div>
@@ -46,9 +54,7 @@
         <ul></ul>
       </div>
       <p class="blockquote-footer  mt-2">Total (carbs - 1800g | sugar - 100g)</p>
-      <form action="{% url 'glucose' %}" method="post">
-        <button type="button" class="t2b-btn-1" name="button" id="record-nutrition" disabled>Record</button>
-      </form>
+      <button type="button" class="t2b-btn-1" name="button" id="record-nutrition" disabled>Record</button>
     </div>
   </div>
 </div>
