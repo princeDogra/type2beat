@@ -3,7 +3,87 @@
 {% csrf_token %}
 {% block title %}Dashboard | Type2Beat{% endblock title %}
 {% block main %}
-<h1>Welcome {{request.user.username}}</h1>
+<div class="container">
+  <div class="row p-5">
+    <div class="col-md-6">
+      <h1 class="lead">Welcome {{ user.get_full_name }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold t2b-text-secondary text-uppercase mb-1">
+                HbA1c (16-05-2020)
+              </div>
+              <div class="h5 mb-0 font-weight-boldtext-gray-800">
+                6.5%
+              </div>
+            </div>
+            <div class="col-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold t2b-text-secondary text-uppercase mb-1">
+                Fasting Plasma Glucose (16-05-2020)
+              </div>
+              <div class="h5 mb-0 font-weight-boldtext-gray-800">
+                6.5%
+              </div>
+            </div>
+            <div class="col-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold t2b-text-secondary text-uppercase mb-1">
+                2-h Plasma Glucose (16-05-2020)
+              </div>
+              <div class="h5 mb-0 font-weight-boldtext-gray-800">
+                6.5%
+              </div>
+            </div>
+            <div class="col-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold t2b-text-secondary text-uppercase mb-1">
+                Medical Test Pending
+              </div>
+              <div class="h5 mb-0 font-weight-boldtext-gray-800">
+                15-06-2020
+              </div>
+            </div>
+            <div class="col-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock main %}
 
 {% block secondary %}{% endblock secondary %}
