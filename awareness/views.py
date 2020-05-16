@@ -40,4 +40,12 @@ def eyes(request):
 def kidney(request):
     return render(request,'kidney.html')
 
+def nerves(request):
+    return render(request, 'nerves.html')
 
+
+def digestion(request):
+    return render(request, 'digestion.html')
+
+def skin(request):
+    return render(request, 'skin.html')
