@@ -41,6 +41,12 @@ body {
   font-size: cal(0.9em + 0.9vw);
 }
 
+.t2b-h2{
+  font-family: var(--font-family-serif);
+  color: var(--dark);
+  font-size: cal(0.7em + 0.7vw);
+}
+
 .t2b-navbar-item a{
     color: var(--light);
     transition: 0.2s ease-out;
@@ -211,17 +217,49 @@ body {
   transition: 0.2s ease-out;
   text-decoration: none;
   border: 1px solid var(--secondary);
-  border-radius: 10%;
+  border-radius: 5px;
   transition: 0.2 ease-out;
   margin: 5px auto;
+  -webkit-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
 }
 
 .t2b-btn-1:hover {
-  transition: 0.2s ease-in;
-  -webkit-box-shadow: 0px 4px 10px -6px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 4px 10px -6px rgba(0,0,0,0.75);
-  box-shadow: 0px 4px 10px -6px rgba(0,0,0,0.75);
-  border: 2px solid var(--primary);
+  box-shadow: 1px 1px 4px var(--dark);
+  transition: .3s ease-in-out;
+}
+
+.t2b-btn-delete {
+  padding: 4px 10px;
+  border: 2px solid #e00404;
+  border-radius: 5px;
+  color: #e00404;
+  background-color: var(--white);
+}
+
+.t2b-btn-delete:hover {
+  background: #d40d0d;
+  border-color: #e00404;
+  color: var(--white);
+}
+
+#cart-view {
+  height: 280px;
+  overflow: auto;
+}
+
+#cart-view ul{
+  display: inline-grid;
+  width: 100%;
+}
+
+#cart-view ul li {
+  margin-top: 10px;
+}
+
+#cart-view ul button {
+  float: right;
 }
 
 .food-item-box {
@@ -303,6 +341,27 @@ body {
   width: 100%;
   padding: 2%;
   height: 30vw;
+}
+
+.t2b-box3 {
+  width: 100%;
+  padding: 2%;
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.t2b-box3>form>button {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+.t2b-box3>form>button:disabled {
+  box-shadow: none;
+  background-color: var(--primary);
+  border: 2px solid var(--secondary);
 }
 
 #sidebar-wrapper {

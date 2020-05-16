@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Type2Beat - 1  in every 6 Australian senior citizens age above 65 years suffers from diabetes and its rate increases with age. Its therefore crucial to monitor one’s glucose level between the age of 55-65 for taking preventive during prediabetic phase. Moreover, to prevent diabetes, healthy food consumption and regular exercise also needs to be incorporated into their daily lives.{% endblock title %} 
+{% block title %} Type2Beat - 1  in every 6 Australian senior citizens age above 65 years suffers from diabetes and its rate increases with age. Its therefore crucial to monitor one’s glucose level between the age of 55-65 for taking preventive during prediabetic phase. Moreover, to prevent diabetes, healthy food consumption and regular exercise also needs to be incorporated into their daily lives.{% endblock title %}
 
 {% block header %}
 
@@ -132,39 +132,38 @@
           </li>
           <li class="timeline-inverted">
               <a class="timeline-image come-join-us" href="#">
-                  <h4>Come Join<br />Us<br />Today</h4>
+                  <h4>Record Your<br />Healh<br />With Us</h4>
               </a>
           </li>
       </ul>
   </div>
 </section>
 
+<<<<<<< HEAD
+<div class="container-fluid t2b-bg-gradient-1 p-3">
+  <div class="container mt-5 mb-5 p-2">
+=======
 
 <div class="container my-5">
 
     <!-- Features Section -->
+>>>>>>> 15290bc1632ccba52db47e6fb520038e987b1127
     <div class="row">
-        <div class="col-lg-6">
-          <h2>WHY DO YOU NEED PREVENTION?</h2>
-          <p>1  in every 6 Australian senior citizens age above 65 years 
-            suffers from diabetes and its rate increases with age. Therefore
-             it's important to monitor one’s glucose level between the 
-            age of 55-65 for taking preventive measures during prediabetic phase.</p>
-          <a href="{% url 'prevention' %}" class="btn t2b-navi-1">EXPLORE TYPE 2 DIABETES PREVENTION</a>
-        </div>
-        <div class="col-lg-6">
-          <img class="img-fluid rounded" src="{% static 'images/prevention-700x450.jpg' %}" alt="">
-        </div>
+      <div class="col-lg-6">
+        <h1 class="t2b-h1">Here's what you can do</h1>
+        <br>
+        <h6><i class="fa fa-info-circle" aria-hidden="true"></i> Record your medical reports</h6>
+        <h6><i class="fa fa-info-circle" aria-hidden="true"></i> Track your blood glucose</h6>
+        <h6><i class="fa fa-info-circle" aria-hidden="true"></i> Monitor your daily sugar and carbs intake</h6>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'images/dashboard.jpg' %}" alt="" class="img-fluid">
+      </div>
     </div>
-
-    
-
-
-    <!-- /.row -->
+  </div>
 </div>
 
 <div class="container-fluid t2b-section-2">
-
   <div class="row">
     <div class="container">
       <h1 class="my-4 t2b-h1">HOW WE CAN HELP YOU</h1>
@@ -193,17 +192,6 @@
           </div>
         </div>
 
-        <!-- <div class="col-lg-6 t2b-section-service-1 opp-1">
-          <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-info.jpg' %}')"> 
-            <h2>Periodic Reminders</h2>
-            <hr class="hr-white">
-            <blockquote class="blockquote">
-              It will allow you to maintain your historical medical data.
-            </blockquote>
-            <a href="{% url 'services' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
-          </div>
-        </div> -->
-        
         <div class="col-lg-6 t2b-section-service-1 opp-1">
           <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/service-diet.jpg' %}')">
             <h2>Meals</h2>

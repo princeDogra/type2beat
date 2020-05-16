@@ -339,7 +339,7 @@ img::-moz-selection {
   color: white;
   border: 7px solid var(--light);
   border-radius: 100%;
-  background-color: var(--primary);
+  background-image: linear-gradient(-45deg, var(--secondary), var(--primary), var(--secondary));
 }
 .timeline > li .timeline-image h4 {
   font-size: 10px;
@@ -455,15 +455,16 @@ img::-moz-selection {
 }
 
 .come-join-us{
-  -webkit-box-shadow: 0px 10px 20px -6px var(--primary);
-  -moz-box-shadow: 0px 10px 20px -6px var(--primary);
-  box-shadow: 0px 10px 20px -6px var(--primary);
+  background: var(--dark);
+  -webkit-box-shadow: 0px 10px 20px -6px var(--dark);
+  -moz-box-shadow: 0px 10px 20px -6px var(--dark);
+  box-shadow: 0px 10px 20px -6px var(--dark);
   transition: 0.2s ease-in;
 }
 
 .come-join-us:hover {
   text-decoration: none;
-  box-shadow: 0px 4px 4px -6px var(--gray);
+  box-shadow: 0px 4px 4px -6px var(--dark);
   transition: .2s ease-out;
 }
 
@@ -480,3 +481,14 @@ img::-moz-selection {
 .space {
   padding: cal(2rem+2em);
 }
+<<<<<<< HEAD
+=======
+
+.t2b-bg-gradient-1  {
+  background-image: linear-gradient(180deg, var(--white), var(--light));
+}
+
+.t2b-h1 {
+  font-family: var(--font-family-serif);
+}
+>>>>>>> master
