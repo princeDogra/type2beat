@@ -104,7 +104,7 @@ let createDiv = (item)=>{
 let cart = []
 
 // adding item to cart and displaying on cartview
-document.querySelector(".projection form button").addEventListener('click', ()=>{
+document.querySelector(".projection button").addEventListener('click', ()=>{
   cart.push(item);
   if (cart.length > 0) {
     document.querySelector('#record-nutrition').disabled = false;
@@ -134,11 +134,20 @@ let updateCart = (element, index, array)=>{
 }
 
 // record button functionality onclick
-document.querySelector('#record-nutrition').addEventListener('click', (e)=> {
-  if (e.currentTarget.disabled == true){
-    console.log('i cannot do anything');
+document.querySelector('#record-nutrition').addEventListener('click',()=>{
+  inputField = document.createElement('input');
+  inputField.setAttribute("name", "foodItems")
+  inputField.setAttribute("type","text");
+  inputField.hidden = true;
+  let val = "";
+  for (let counter=0; counter<cart.length; counter++){
+    val = val + cart[counter].id + " ";
   }
-  else {
-    e.currentTarget.submit();
-  }
-});
+  val = val.substring(0, val.length-1);
+  inputField.setAttribute('value', val);
+  form = document.querySelector('#nutritionIntakeForm');
+  form.appendChild(inputField);
+  // mealType = document.querySelector('#nutritionIntakeForm input[name="meal"].checked').value;
+  // console.log('i am here')
+  document.querySelector('#nutritionIntakeForm').submit();
+})
