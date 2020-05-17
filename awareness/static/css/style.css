@@ -210,15 +210,59 @@ body {
 }
 
 .t2b-footer .t2b-footer-content{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 350px;
   display: flex;
 }
 
 .t2b-footer .t2b-footer-content .t2b-footer-section{
   flex: 1;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   padding: 25px;
+}
+
+.t2b-footer .t2b-footer-content h1,
+.t2b-footer .t2b-footer-content h2 {
+  color: white;
+}
+
+.t2b-footer .t2b-footer-content .about h1 span {
+  color: #05f7ff;
+}
+
+.t2b-footer .t2b-footer-content .about p{
+  color: white;
+  display: block;
+  font-size: 1.05em;
+  margin-bottom: 5px;
+
+}
+
+.t2b-footer .t2b-footer-content .about .contact span {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 2px;
+}
+
+.t2b-footer .t2b-footer-content .links ul a{
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1em;
+  color: white;
+  transition: all .3s;
+}
+
+.t2b-footer .t2b-footer-content .links ul a:hover {
+  color: white;
+  margin-left: 15px;
+  transition: all .3s;
+}
+
+.t2b-footer .t2b-footer-content .contact-form p{
+  color: white;
+  display: block;
+  font-size: 1.05em;
+  margin-bottom: 5px;
 }
 
 .t2b-footer .t2b-footer-bottom{

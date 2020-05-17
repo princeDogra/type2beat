@@ -79,7 +79,7 @@
 	<div class="container">
 		<script src="https://kit.fontawesome.com/c90a5212ef.js" crossorigin="anonymous"></script>
 		<div class="t2b-footer-content">
-
+		
 			<div class="t2b-footer-section about">
 				<h1 class="logo-text">
 					<img src="{% static 'images/logo.png' %}">
@@ -87,6 +87,7 @@
 				<p>
 					Content on Type2Beat does not replace the relationship between you and doctors or other healthcare professionals nor the advice you receive from them.
 				</p>
+				<br>
 				<div class ="contact">
 					<span><i class="fad fa-envelope"></i> &nbsp type2beat.au@gmail.com</span>
 				</div>
@@ -96,12 +97,11 @@
 				<h2>Quick Links</h2>
 				<br>
 				<ul>
-					<a href="#"><li>Diabetes</li></a>
-					<a href="#"><li>Negative Impacts of Diabetes</li></a>
-					<a href="#"><li>Prevention</li></a>
-					<a href="#"><li>Diets</li></a>
-					<a href="#"><li>Exercise</li></a>
-					<a href="#"><li>Events</li></a>
+					<a href="{% url 'diabetes' %}" ><li>Diabetes</li></a>
+					<a href="{% url 'impact' %}" ><li>Negative Impacts of Diabetes</li></a>
+					<a href="{% url 'prevention' %}" ><li>Prevention</li></a>
+					<a href="{% url 'healthy_diets' %}" ><li>Diets</li></a>
+					<a href="{% url 'exercises' %}" ><li>Exercise</li></a>
 					<a href="#"><li>Terms and Conditions</li></a>
 					<a href="#"><li>Privacy Policy</li></a>
 				</ul>
@@ -112,9 +112,9 @@
 				<br>
 				<div>
 					<p>Monday to Thursday: 9am - 5pm</p>
-					
+					<br>
 					<p>Friday: 10am - 2pm</p>
-					
+					<br>
 					<p>Saturday & Sunday: Close</p>
 				</div>
 			</div>
@@ -125,9 +125,3 @@
 	</div>	
 </div>
 <!-- footer -->
-
-
-
-
-<!-- JQuery -->
-<!-- <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
