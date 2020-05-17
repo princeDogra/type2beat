@@ -525,8 +525,6 @@ img::-moz-selection {
 .space {
   padding: cal(2rem+2em);
 }
-<<<<<<< HEAD
-=======
 
 .t2b-bg-gradient-1  {
   background-image: linear-gradient(180deg, var(--white), var(--light));
@@ -535,4 +533,3 @@ img::-moz-selection {
 .t2b-h1 {
   font-family: var(--font-family-serif);
 }
->>>>>>> master
