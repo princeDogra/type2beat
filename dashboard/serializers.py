@@ -1,5 +1,5 @@
 from  rest_framework import serializers
-from dashboard.models import FoodItem, NutritionIntake
+from dashboard.models import FoodItem, NutritionIntake, MedicalRecord
 
 class FoodItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,3 +13,8 @@ class NutritionIntakeSerializer(serializers.ModelSerializer):
     class Meta:
         model = NutritionIntake
         fields = ('food', 'user', 'meal_type', 'timestamp')
+
+class MedialRecordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalRecord
+        fields = ('timestamp', 'h2_plasma_glucose', 'fasting_plasma_glucose', 'hbA1c')

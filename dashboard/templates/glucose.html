@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="projection t2b-bg-white">
-        <div id="projector"></div>
+        <div id="projector" class="p-2"></div>
       </div>
       <div class="projection t2b-bg-white p-3">
         <h3 class="lead"><strong>Meal Type</strong></h3>
@@ -61,7 +61,48 @@
 {% endblock main %}
 
 {% block secondary %}
+<div class="t2b-container-2 t2b-bg-light shadow">
+  <canvas id="myChart"></canvas>
+</div>
 {% endblock secondary %}
 
 {% block script %}
+<script>
+const ENDPOINT = '/api/chart/data/glucose';
+var defaultData = [];
+var labels = [];
+$.ajax ({
+  method: "GET",
+  url: ENDPOINT,
+  success: function(data) {
+    labels = data.labels
+    defaultData = data.datasets
+    setChart()
+  },
+  error: function(error_data) {
+    console.log("error")
+    console.log(error_data)
+  }
+})
+
+let setChart = ()=>{
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: labels,
+          datasets: defaultData
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+}
+</script>
 {% endblock script %}

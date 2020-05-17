@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, CreateAPIView
-from dashboard.serializers import FoodItemSerializer, NutritionIntakeSerializer
-from dashboard.models import FoodItem, MedicalRecord
+from dashboard.serializers import FoodItemSerializer, NutritionIntakeSerializer, MedialRecordSerializer
+from dashboard.models import FoodItem, MedicalRecord, NutritionIntake
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated
@@ -16,6 +16,15 @@ class FoodItemList(ListAPIView):
     serializer_class = FoodItemSerializer
     filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ('product_name',)
+
+class MedicalData(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = MedialRecordSerializer
+
+    def get_queryset(self):
+        queryset = MedicalRecord.objects.filter(user=self.request.user)
+        return queryset
 
 class MedicalChartData(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -57,11 +66,52 @@ class MedicalChartData(APIView):
         return Response(data)
 
 
-class CreateNutritionIntake(CreateAPIView):
-    serializer_class = NutritionIntakeSerializer
-    pass
-    # def create(self, request, *args, **kwargs):
-    #     try:
-    #         food_id = request.data.get('food')
-    #         food_item = FoodItem.objects.get(pk=food_id)
-    #         user =
+class NutritionIntakeChartData(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def generate_data(self, request):
+        queryset = NutritionIntake.objects.filter(user=request.user).order_by('timestamp')
+        data = {'labels':[], 'productName':[],'sugar': [], 'fat':[], 'carbohydrate': [], 'salt': []}
+        for item in queryset:
+            data['labels'].append(str(item.timestamp))
+            data['productName'].append(item.food.product_name)
+            data['sugar'].append(item.food.sugars_100g)
+            data['fat'].append(item.food.fat_100g)
+            data['carbohydrate'].append(item.food.carbohydrates_100g)
+            # data['protein'].append(item.proteins_100g)
+            data['salt'].append(item.food.salt_100g)
+            # data['sodium'].append(item.sodium_100g)
+            # data['cholesterol'].append(item.cholesterol_100g)
+            # data['fiber'].append(item.fiber_100g)
+        return data
+
+    def get(self, request, format=None):
+        data = self.generate_data(request)
+        labels = data['labels']
+        default_items = [
+        {
+            'label': 'Sugar',
+            'backgroundColor': 'rgba(0, 63, 92, 1)',
+            'data': data['sugar']
+        },
+        {
+            'label': "Carbs",
+            'backgroundColor': 'rgba(122, 81, 149, 1)',
+            'data': data['carbohydrate']
+        },
+        {
+            'label': "Fat",
+            'backgroundColor': 'rgba(239, 86, 117, 1)',
+            'data': data['fat']
+        },
+        {
+            'label': 'Salt',
+            'backgroundColor': 'rgba(255, 166, 0, 1)',
+            'data': data['salt']
+        }]
+        data = {
+            "labels": labels,
+            "datasets": default_items,
+        }
+        return Response(data)

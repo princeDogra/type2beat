@@ -59,43 +59,39 @@ let displayData = () => {
   parent.innerHTML = "";
   let projector=document.querySelector('#projector');
   projector.innerHTML = "";
-  let counter = 0;
-  let dict  =  new Object();
   foodData.forEach((element)=>{
     let childNode = document.createElement('li');
     let textnode = document.createTextNode(element.product_name);
     childNode.appendChild(textnode);
-    childNode.id = counter;
     childNode.addEventListener('click', (e)=>{
       item = element;
       projector.innerHTML = element.product_name;
       projector.append(createDiv(element));
     });
     parent.appendChild(childNode);
-    dict[''+counter]=element.id;
-    counter+=1;
   });
 };
 
 // creting projection div to display the content of the selected item
 let createDiv = (item)=>{
-  const KEYS = Object.keys(item);
-  const VALUES = Object.values(item);
+  const SEARCH_LIST = {'sugars_100g':'Sugar/100g', 'fat_100g':'Fat/100g', 'cholesterol_100g':'Cholesterol/100g', 'carbohydrates_100g':'Carbohydrates/100g', 'fiber_100g':'Fiber/100g', 'proteins_100g':'Protein/100g', 'salt_100g':'Salt/100g', 'sodium_100g':'Sodium/100g'};
   let table = document.createElement('table');
-  table.classList.add('table');
+  table.setAttribute('class', 'table table-striped table-hover');
   for(const [key, value] of Object.entries(item)){
-    let tr = document.createElement('tr');
-    let td1 = document.createElement('td');
-    let data = document.createTextNode(key);
-    td1.appendChild(data);
+    if (key in SEARCH_LIST) {
+      let tr = document.createElement('tr');
+      let td1 = document.createElement('td');
+      let data = document.createTextNode(SEARCH_LIST[key]);
+      td1.appendChild(data);
 
-    let td2 = document.createElement('td');
-    data = document.createTextNode(value);
-    td2.appendChild(data);
+      let td2 = document.createElement('td');
+      data = document.createTextNode(value);
+      td2.appendChild(data);
 
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    table.appendChild(tr);
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      table.appendChild(tr);
+    }
   }
   return table;
 };
@@ -147,7 +143,14 @@ document.querySelector('#record-nutrition').addEventListener('click',()=>{
   inputField.setAttribute('value', val);
   form = document.querySelector('#nutritionIntakeForm');
   form.appendChild(inputField);
-  // mealType = document.querySelector('#nutritionIntakeForm input[name="meal"].checked').value;
-  // console.log('i am here')
-  document.querySelector('#nutritionIntakeForm').submit();
+  if (document.querySelector('#nutritionIntakeForm input[type=date]').value === ''){
+    let error = document.createElement('p');
+    error.append(document.createTextNode('**please select date first.'));
+    error.setAttribute('color','#ff0000');
+    error.setAttribute('id','error-tag');
+    document.querySelector('#nutritionIntakeForm').appendChild(error);
+  }
+  else {
+    document.querySelector('#nutritionIntakeForm').submit();
+  }
 })

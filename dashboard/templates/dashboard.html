@@ -83,7 +83,67 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <h1>Medical Overview</h1>
+      </div>
+      <div class="row">
+        <canvas id="myChart1"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <h1>Nutrition Overview</h1>
+      </div>
+      <div class="row">
+        <canvas id="myChart2"></canvas>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock main %}
 
 {% block secondary %}{% endblock secondary %}
+{% block script %}
+<script>
+const ENDPOINTS = ['/api/chart/data/medical', '/api/chart/data/glucose'];
+var defaultData = [];
+var labels = [];
+for (let counter=0; counter<ENDPOINTS.length; counter++){
+  $.ajax ({
+    method: "GET",
+    url: ENDPOINTS[counter],
+    success: function(data) {
+      labels = data.labels
+      defaultData = data.datasets
+      setChart(counter+1)
+    },
+    error: function(error_data) {
+      console.log("error")
+      console.log(error_data)
+    }
+  })
+}
+
+let setChart = (counter)=>{
+  var ctx = document.getElementById(`myChart${counter}`).getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: labels,
+          datasets: defaultData
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+}
+</script>
+{% endblock script %}
