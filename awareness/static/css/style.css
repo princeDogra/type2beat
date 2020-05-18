@@ -36,6 +36,18 @@ body {
     background: var(--dark-primary);
 }
 
+.t2b-bg-light {
+  background-color: var(--light-gray);
+}
+
+.t2b-text-primary {
+  color: var(--primary);
+}
+
+.t2b-text-secondary {
+  color: var(--secondary);
+}
+
 .carousel-item {
     height: 65vh;
     min-height: 300px;
@@ -492,6 +504,7 @@ img::-moz-selection {
 
 .t2b-h1 {
   font-family: var(--font-family-serif);
+  text-align: center;
 }
 
 .t2b-bg-footer {
