@@ -48,6 +48,12 @@ body {
   color: var(--secondary);
 }
 
+.t2b-center {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .carousel-item {
     height: 65vh;
     min-height: 300px;
