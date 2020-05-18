@@ -19,6 +19,9 @@
     --light: #c0c0c0;
     --white: #ffffff;
     --light-gray: #e9ecef;
+    --dark-primary: #303036;
+    --dark-secondary: #343a40;
+    --text-primary: #d3d3d3;
 
     --color-text: var(--dark);
     --font-family-text: var(--font-family-serif);
@@ -30,7 +33,7 @@ body {
 }
 
 .bg-t2b-dark {
-    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8));
+    background: var(--dark-primary);
 }
 
 .carousel-item {
