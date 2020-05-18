@@ -49,3 +49,6 @@ def digestion(request):
 
 def skin(request):
     return render(request, 'skin.html')
+
+def privacy(request):
+    return render(request, 'privacy.html')

@@ -55,4 +55,5 @@ urlpatterns = [
     url(r'^api/data/food/', dashboard_api_views.FoodItemList.as_view()),
     url(r'^api/data/medical', MedicalData.as_view()),
     url(r'^food/', dash_views.food, name='food'),
+    url(r'^privacy/', awareness_views.privacy, name='privacy'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

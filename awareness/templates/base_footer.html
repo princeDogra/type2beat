@@ -1,127 +1,53 @@
 {% load static %}
 
-<!-- <footer id = "footer" class = "py-5 bg-dark tg-haslayout">
-	<script src="https://kit.fontawesome.com/c90a5212ef.js" crossorigin="anonymous"></script>
-	<div class ="tg-threecolumn">
-		<div class="container padding">
-			<div class = "row text-white">
-				<div class = "col-md-4">
-					<div class = "tg-footercol">
+<div class="page-footer p-3 t2b-bg-footer">
+		<div class="container pt-3 pd-3">
+			<script src="https://kit.fontawesome.com/c90a5212ef.js" crossorigin="anonymous"></script>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="t2b-footer-section about">
+						<h1 class="logo-text">
 							<img src="{% static 'images/logo.png' %}">
-						<div class="d-grid">
-							<p>Content on Type2Beat does not replace the relationship between you and doctors or other healthcare professionals nor the advice you receive from them. </p>
-							<div>
-								<i class="fad fa-envelope"></i>
-								<em>&nbsp &nbsp info@domain.com</em>
-								<br>
-								<i class="fad fa-phone-alt"></i>
-								<em>&nbsp &nbsp +420 954 120</em>
-							</div>
+						</h1>
+						<p>
+							Content on Type2Beat does not replace the relationship between you and doctors or other healthcare professionals nor the advice you receive from them.
+						</p>
+						<br>
+						<div class ="contact">
+							<span><i class="fad fa-envelope"></i> &nbsp type2beat.au@gmail.com</span>
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-4">
-					<div class="tg-footercol">
-						<div class="tg-description">
-							<h2>Working Hours</h2>
-						</div>
+					<div class="t2b-footer-section">
+						<h2>Quick Links</h2>
+						<br>
+						<ul>
+							<li><a href="{% url 'diabetes' %}" >Diabetes</a></li>
+							<li><a href="{% url 'impact' %}" >Negative Impacts of Diabetes</a></li>
+							<li><a href="{% url 'prevention' %}" >Prevention</a></li>
+							<li><a href="{% url 'healthy_diets' %}" >Diets</a></li>
+							<li><a href="{% url 'exercises' %}" >Exercise</a></li>
+							<li><a href="{% url 'privacy' %}">Terms and Conditions</a></li>
+							<li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+						</ul>
 					</div>
-					<div class="tg-widget tg-usefullinks">
+				</div>
+				<div class="col-md-4">
+					<div class="t2b-footer-section contact-form">
+						<h2> Working Hours</h2>
+						<br>
 						<div>
 							<p>Monday to Thursday: 9am - 5pm</p>
-							<br>
 							<p>Friday: 10am - 2pm</p>
-							<br>
 							<p>Saturday & Sunday: Close</p>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="tg-footercol">
-						<div class="tg-description">
-							<h2>Useful links</h2>
-						</div>
-						<div class="tg-widget tg-usefullinks">
-							<div>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Terms and Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
-</footer> -->
-
-<!-- <section id ="footer" class ="bg-secondary">
-	<div class="tg-footerbar bg-dark tg-haslayout">
-		<div class="tg-copyrights text-center">
-			<p class="m-0 text-center text-white"> 2020 All Rights Reserved © Type2Beat.live 2020</p>
-		</div>
-	</div>
-</section> -->
-
-<!-- <footer class = "py-1 bg-secondary tg-haslayout">
-	<div class="tg-footerbar bg-dark tg-haslayout">
-		<div class="tg-copyrights text-center">
-			<p class="m-0 text-center text-white"> 2020 All Rights Reserved © Type2Beat.live 2020</p>
-		</div>
-	</div>
-
-
-</footer> -->
-<div class="t2b-footer">
-	<div class="container">
-		<script src="https://kit.fontawesome.com/c90a5212ef.js" crossorigin="anonymous"></script>
-		<div class="t2b-footer-content">
-		
-			<div class="t2b-footer-section about">
-				<h1 class="logo-text">
-					<img src="{% static 'images/logo.png' %}">
-				</h1>
-				<p>
-					Content on Type2Beat does not replace the relationship between you and doctors or other healthcare professionals nor the advice you receive from them.
-				</p>
-				<br>
-				<div class ="contact">
-					<span><i class="fad fa-envelope"></i> &nbsp type2beat.au@gmail.com</span>
-				</div>
-			</div>
-
-			<div class="t2b-footer-section links">
-				<h2>Quick Links</h2>
-				<br>
-				<ul>
-					<a href="{% url 'diabetes' %}" ><li>Diabetes</li></a>
-					<a href="{% url 'impact' %}" ><li>Negative Impacts of Diabetes</li></a>
-					<a href="{% url 'prevention' %}" ><li>Prevention</li></a>
-					<a href="{% url 'healthy_diets' %}" ><li>Diets</li></a>
-					<a href="{% url 'exercises' %}" ><li>Exercise</li></a>
-					<a href="#"><li>Terms and Conditions</li></a>
-					<a href="#"><li>Privacy Policy</li></a>
-				</ul>
-			</div>
-
-			<div class="t2b-footer-section contact-form">
-				<h2> Working Hours</h2>
-				<br>
-				<div>
-					<p>Monday to Thursday: 9am - 5pm</p>
-					<br>
-					<p>Friday: 10am - 2pm</p>
-					<br>
-					<p>Saturday & Sunday: Close</p>
-				</div>
-			</div>
-		</div>
-		<div class="t2b-footer-bottom">
-			&copy; Type@Beat.live 2020 | Designed by Delta Team
-		</div>
-	</div>	
+</div>
+<div class="t2b-footer-bottom">
+	&copy; Type@Beat.live 2020 | Designed by Delta Team
 </div>
 <!-- footer -->
