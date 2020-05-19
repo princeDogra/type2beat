@@ -58,6 +58,19 @@
     </div>
 </div>
 
+<!-- Fact Australia -->
+<div class="container-fluid parallax" style="background-image: url('{% static 'images/parallax-1.jpg' %}')">
+  <div class="container-fluid content">
+    <div class="col-lg-6 heading">
+      <p class="t2b-text-white">"<strong>1 in every 6</strong>" Australian senior citizens aged over 65 reported having diabetes,
+        over 1 million hospitalizations were associated with diabetes in 2016-2017, it
+        is associated with a myriad of complications which affect the feet, eyes, kidney,
+        and cardiovascular health. </p>
+        <button type="button" name="button" class="t2b-btn-3">Know More</button>
+    </div>
+  </div>
+</div>
+
 <!-- Page Facts -->
 <div class="container-fluid t2b-bg-light p-3">
   <div class="container">
@@ -90,86 +103,68 @@
   </div>
 </div>
 
-<!-- Page Content -->
-<section class="page-section" id="about">
-  <div class="container">
-      <div class="text-center">
-          <h2 class="section-heading text-uppercase">Do you Know?</h2>
+<div class="container-fluid">
+  <div class="container pb-4">
+    <div class="row justify-content-center pt-3 mb-5 mt-4">
+      <h1 class="t2b-h1">CAUSES & SYMPTOMS</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+
       </div>
-      <ul class="timeline">
-          <li>
-              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/1.jpg' %}" alt="" /></div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4>we are in an age</h4>
-                      <h4 class="subheading">where diabetes is a threat and</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">1 in every 6 Australian senior citizens
-                      aged over 65 reported having diabetes, over 1 million hospitalizations
-                      were associated with diabetes in 2016-2017, it is associated with a
-                      myriad of complications which affect the feet, eyes, kidney, and cardiovascular
-                      health.
-                    </p>
-                    <a class="know-more" href="{% url 'impact' %}">know more</a>
-                  </div>
-              </div>
-          </li>
-          <li class="timeline-inverted">
-              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/2.jpg' %}" alt="" /></div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4> what causes it?</h4>
-                      <h4 class="subheading">As per the experts</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">bad eating habits, Overweight or family
-                      history are the main causes of it.
-                    </p>
-                    <a class="know-more" href="{% url 'diabetes' %}">know more</a>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/3.jpg' %}" alt="" /></div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4>It can be preveted</h4>
-                      <h4 class="subheading">by following few things like</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Cutting excessive sugar and salt intake,
-                      keeping track of your health conditions and regular exercise.
-                    </p>
-                    <a class="know-more" href="{% url 'prevention' %}">know more</a>
-                  </div>
-              </div>
-          </li>
-          <li class="timeline-inverted">
-              <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'images/4.jpg' %}" alt="" /></div>
-              <div class="timeline-panel">
-                  <div class="timeline-heading">
-                      <h4>We care for you</h4>
-                      <h4 class="subheading">and can help you in</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">recording your sugar, fat, and carbs intake
-                      based on your diet, and glucose level and other key parameters
-                      from your medical report, ensuring that you are able to keep
-                      track of your diet and health.
-                  </p>
-                  <a class="know-more" href="{% url 'services' %}">know more</a>
-                </div>
-              </div>
-          </li>
-          <li class="timeline-inverted">
-              <a class="timeline-image come-join-us" href="{% url 'login' %}">
-                  <h4>Record Your<br />Healh<br />With Us</h4>
-              </a>
-          </li>
-      </ul>
+      <div class="col-md-6">
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+</div>
+
+<div class="container-fluid t2b-bg-gradient-2 p-3 t2b-text-white">
+  <div class="container card-content">
+    <div class="row justify-content-center pt-3 mb-5 mt-4">
+      <h1 class="t2b-h1">PRECAUTIONS</h1>
+      <p></p>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 t2b-text-secondary">
+        <div class="card p-3 t2b-bg-white t2b-center t2b-shadow">
+          <h1 class="card-title text-center t2b-text-dark font-weight-bold">Diet</h1>
+          <i class="fas fa-salad fa-8x t2b-text-secondary p-3"></i>
+          <p class="card-text justify-content-center t2b-text-dark">Our body needs <a href="https://wa.kaiserpermanente.org/healthAndWellness/index.jhtml?item=%2Fcommon%2FhealthAndWellness%2Fconditions%2Fdiabetes%2FglucoseSources.html" title="Source of Glucose in the body" target="_blank" class="t2b-text-secondary font-weight-bold">
+            Carbohydrates, Protien and Fat</a> to make energy for body cells from Glucose and Diabetes is a condition where body cannot
+        control the amount of glucose.</p>
+          <a href="{% url 'healthy_diets' %}" class="t2b-btn t2b-btn-dark">Learn More</a>
+        </div>
+      </div>
+      <div class="col-sm-4 t2b-text-secondary">
+        <div class="card p-3 t2b-bg-white t2b-center t2b-shadow">
+          <h1 class="card-title text-center t2b-text-dark font-weight-bold">Exercise</h1>
+          <i class="fas fa-dumbbell fa-8x t2b-text-secondary p-3"></i>
+          <p class="card-text justify-content-center t2b-text-dark">Regular exercise helps in increasing insulin sensitivity
+             <a href="https://www.diabetesselfmanagement.com/managing-diabetes/treatment-approaches/increasing-insulin-sensitivity/" title="Exercise increases insulin-sensitivity" target="_blank" class="t2b-text-secondary font-weight-bold">
+             increasing insulin sensitivity</a>, maintan body weight, reduce heart diseases,lowers blood pssure and reduces stress.
+            </p>
+          <a href="{% url 'exercises' %}" class="t2b-btn t2b-btn-dark">Learn More</a>
+        </div>
+      </div>
+      <div class="col-sm-4 t2b-text-secondary">
+        <div class="card p-3 t2b-bg-white t2b-center t2b-shadow">
+          <h1 class="card-title text-center t2b-text-dark font-weight-bold">Monitoring</h1>
+          <i class="fas fa-chart-pie fa-8x t2b-text-secondary p-3"></i>
+          <p class="card-text justify-content-center t2b-text-dark">If you are diagnosed with Diabetes, it is recommended to
+             <a href="https://www.heart.org/en/health-topics/diabetes/symptoms-diagnosis--monitoring-of-diabetes" title="Monitor Diabetes Regularly" target="_blank" class="t2b-text-secondary font-weight-bold">
+            monitor blood sugar level and daily carbs intake.</a> The aim of this is to reflect the progress and give further directions.</p>
+          <a href="{% url 'services' %}" class="t2b-btn t2b-btn-dark">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid t2b-bg-gradient-1 p-3">
   <div class="container mt-5 mb-5 p-2">
