@@ -165,7 +165,14 @@ body {
 
 .parallax .content .heading {
   height: 100%;
+}
+
+.t2b-bg-secondary-alpha{
   background: rgba(0, 147, 137, 0.7);
+}
+
+.t2b-bg-dark-alpha {
+  background-image: linear-gradient(-45deg, rgba(52, 58, 64,0.7), rgba(48,48,54,1));
 }
 
 .parallax .content .heading p {
