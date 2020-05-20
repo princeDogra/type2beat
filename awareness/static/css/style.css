@@ -476,6 +476,13 @@ img::-moz-selection {
   border-radius: 50% !important;
 }
 
+.rounded-image {
+  height: 40% !important;
+  width: 40% !important;
+}
+
+
+
 .come-join-us{
   background: var(--dark);
   -webkit-box-shadow: 0px 10px 20px -6px var(--dark);
