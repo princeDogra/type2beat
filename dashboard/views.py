@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import FoodItem, MedicalRecord, NutritionIntake
 from .forms import MedicalForm
+from django.views import View
 
 @login_required
 def dashboard(request):
@@ -48,3 +49,14 @@ def reminder(request):
 @login_required
 def food(request):
     return render(request,'food.html')
+
+
+@login_required
+def history(request):
+    return render(request, 'history.html')
+
+def HistoryView(View):
+    template_name = 'history.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
