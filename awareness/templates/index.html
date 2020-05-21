@@ -11,28 +11,24 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner text-center" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('{% static 'images/carousel-5.jpg' %}')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>Do you know Diabetes Type 2 can be prevented?</h2>
-            <p>If you are new to type2beat, then come <a href="{% url 'services' %}" class="carousel-hyperlink"> <strong>join us</strong></a> and Learn
+        <div class="carousel-item active" style="background-image: url('{% static 'images/Asset 3-100.jpg' %}')">
+          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-dark t2b-font-serif">
+            <p><strong class="display-4">Do you know Diabetes can be prevented?</strong><br>If you are new to type2beat, then come <a href="{% url 'services' %}" class="carousel-hyperlink"> <strong>join us</strong></a> and Learn
             how to prevent diabetes type 2.</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('{% static 'images/carousel-4.jpg' %}')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>Diabetes: Prevention is better than Cure</h2>
-            <p>Type2Beat can help preventing you from diabetes. <a href="{% url 'prevention' %}" class="carousel-hyperlink"> <strong>Learn More</strong> </a></p>
+        <div class="carousel-item" style="background-image: url('{% static 'images/prevention.jpg' %}')">
+          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-light t2b-font-serif">
+            <p><strong class="display-4">Diabetes: Prevention is better than Cure</strong><br>Type2Beat can help preventing you from diabetes. <a href="{% url 'prevention' %}" class="carousel-hyperlink"> <strong>Learn More</strong> </a></p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('{% static 'images/carousel-1.jpg' %}')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>What healthy eating options are there?</h2>
-            <p>We can help you to provide health eating options that can be cooked quickly and easily.
-            <a href="{% url 'healthy_diets' %}" class="carousel-hyperlink"> <strong>Explore More</strong></a></p>
+        <div class="carousel-item" style="background-image: url('{% static 'images/food.jpg' %}')">
+          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-dark t2b-font-serif">
+            <p><strong class="display-4">Healthy diet is a game changer in diabete prevention</strong><br>Check how many carbs you had today <a href="{% url 'login' %}" class="font-weight-bold text-unstyled"> <strong>with us</strong> </a></p>
           </div>
         </div>
       </div>
@@ -103,19 +99,56 @@
   </div>
 </div>
 
-
 <div class="container-fluid bg-t2b-dark h-100 t2b-text-light">
   <div class="container p-5">
     <div class="row h-100">
       <div class="col-md-6 t2b-cause">
         <h1 class="t2b-h1">CAUSES<br><small>&</small><br>SYMPTOMS</h1>
+        <div class="row p-5">
+          <a href="{% url 'diabetes' %}" class="t2b-btn-light m-3"> know more</a>
+        </div>
       </div>
-      <div class="col-md-6">
-        <div class="container-fluid parallax" style="background-image: url('{% static 'images/VeganDiet.jpg' %}')">
-          <div class="container-fluid content">
-            <div class="heading t2b-bg-dark-alpha">
-
-            </div>
+      <div class="col-md-6 t2b-text-light t2b-font-serif">
+        <div class="row">
+          <h2 class="pb-2 pt-2">causes</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Type 1</h4>
+            <p class="t2b-text-silver font-weight-light"><i class="fas fa-arrow-circle-right"></i> Viral or bacterial infection</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Chemical toxins within food</p>
+            <p><i class="fas fa-arrow-circle-right"></i> autoimmune reaction</p>
+            <p><i class="fas fa-arrow-circle-right"></i> genetic disposition</p>
+          </div>
+          <div class="col-md-6">
+            <h4>Type 2</h4>
+            <p><i class="fas fa-arrow-circle-right"></i> Obesity</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Living a sedentary lifestyle</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Increasing age</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Bad diet</p>
+          </div>
+        </div>
+        <div class="row">
+          <h2 class="pb-3 pt-3">symptoms</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Type 1</h4>
+            <p class="t2b-text-silver"><i class="fas fa-arrow-circle-right"></i> Excessive thirst</p>
+            <p class="t2b-text-silver"><i class="fas fa-arrow-circle-right"></i> Frequent urination</p>
+            <p class="t2b-text-silver"><i class="fas fa-arrow-circle-right"></i> Excessive hunger</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Unexplained weakness and fatigue</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Unexplained weight loss</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Blurred vision</p>
+          </div>
+          <div class="col-md-6">
+            <h4>Type 2</h4>
+            <p><i class="fas fa-arrow-circle-right"></i> Blurred vision</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Tiredness</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Urinating more frequently</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Feeling thirsty all the time</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Recurrent infections</p>
+            <p><i class="fas fa-arrow-circle-right"></i> Always feeling hungry</p>
           </div>
         </div>
       </div>

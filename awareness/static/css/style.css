@@ -23,6 +23,7 @@
     --dark-primary: #303036;
     --dark-secondary: #343a40;
     --text-primary: #d3d3d3;
+    --silver: #a9a9a9;
 
     --color-text: var(--dark);
     --font-family-text: var(--font-family-serif);
@@ -83,6 +84,10 @@ body {
 
 .t2b-text-dark {
   color: var(--dark-primary);
+}
+
+.t2b-text-silver {
+  color: var(--siver);
 }
 
 .t2b-text-white {
@@ -220,21 +225,24 @@ body {
     background-size: cover;
 }
 
+.carousel-item p {
+  text-shadow: 0px 0px 1px rgb(0,0,0);
+}
+
 .portfolio-item {
     margin-bottom: 30px;
 }
 
 .carousel-hyperlink {
-    text-decoration: none;
-    color: #69BDBB;
-    font-weight: 500;
+    text-decoration: underline;
+    color: var(--white);
+    font-weight: 600;
     font-size: 18px;
 }
 
 .carousel-hyperlink:hover {
-    text-decoration: none;
-    color: var(--white);
-    font-weight: 500;
+    text-decoration: underline;
+    color: var(--dark);
     font-size: 18px;
 }
 
@@ -384,6 +392,26 @@ body {
 .t2b-btn-dark:hover {
   text-decoration: none;
   background-color: var(--dark-secondary);
+  transition: .2s ease-in;
+  color: var(--white);
+}
+
+.t2b-btn-light {
+  width: 100%;
+  margin: 0 auto;
+  text-decoration: none;
+  padding: 1rem 2.95rem;
+  transition: 0.3s ease-in-out;
+  background-color: rgba(0,0,0,0);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  font-family: var(--font-family-serif);
+}
+
+.t2b-btn-light:hover {
+  text-decoration: none;
+  background-color: var(--primary);
   transition: .2s ease-in;
   color: var(--white);
 }
@@ -716,6 +744,11 @@ img::-moz-selection {
   text-align: center;
 }
 
-.t2b-bg-footer {
 
+.vr-line {
+  position: absolute;
+  width: 4px;
+  color: var(--light);
+  height: 100px;
+  right: 0;
 }
