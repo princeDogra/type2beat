@@ -15,12 +15,12 @@ def glucose(request):
     if request.method == 'POST':
         nutrition_intake = NutritionIntake()
         foodItems = request.POST['foodItems']
-        timestamp = request.POST['mealDate']
-        meal_type = request.POST['mealType']
+        timestamp = request.POST['mealTimestamp']
+        server_size = request.POST['serveSize']
         for item in foodItems.split(" "):
             nutrition_intake.food = FoodItem.objects.get(pk=int(item))
             nutrition_intake.timestamp = timestamp
-            nutrition_intake.meal_type = meal_type
+            nutrition_intake.server_size = server_size
             nutrition_intake.user =  request.user
             nutrition_intake.save()
             messages.success(request, f'Successfully recorded values')
@@ -38,6 +38,9 @@ def medical(request):
             form.save()
         return redirect('medical')
     else:
+        from datetime import date
+        today = date.today()
+
         form = MedicalForm()
         return render(request, 'medical.html', {'medicalform' : form})
 

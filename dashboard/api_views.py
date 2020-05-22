@@ -17,13 +17,14 @@ class FoodItemList(ListAPIView):
     filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ('product_name',)
 
-class MedicalData(APIView):
+class MedicalData(ListAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = MedialRecordSerializer
+    model = serializer_class.Meta.model
 
     def get_queryset(self):
-        queryset = MedicalRecord.objects.filter(user=self.request.user)
+        queryset = self.model.objects.filter(user=self.request.user).order_by('timestamp')
         return queryset
 
 class MedicalChartData(APIView):

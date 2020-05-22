@@ -21,12 +21,12 @@ menuBtn.addEventListener('click', () => {
 
 let foodData = []
 
-document.querySelector('#search-food-item').addEventListener('click', (e)=> {
-  let searchItem  = document.querySelector('#searchItem');
+document.querySelector('#search-food-button').addEventListener('click', (e)=> {
+  let searchItem  = document.querySelector('#food-search-box');
   if (searchItem.value.length == 0) {
     searchItem.style.border = "3px solid rgba(222,100,0,0.7)";
-    document.querySelector('#food-item-holder').innerHTML = "";
-    document.querySelector('#projector').innerHTML = "";
+    document.querySelector('#food-item-holder').innerHTML = "Please Enter foodname";
+    document.querySelector('#projector').innerHTML = "Please Enter foodname";
   }
   else {
     searchItem.style.border = "3px solid #69BDBB";
@@ -41,13 +41,13 @@ document.querySelector('#search-food-item').addEventListener('click', (e)=> {
           document.querySelector('#projector').innerHTML = "";
         }
         else{
-          foodData = data
-          displayData()
+          foodData = data;
+          displayData();
         }
       },
       error: function(error_data){
         console.log(error_data)
-      }
+      },
     })
   }
 })
@@ -67,6 +67,7 @@ let displayData = () => {
       item = element;
       projector.innerHTML = element.product_name;
       projector.append(createDiv(element));
+      calServingSize(element.serving_size);
     });
     parent.appendChild(childNode);
   });
@@ -74,7 +75,7 @@ let displayData = () => {
 
 // creting projection div to display the content of the selected item
 let createDiv = (item)=>{
-  const SEARCH_LIST = {'sugars_100g':'Sugar/100g', 'fat_100g':'Fat/100g', 'cholesterol_100g':'Cholesterol/100g', 'carbohydrates_100g':'Carbohydrates/100g', 'fiber_100g':'Fiber/100g', 'proteins_100g':'Protein/100g', 'salt_100g':'Salt/100g', 'sodium_100g':'Sodium/100g'};
+  const SEARCH_LIST = {'serving_size': 'Serving Size','sugars_100g':'Sugar/100g', 'fat_100g':'Fat/100g', 'carbohydrates_100g':'Carbohydrates/100g', 'fiber_100g':'Fiber/100g', 'proteins_100g':'Protein/100g', 'salt_100g':'Salt/100g', 'sodium_100g':'Sodium/100g'};
   let table = document.createElement('table');
   table.setAttribute('class', 'table table-striped table-hover');
   for(const [key, value] of Object.entries(item)){
@@ -154,3 +155,78 @@ document.querySelector('#record-nutrition').addEventListener('click',()=>{
     document.querySelector('#nutritionIntakeForm').submit();
   }
 })
+
+
+let calServingSize = (food) => {
+  let quant = null;
+  if (food.length === 0){
+    console.log('its empty')
+    quant = 1
+  }
+  else if(food.match('g')){
+    console.log('its a gram');
+  }
+  else if(food.match('ml')){
+    console.log('its is a ml')
+  }
+  else{
+    console.log('idk');
+  }
+};
+
+function setDashboard(data){
+  currentData = data[data.length-1];
+  nodeList = document.querySelectorAll('.card-text-header');
+  valueList = document.querySelectorAll('.card-text-value');
+  blockquoteList = document.querySelectorAll('.card-blockquotes');
+  nodeList[0].firstChild.nodeValue = "2-h plasma glucose on ("+currentData.timestamp+")";
+  nodeList[1].firstChild.nodeValue = "Fasting plasma glucose on ("+currentData.timestamp+")";
+  nodeList[2].firstChild.nodeValue = "HbA1c on ("+currentData.timestamp+")";
+  valueList[0].firstChild.nodeValue = currentData['h2_plasma_glucose']+" mmol/L";
+  if (currentData['h2_plasma_glucose'] <= 11.1) {
+    blockquoteList[0].firstChild.nodeValue = "No Risk: it's under 11.1 mmol/L";
+  }else{
+    blockquoteList[0].firstChild.nodeValue = "Risk: it's above 11.1 mmol/L";
+  }
+  valueList[1].firstChild.nodeValue = currentData['fasting_plasma_glucose']+" mmol/L";
+  if(currentData['fasting_plasma_glucose'] < 7.0){
+    blockquoteList[1].firstChild.nodeValue = "No Risk: it's under 7.0 mmol/L";
+  }else{
+    blockquoteList[1].firstChild.nodeValue = "Risk: it's above 7.0 mmol/L";
+  }
+  valueList[2].firstChild.nodeValue = currentData['hbA1c']+"%";
+  if(currentData['hbA1c'] < 5.7){
+    blockquoteList[2].firstChild.nodeValue = "No Risk: it's under 5.7 mmol/L";
+  }else if(currentData['hbA1c'] >= 5.7 && currentData['hbA1c'] <= 6.4){
+    blockquoteList[2].firstChild.nodeValue = "At Risk: it's between 5.7 and 6.4 mmol/L";
+  }else{
+    blockquoteList[2].firstChild.nodeValue = "High Risk: it's above 6.5 mmol/L";
+  }
+};
+
+// loading data from medical db
+function loadMedicalData(){
+  const ENDPOINT = '/api/data/medical';
+  let currentData = [];
+  $.ajax ({
+    method: "GET",
+    url: ENDPOINT,
+    success: function(data) {
+      setDashboard(data);
+    },
+    error: function(error_data) {
+      console.log("error")
+      console.log(error_data)
+    }
+  });
+};
+
+// loading dashboard charts
+function loadDashboardCharts() {
+
+}
+
+function loadDashBoard(){
+  // load medical data and poplate it
+  loadMedicalData();
+};

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'rest_framework',
     'django_filters',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
