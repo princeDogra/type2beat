@@ -1,0 +1,36 @@
+{% extends "dash-base.html" %}
+{% load static %}
+{% block title %}History | Type2Beat{% endblock title %}
+{% block main %}
+<div class="container-fluid">
+  <div class="container-fluid t2b-bg-light-gray mt-3">
+    <div class="row p-4">
+      <div class="col-md-9">
+        <h1>History</h1>
+        <hr>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Medical</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nutrition</a>
+          </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">auscuiuasbcicas</div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">aiucdbuiabcd</div>
+          </div>
+        <div class="row mt-3 h-100">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}
+
+{% block secondary %}
+{% endblock secondary %}
+
+{% block script %}
+{% endblock script %}

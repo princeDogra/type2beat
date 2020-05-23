@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'factory/bootstrap/css/bootstrap.min.css' %}">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
 
     <!-- custom stylesheet -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
@@ -21,14 +22,13 @@
     <div class="d-flex" id="wrapper">
         <!-- sidebar -->
         <div class="t2b-bg-primary" id="sidebar-wrapper">
-            <div class="sidebar-heading">Type2Beat.live</div>
+            <div class="sidebar-heading"><a href="{% url 'home' %}">Type2Beat.live</a></div>
                 <div class="list-group list-group-flush">
                     <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
                     <a href="{% url 'medical' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Medical Record</a>
                     <a href="{% url 'glucose' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Record Glucose</a>
-                    <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-info-circle" aria-hidden="true"></i>Exercises</a>
+                    <a href="{% url 'history' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-info-circle" aria-hidden="true"></i>History</a>
                     <a href="{% url 'food' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-cutlery" aria-hidden="true"></i>Food</a>
-                    <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-bell" aria-hidden="true"></i>Notification</a>
                     <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-info-circle" aria-hidden="true"></i>Help</a>
                 </div>
             </div>
@@ -48,10 +48,8 @@
                     </button>
                     <section class="collapse navbar-collapse" id="myTogglerNav">
                         <div class="t2b-navbar-item navbar-nav ml-auto mt-2 mt-lg-0">
-                            <a class="nav-item nav-link" href="">Help</a>
-                            <a class="nav-item nav-link" href=""><svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
-</svg>My account</a>
+                            <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+                            <a class="nav-item nav-link" href="">My account</a>
                             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         </div>
                     </section>
@@ -66,12 +64,13 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}" defer></script>
     {% block script %} {% endblock script %}
 </body>
 </html>

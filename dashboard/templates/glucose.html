@@ -10,59 +10,87 @@
   </button>
 </div>
 {% endfor %}
-<div class="t2b-container-2 t2b-bg-light shadow">
-  <div class="t2b-box1 t2b-bg-white shadow">
-    <h1 class="t2b-h1 t2b-centre">
-      Record you Sugar Intake
-    </h1>
-    <hr>
-    <div class="t2b-container-3">
-      <div class="search-box">
-        <form class="searchform">
-          <input type="text" placeholder="Search..." class="form-control" id="searchItem">
-          <button type="button" name="button" id="search-food-item"><i class="fa fa-search"></i></button>
-        </form>
-        <div class="food-item-box t2b-bg-white">
-          <ul id="food-item-holder"></ul>
+
+<div class="container-fluid">
+  <div class="container-fluid t2b-bg-light-gray mt-3">
+    <div class="row p-4">
+      <div class="col-md-9">
+        <h1>Record your Nutrition Intake</h1>
+        <hr>
+        <div class="row mt-3">
+          <div class="col-md-4 p-1">
+            <div class="search-box">
+              <form class="searchform">
+                <input type="text" placeholder="Search Food (ex: pasta)" class="form-control" id="food-search-box">
+                <button type="button" name="button" id="search-food-button"><i class="fa fa-search"></i></button>
+              </form>
+              <div class="food-item-box t2b-bg-white">
+                <ul id="food-item-holder"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-1">
+            <div class="projection t2b-bg-white">
+              <div id="projector" class="p-2"></div>
+            </div>
+          </div>
+          <div class="col-md-4 p-1">
+            <div class="projection t2b-bg-white p-3">
+              <form action="{% url 'glucose' %}" method="POST" id="nutritionIntakeForm">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="serving size">Serving Size</label>
+                  <input type="input" class="form-control" name="serveSize" value="1" required>
+                </div>
+                <div class="form-group">
+                  <label for="serving size">Date & Time</label>
+                  <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" name="mealTimestamp" data-target="#datetimepicker1"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                      $(function () {
+                          $('#datetimepicker1').datetimepicker();
+                      });
+                  </script>
+                </div>
+              </form>
+              <p class="blockquote-footer" id="nutrition-board"> Total nutrition intake </br>carbs 1400kJ | protien 23g | sugar 100g</p>
+              <button type="button" name="button" class="t2b-btn-1 mt-3 w-100">Select</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="projection t2b-bg-white">
-        <div id="projector" class="p-2"></div>
+      <div class="col-md-3">
+        <h1>Your Intake</h1>
+        <hr>
+        <div class="t2b-bg-white p-3" id="cart-view">
+          <ul></ul>
+        </div>
+        <button type="button" class="t2b-btn-1 w-100 mt-3" name="button" id="record-nutrition" disabled>Record</button>
       </div>
-      <div class="projection t2b-bg-white p-3">
-        <h3 class="lead"><strong>Meal Type</strong></h3>
-        <form action="{% url 'glucose' %}" method="POST" id="nutritionIntakeForm">
-          {% csrf_token %}
-          <input type="radio" name="mealType" value="Breakfast"> Breakfast<br>
-          <input type="radio" name="mealType" value="lunch"> Lunch<br>
-          <input type="radio" name="mealType" value="Dinner"> Dinner<br>
-          <input type="radio" name="mealType" value="snack" checked> Snack<br>
-          <h3 class="lead mt-3"><strong>Meal Date</strong></h3>
-          <input type="date" name="mealDate" value="" required>
-        </form>
-        <button type="button" name="button" class="t2b-btn-1 mt-3">Select</button>
-      </div>
-    </div>
-  </div>
-  <div class="t2b-box1 t2b-bg-white">
-    <div class="t2b-box3">
-      <h1 class="t2b-h2 t2b-centre">
-        Meal Intake
-      </h1>
-      <hr>
-      <div class="" id="cart-view">
-        <ul></ul>
-      </div>
-      <p class="blockquote-footer  mt-2">Total (carbs - 1800g | sugar - 100g)</p>
-      <button type="button" class="t2b-btn-1" name="button" id="record-nutrition" disabled>Record</button>
     </div>
   </div>
 </div>
+
 {% endblock main %}
 
 {% block secondary %}
-<div class="t2b-container-2 t2b-bg-light shadow">
-  <canvas id="myChart"></canvas>
+<div class="container-fluid my-3">
+  <div class="container-fluid t2b-bg-light-gray mt-3">
+    <div class="row p-4">
+      <div class="col-md-8 overflow-auto">
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4 t2b-bg-white">
+
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock secondary %}
 

@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import FoodItem, MedicalRecord, NutritionIntake
 from .forms import MedicalForm
+from django.views import View
 
 @login_required
 def dashboard(request):
@@ -14,15 +15,18 @@ def glucose(request):
     if request.method == 'POST':
         nutrition_intake = NutritionIntake()
         foodItems = request.POST['foodItems']
-        timestamp = request.POST['mealDate']
-        meal_type = request.POST['mealType']
+        timestamp = request.POST['mealTimestamp']
+        timestamp = timestamp[:-3]
+        from datetime import datetime
+        timestamp = datetime.strptime(timestamp, "%m/%d/%Y %H:%M")
+        server_size = request.POST['serveSize']
         for item in foodItems.split(" "):
             nutrition_intake.food = FoodItem.objects.get(pk=int(item))
             nutrition_intake.timestamp = timestamp
-            nutrition_intake.meal_type = meal_type
+            nutrition_intake.server_size = server_size
             nutrition_intake.user =  request.user
             nutrition_intake.save()
-            messages.success(request, f'Successfully recorded values')
+        messages.success(request, f'Successfully recorded your meal intake')
         return redirect('glucose')
     else:
         return render(request, 'glucose.html')
@@ -37,6 +41,9 @@ def medical(request):
             form.save()
         return redirect('medical')
     else:
+        from datetime import date
+        today = date.today()
+
         form = MedicalForm()
         return render(request, 'medical.html', {'medicalform' : form})
 
@@ -48,3 +55,14 @@ def reminder(request):
 @login_required
 def food(request):
     return render(request,'food.html')
+
+
+@login_required
+def history(request):
+    return render(request, 'history.html')
+
+def HistoryView(View):
+    template_name = 'history.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)

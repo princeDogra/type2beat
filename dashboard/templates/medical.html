@@ -10,93 +10,61 @@
   </button>
 </div>
 {% endfor %}
-<div class="t2b-container-2 t2b-bg-light-gray">
-  <div class="t2b-box1 t2b-bg-white">
-    <h1 class="t2b-h1 t2b-centre">
-      Record you Report Data
-    </h1>
-    <hr>
-    <div class="t2b-form">
-      <form action="{% url 'medical' %}" method="post">{% csrf_token %}
-        <table>
-          {{ medicalform.as_table }}
-          <tr>
-            <td></td>
-            <td><input type="submit" name="Submit" value="Record" class="t2b-btn-1"></td>
-          </tr>
-        </table>
-      </form>
+<div class="container-fluid">
+  <div class="container-fluid t2b-bg-light-gray mt-3">
+    <div class="row p-4">
+      <div class="col-md-8">
+        <h2 class="py-3">Record you Medical Data</h2>
+        {% load widget_tweaks %}
+        <form action="{% url 'medical' %}" method="post">{% csrf_token %}
+          {% for field in medicalform %}
+          <div class="form-group row">
+            {{ field.errors }}
+            <div class="col-sm-4">
+              {{ field.label_tag}}
+            </div>
+            <div class="col-sm-8">
+              {% render_field field class="col-sm-10 form-control" %}
+            </div>
+          </div>
+          {% endfor %}
+          <div class="col-sm-10">
+            <input type="submit" name="Submit" value="Record" class="t2b-btn-1 w-100 my-2">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 t2b-bg-white p-3 justify-content">
+        <h5 class="py-2 font-weight-bold">Diabetes: parameters you should know</h5>
+        <p>Fasting plasma gluose should be <strong><mark>&#x227A;7.0 mmol/L (126 mg/dl)</mark></strong></p>
+        <p>2-h plasma gluose* should be <strong><mark>&#8804;11.1 mmol/L (200 mg/dl)</mark></strong></p>
+        <p>HbA1c (glucose)</p>
+        <ul>
+          <li><p class="bg-success text-white">Non diabetic adults >= 18 years < 5.7</p></li>
+          <li><p class="bg-warning">prediabetes (At risk) 5.7 - 6.4</p></li>
+          <li><p class="bg-danger text-white">Diagnosing Diabetes >= 6.5</p></li>
+        </ul>
+        <p> <small class="blockquote-footer">As per American Diabetes Association (ADA) </small> </p>
+      </div>
     </div>
-    <div class="chart">
-      <canvas id="myChart"></canvas>
-    </div>
-  </div>
-  <div class="t2b-box1 t2b-bg-white">
-    <h1 class="t2b-h1 t2b-centre">
-      Diagnostic Criteria
-    </h1>
-    <hr>
-    <table class="t2b-table table-borderless">
-      <tr>
-        <td collapse="2" class="lead">Diabetes</td>
-      </tr>
-      <tr>
-        <td>Fasting plasma glucose</td>
-        <td>&#x2265; 7.0 mmol/L (126 mg/dl)</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><strong>or</strong></td>
-      </tr>
-      <tr>
-        <td>2-h plasma glucose*</td>
-        <td>&#x2265; 11.1 mmol/L (200 mg/dl)</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><strong>or</strong></td>
-      </tr>
-      <tr>
-        <td>HbA1c</td>
-        <td>&#x2265; 6.5%</td>
-      </tr>
-      <tr>
-        <td collapse="2" class="lead">Impaired glucose tolerance (IGT)</td>
-      </tr>
-      <tr>
-        <td>Fasting plasma glucose</td>
-        <td>&#x227A; 7.0 mmol/L (126 mg/dl)</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><strong>and</strong></td>
-      </tr>
-      <tr>
-        <td>2-h plasma glucose*</td>
-        <td>&#x2265; 7.8 and &#x227A; 11.1 mmol/L (140 mg/dl and 200 mg/dl)</td>
-      </tr>
-      <tr>
-        <td collapse="2" class="lead">Impaired fasting glucose (IFG)</td>
-      </tr>
-      <tr>
-        <td>Fasting plasma glucose</td>
-        <td>&#x227A; 6.1 to 6.9 mmol/L (110 mg/dl to 125 mg/dl)</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><strong>and (if measured)</strong></td>
-      </tr>
-      <tr>
-        <td>2-h plasma glucose*</td>
-        <td>&#x2265; 7.8 mmol/L (140 mg/dl)</td>
-      </tr>
-    </table>
   </div>
 </div>
 {% endblock main %}
 
 {% block secondary %}
+<div class="container-fluid my-3">
+  <div class="container-fluid t2b-bg-light-gray mt-3">
+    <div class="row p-4">
+      <div class="col-md-8 overflow-auto">
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4 t2b-bg-white">
 
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock secondary %}
 
 {% block script %}
