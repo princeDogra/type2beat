@@ -5,7 +5,7 @@
 <header>
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-5 mb-3 t2b-h1">Healthy Diets for Preventing Diabetes</h1>
+        <h1 class="mt-5 mb-3 h1">Healthy Diets for Preventing Diabetes</h1>
     
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -22,10 +22,9 @@
     </div>
     
     <div class = "container">
-      <p class ="lead">Food is important if you want to control your diabetes, learning about a healthy diet can also benefit everyone. There are many diet plans, we are here to recommend some plans that could effectively reduce your blood glucose levels or maintain it at a normal level. </p>
+      <p class ="lead">Learning about a healthy diet can help you avoid diabetes. There are many diet plans, we are here to recommend some plans that could effectively reduce your blood glucose levels or maintain it at a normal level. </p>
       <!-- <h4 class ="mt-5 mb-3 t2b-h1"><strong>WHICH DIET IS RIGHT FOR ME?</strong></h4> -->
-      <h4 class="t2b-font-serif">Which Diet Is Right For Me?</h4>
-      <br>
+      <h4 class="t2b-font-serif p-3">Which Diet Is Right For Me?</h4>
     </div>
 </header>
 {% endblock header %}
@@ -41,11 +40,13 @@
                   </i> &nbsp &nbsp Diet for Type 1 Diabetes</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/Type1Diet.jpg' %}" alt="">
-                  <p class="card-text text-justify">For type 1 diabetes, the advice is not very different from people who don’t have diabetes. First thing is that it is vital to count your carbohydrate intake, as it can balance your insulin intake with what you eat and drink. It is recommended to have a balanced diet, containing a variety of different vegetables, natural food is the best choice compared with other processed foods. </p>
+                  <p class="lead text-justify">
+                    For type 1 diabetes, the advice is not very different from people who don’t have diabetes.
+                  </p>
+                  <div class="text-center">
+                    <a href="https://www.diabetes.co.uk/diet-for-type1-diabetes.html" class="btn btn-primary t2b-btn-1 btn-md">Learn More About Diet for Type 1 Diabetes</a>
+                  </div>
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-2 btn-md">Learn More About Recipe</a>
-                </div> -->
               </div>
             </div>
             
@@ -56,8 +57,12 @@
                   </i> &nbsp &nbsp Diet for Type 2 Diabetes</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/Type2Diet.jpg' %}" alt="">
-                  <p class="card-text text-justify">
-                    For type 2 diabetes, it is important to understand how sugar in the food will affect your blood glucose levels, generally speaking, your diet should contain a variety of different vegetables, which can provide you with different nutrition your body needs, unsaturated fats sources, such as nuts and avocados. Also, it is vital that you avoid processed foods. It is also reported that low-carb diets can improve blood glucose levels.</p>
+                  <p class="lead text-justify">
+                    For type 2 diabetes, it is important to understand how sugar in the food will affect your blood glucose levels.
+                  </p>
+                  <div class="text-center">
+                    <a href="https://www.diabetes.co.uk/diet-for-type2-diabetes.html" class="btn btn-primary t2b-btn-1 btn-md">Learn More About Diet for Type 2 Diabetes</a>
+                  </div>
                 </div>
                 <!-- <div class="card-footer">
                   <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-2 btn-md">Learn More About Recipe</a>
@@ -71,10 +76,13 @@
                   <i class="fad fa-utensils"></i>
                   </i> &nbsp &nbsp Vegan Diet</h4>
                 <div class="card-body">
-                  <img class="img-fluid rounded mb-4" src="{% static 'images/veganDiet.jpg' %}" alt="">
-                  <p class="card-text text-justify">
-                    The idea of a vegan diet has been changing, generally, it means cutting out meat, dairy products. Although the foods you eat are limited, it can definitely improve your blood glucose levels. First, a vegan diet is low in cholesterol and saturated fat, but your body can still get enough fiber and protein, that’s why your blood glucose can be improved. 
+                  <img class="img-fluid rounded mb-4" src="{% static 'images/vgdiet.jpg' %}" alt="">
+                  <p class="lead text-justify">
+                    The idea of a vegan diet means cutting out meat, dairy products. 
                   </p>
+                  <div class="text-center">
+                    <a href="https://www.diabetes.co.uk/diet/vegan-diet.html" class="btn btn-primary t2b-btn-1 btn-md">Learn More About Vegan Diet</a>
+                  </div>
                 </div>
                 <!-- <div class="card-footer">
                   <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-2 btn-md">Learn More About Recipe</a>
@@ -89,18 +97,16 @@
                   </i> &nbsp &nbsp Vegetarian Diet</h4>
                 <div class="card-body">
                   <img class="img-fluid rounded mb-4" src="{% static 'images/VegetarianDiet.jpg' %}" alt="">
-                  <p class="card-text text-justify">
-                    Different from the vegan diet, the vegetarian diet includes dairy products, like cheese and milk, it can also contain other products derived from an animal. But the principle remains the same as the vegan diet.
+                  <p class="lead text-justify">
+                    Different from the vegan diet, the vegetarian diet includes dairy products.
                   </p>
+                  <div class="text-center">
+                    <a href="https://www.diabetes.co.uk/vegetarian-diet.html" class="btn btn-primary t2b-btn-1 btn-md">Learn More About Vegetarian Diet</a>
+                  </div>
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="{% url 'healthy_diets' %}" class="btn btn-primary t2b-btn-2 btn-md">Learn More About Recipe</a>
-                </div> -->
               </div>
             </div>
-
         </div>
-          <!-- /.row -->
     </div>
     <div class="container-fluid t2b-section-2">
 

@@ -238,6 +238,24 @@ body {
     font-size: 18px;
 }
 
+
+.carousel-hyperlink-page {
+  text-decoration: none;
+    color: #69BDBB;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.carousel-hyperlink-page:hover {
+  text-decoration: none;
+  color: grey;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+
+
+
 .t2b-section-1 {
     background-image: linear-gradient(180deg, var(--white), var(--light-gray));
     margin: 0;
@@ -275,6 +293,7 @@ body {
     background-color: #009389;
     color: var(--white);
 }
+
 
 .t2b-form {
   display: grid;
@@ -723,6 +742,6 @@ img::-moz-selection {
   text-align: center;
 }
 
-.t2b-bg-footer {
+/* .t2b-bg-footer {
 
-}
+} */
