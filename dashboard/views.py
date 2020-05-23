@@ -16,6 +16,9 @@ def glucose(request):
         nutrition_intake = NutritionIntake()
         foodItems = request.POST['foodItems']
         timestamp = request.POST['mealTimestamp']
+        timestamp = timestamp[:-3]
+        from datetime import datetime
+        timestamp = datetime.strptime(timestamp, "%m/%d/%Y %H:%M")
         server_size = request.POST['serveSize']
         for item in foodItems.split(" "):
             nutrition_intake.food = FoodItem.objects.get(pk=int(item))
@@ -23,7 +26,7 @@ def glucose(request):
             nutrition_intake.server_size = server_size
             nutrition_intake.user =  request.user
             nutrition_intake.save()
-            messages.success(request, f'Successfully recorded values')
+        messages.success(request, f'Successfully recorded your meal intake')
         return redirect('glucose')
     else:
         return render(request, 'glucose.html')

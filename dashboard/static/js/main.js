@@ -144,18 +144,31 @@ document.querySelector('#record-nutrition').addEventListener('click',()=>{
   inputField.setAttribute('value', val);
   form = document.querySelector('#nutritionIntakeForm');
   form.appendChild(inputField);
-  if (document.querySelector('#nutritionIntakeForm input[type=date]').value === ''){
+  if (document.querySelector('#datetimepicker1 .datetimepicker-input').value === ''){
     let error = document.createElement('p');
     error.append(document.createTextNode('**please select date first.'));
-    error.setAttribute('color','#ff0000');
+    error.setAttribute('color','red');
     error.setAttribute('id','error-tag');
     document.querySelector('#nutritionIntakeForm').appendChild(error);
   }
   else {
-    document.querySelector('#nutritionIntakeForm').submit();
+    if(form.elements['serveSize'] === ''){
+      form.elements['serveSize'].value = 1;
+    }
+    form.submit();
   }
 })
 
+function totalNutrition() {
+  let carbs = sugar = fat = protein = 0;
+  for(let counter=0;counter<cart.length;counter++){
+    carbs += cart[counter].carbohydrates_100g;
+    sugar += cart[counter].sugars_100g;
+    fat += cart[counter].fat_100g;
+    protein += cart[counter].proteins_100g;
+  }
+  console.log(cabs + "KJ | " + sugar + "mg | ");
+}
 
 let calServingSize = (food) => {
   let quant = null;
@@ -221,12 +234,12 @@ function loadMedicalData(){
   });
 };
 
-// loading dashboard charts
-function loadDashboardCharts() {
-
-}
 
 function loadDashBoard(){
   // load medical data and poplate it
   loadMedicalData();
 };
+
+function loadHistory() {
+  
+}

@@ -500,7 +500,7 @@ body {
   bottom: 0;
 }
 
-.t2b-box3>button:disabled {
+#record-nutrition:disabled {
   box-shadow: none;
   background-color: var(--primary);
   border: 2px solid var(--secondary);

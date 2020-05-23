@@ -4,11 +4,8 @@ from django.contrib.auth import get_user_model
 class FoodItem(models.Model):
     id = models.AutoField(primary_key=True)
     product_name = models.TextField(blank=False)
-    ingredients_text = models.TextField(blank=True)
-    allergens = models.TextField(blank=True)
     serving_size = models.TextField(blank=True)
     fat_100g = models.DecimalField(max_digits=11, decimal_places=6, blank=True)
-    cholesterol_100g = models.DecimalField(max_digits=11, decimal_places=6, blank=True)
     carbohydrates_100g = models.DecimalField(max_digits=11, decimal_places=6, blank=True)
     sugars_100g = models.DecimalField(max_digits=11, decimal_places=6, blank=True)
     fiber_100g = models.DecimalField(max_digits=11, decimal_places=6, blank=True)

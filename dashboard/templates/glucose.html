@@ -40,7 +40,7 @@
                 {% csrf_token %}
                 <div class="form-group">
                   <label for="serving size">Serving Size</label>
-                  <input type="input" class="form-control" name="serveSize" value="" required>
+                  <input type="input" class="form-control" name="serveSize" value="1" required>
                 </div>
                 <div class="form-group">
                   <label for="serving size">Date & Time</label>
@@ -57,7 +57,7 @@
                   </script>
                 </div>
               </form>
-              <p class="blockquote-footer"> Total nutrition intake </br>carbs 1400kJ | protien 23g | sugar 100g</p>
+              <p class="blockquote-footer" id="nutrition-board"> Total nutrition intake </br>carbs 1400kJ | protien 23g | sugar 100g</p>
               <button type="button" name="button" class="t2b-btn-1 mt-3 w-100">Select</button>
             </div>
           </div>
@@ -66,7 +66,7 @@
       <div class="col-md-3">
         <h1>Your Intake</h1>
         <hr>
-        <div class="t2b-bg-white" id="cart-view">
+        <div class="t2b-bg-white p-3" id="cart-view">
           <ul></ul>
         </div>
         <button type="button" class="t2b-btn-1 w-100 mt-3" name="button" id="record-nutrition" disabled>Record</button>
@@ -78,8 +78,19 @@
 {% endblock main %}
 
 {% block secondary %}
-<div class="t2b-container-2 t2b-bg-light shadow">
-  <canvas id="myChart"></canvas>
+<div class="container-fluid my-3">
+  <div class="container-fluid t2b-bg-light-gray mt-3">
+    <div class="row p-4">
+      <div class="col-md-8 overflow-auto">
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4 t2b-bg-white">
+
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock secondary %}
 

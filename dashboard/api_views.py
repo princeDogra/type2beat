@@ -73,18 +73,14 @@ class NutritionIntakeChartData(APIView):
 
     def generate_data(self, request):
         queryset = NutritionIntake.objects.filter(user=request.user).order_by('timestamp')
-        data = {'labels':[], 'productName':[],'sugar': [], 'fat':[], 'carbohydrate': [], 'salt': []}
+        data = {'labels':[], 'productName':[],'sugar': [], 'fat':[], 'carbohydrate': [], 'protein': []}
         for item in queryset:
             data['labels'].append(str(item.timestamp))
             data['productName'].append(item.food.product_name)
             data['sugar'].append(item.food.sugars_100g)
             data['fat'].append(item.food.fat_100g)
             data['carbohydrate'].append(item.food.carbohydrates_100g)
-            # data['protein'].append(item.proteins_100g)
-            data['salt'].append(item.food.salt_100g)
-            # data['sodium'].append(item.sodium_100g)
-            # data['cholesterol'].append(item.cholesterol_100g)
-            # data['fiber'].append(item.fiber_100g)
+            data['protein'].append(item.food.proteins_100g)
         return data
 
     def get(self, request, format=None):
@@ -107,9 +103,9 @@ class NutritionIntakeChartData(APIView):
             'data': data['fat']
         },
         {
-            'label': 'Salt',
+            'label': 'protein',
             'backgroundColor': 'rgba(255, 166, 0, 1)',
-            'data': data['salt']
+            'data': data['protein']
         }]
         data = {
             "labels": labels,
