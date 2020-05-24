@@ -10,9 +10,10 @@ class FoodItemSerializer(serializers.ModelSerializer):
 
 
 class NutritionIntakeSerializer(serializers.ModelSerializer):
+    food_item = serializers.CharField(source='food.product_name',read_only=True)
     class Meta:
         model = NutritionIntake
-        fields = ('food', 'user', 'meal_type', 'timestamp')
+        fields = ('server_size', 'timestamp','food','food_item')
 
 class MedialRecordSerializer(serializers.ModelSerializer):
     class Meta:

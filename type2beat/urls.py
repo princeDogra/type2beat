@@ -22,7 +22,7 @@ from django.contrib.auth import views as auth_views
 from awareness import views as awareness_views
 from dashboard import views as dash_views
 from users import views as user_views
-from dashboard.api_views import MedicalChartData,NutritionIntakeChartData, MedicalData
+from dashboard.api_views import MedicalChartData,NutritionIntakeChartData, MedicalData, NutritionIntakeData
 from dashboard import api_views as dashboard_api_views
 
 urlpatterns = [
@@ -53,6 +53,7 @@ urlpatterns = [
     url(r'^api/chart/data/medical', MedicalChartData.as_view()),
     url(r'^api/chart/data/glucose', NutritionIntakeChartData.as_view()),
     url(r'^api/data/food/', dashboard_api_views.FoodItemList.as_view()),
+    url(r'^api/data/nutrition',NutritionIntakeData.as_view()),
     url(r'^api/data/medical', MedicalData.as_view()),
     url(r'^food/', dash_views.food, name='food'),
     url(r'^privacy/', awareness_views.privacy, name='privacy'),

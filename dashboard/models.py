@@ -28,7 +28,7 @@ class MedicalRecord(models.Model):
         return (self.user.username + ' - ' + str(self.timestamp))
 
 class NutritionIntake(models.Model):
-    food = models.ForeignKey(FoodItem, on_delete=models.CASCADE)
+    food = models.ForeignKey(FoodItem, related_name="food_item", on_delete=models.CASCADE)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     server_size = models.PositiveSmallIntegerField(default=1)
     timestamp = models.DateTimeField(blank=False, null=False)

@@ -232,7 +232,7 @@ function loadMedicalData(){
       console.log(error_data)
     }
   });
-};
+}
 
 
 function loadDashBoard(){
@@ -240,6 +240,137 @@ function loadDashBoard(){
   loadMedicalData();
 };
 
+// =============================================================================
+// ++++++++++++++++  H I S T O R Y - F I L E  ++++++++++++++++++++++++++++++++++
+// =============================================================================
+
+
+// function searchFoodItem(ep_url){
+//   const ENDPOINT = ep_url;
+//   $.ajax ({
+//     method: "GET",
+//     url: ENDPOINT,
+//     async: false,
+//     success: function(data) {
+//       return data;
+//     },
+//     error: function(error_data) {
+//       console.log("error")
+//       console.log(error_data)
+//     }
+//   });
+// }
+
+
+function createMedicalHistory(data) {
+  const keys = Object.keys(data[0]);
+  const ALIASKEYS = {"timestamp":"Date", "h2_plasma_glucose": "H2 Plasma Glucose", "fasting_plasma_glucose":"Fasting Plasma Glucose", "hbA1c":"HbA1c"};
+  let parent = document.querySelector('#medical');
+  let table = document.createElement('table');
+  let tableBody = document.createElement('tbody');
+
+  for (let i = 0; i < data.length; i++){
+
+    let row = document.createElement('tr');
+
+    if (i==0){
+      let tableHeadRow = document.createElement('tr');;
+      for (let i=0;i<keys.length;i++){
+        let th = document.createElement('th');
+        let thText = document.createTextNode(ALIASKEYS[keys[i]]);
+        th.appendChild(thText);
+        tableHeadRow.appendChild(th);
+      }
+      tableBody.appendChild(tableHeadRow);
+    }
+
+    for (let j=0;j<keys.length;j++){
+        let cell = document.createElement('td');
+        let cellText = document.createTextNode(data[i][keys[j]]);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+    }
+    tableBody.appendChild(row);
+  }
+  tableBody.setAttribute('class','w-100');
+  table.appendChild(tableBody);
+  table.setAttribute("class","table table-striped");
+  parent.appendChild(table);
+}
+
+function createNutritionHistory(data) {
+  let foodItemInfo = {};
+  const ALIASKEYS = {"timestamp":"Date", "food_item": "Food Name", "server_size":"Serving Size"};
+  const KEYS = Object.keys(ALIASKEYS);
+  let parent = document.querySelector('#nutrition');
+  let table = document.createElement('table');
+  let tableBody = document.createElement('tbody');
+
+  for (let i = 0; i < data.length; i++){
+
+    // search an store food information based on its id
+    // foodItemInfo[data[i]['food']] = searchFoodItem();
+
+    let row = document.createElement('tr');
+    if (i==0){
+      let tableHeadRow = document.createElement('tr');;
+      for (let j=0;j<KEYS.length;j++){
+        let th = document.createElement('th');
+        let thText = document.createTextNode(KEYS[j]);
+        th.appendChild(thText);
+        tableHeadRow.appendChild(th);
+      }
+      let th = document.createElement('th');
+      th.appendChild(document.createTextNode("Nutrition"));
+      tableHeadRow.appendChild(th);
+      tableBody.appendChild(tableHeadRow);
+    }
+
+    for (let j=0;j<KEYS.length;j++){
+        let cell = document.createElement('td');
+        let cellText = document.createTextNode(data[i][KEYS[j]]);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+    }
+    let cell = document.createElement('td');
+    let ENDPOINT = '/api/data/food/?search='+data[i]['food'];
+    $.ajax ({
+      method: "GET",
+      url: ENDPOINT,
+      success: function(data) {
+        console.log(data);
+        cell.appendChild(document.createTextNode("Carbohydrates: " + data[0].carbohydrates_100g + "\nSugar: " + data[0].sugars_100g + "\nProtein: " + data[0].proteins_100g));
+        row.appendChild(cell);
+      },
+      error: function(error_data) {
+        console.log("error")
+        console.log(error_data)
+      }
+    });
+    tableBody.appendChild(row);
+  }
+  tableBody.setAttribute('class','w-100');
+  table.appendChild(tableBody);
+  table.setAttribute("class","table table-striped");
+  parent.appendChild(table);
+}
+
+function loadHistoryData(ep_url, callback){
+  const ENDPOINT = ep_url;
+  $.ajax ({
+    method: "GET",
+    url: ENDPOINT,
+    success: function(data) {
+      callback(data)
+    },
+    error: function(error_data) {
+      console.log("error")
+      console.log(error_data)
+    }
+  });
+}
+
 function loadHistory() {
-  
+  loadHistoryData('/api/data/medical', createMedicalHistory);
+  loadHistoryData('/api/data/nutrition', createNutritionHistory);
 }

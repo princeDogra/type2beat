@@ -15,7 +15,7 @@ class FoodItemList(ListAPIView):
     queryset = FoodItem.objects.all()
     serializer_class = FoodItemSerializer
     filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ('product_name',)
+    search_fields = ('product_name','=id')
 
 class MedicalData(ListAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -24,7 +24,18 @@ class MedicalData(ListAPIView):
     model = serializer_class.Meta.model
 
     def get_queryset(self):
-        queryset = self.model.objects.filter(user=self.request.user).order_by('timestamp')
+        queryset = self.model.objects.filter(user=self.request.user).order_by('-timestamp')
+        return queryset
+
+class NutritionIntakeData(ListAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = NutritionIntakeSerializer
+    model = serializer_class.Meta.model
+
+    def get_queryset(self):
+        queryset = self.model.objects.filter(user=self.request.user).order_by('-timestamp')
+        print(queryset)
         return queryset
 
 class MedicalChartData(APIView):
