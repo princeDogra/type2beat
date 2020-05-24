@@ -13,22 +13,22 @@
       </ol>
       <div class="carousel-inner text-center" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('{% static 'images/Asset 3-100.jpg' %}')">
-          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-dark t2b-font-serif">
-            <p><strong class="display-4">Do you know Diabetes can be prevented?</strong><br>If you are new to type2beat, then come <a href="{% url 'services' %}" class="carousel-hyperlink"> <strong>join us</strong></a> and Learn
-            how to prevent diabetes type 2.</p>
+        <div class="carousel-item active" style="background-image: url('{% static 'images/home-Page1.jpg' %}')">
+          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-light t2b-font-serif">
+            <p><strong class="display-4">Do you know Diabetes can be prevented?</strong><br>If you are new to type2beat, then come <a href="{% url 'services' %}" class="carousel-hyperlink-page"> <strong>Join Us</strong></a> and Learn
+            how to prevent diabetes.</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('{% static 'images/prevention.jpg' %}')">
+        <div class="carousel-item" style="background-image: url('{% static 'images/home-Page2.jpg' %}')">
           <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-light t2b-font-serif">
-            <p><strong class="display-4">Diabetes: Prevention is better than Cure</strong><br>Type2Beat can help preventing you from diabetes. <a href="{% url 'prevention' %}" class="carousel-hyperlink"> <strong>Learn More</strong> </a></p>
+            <p><strong class="display-4">Diabetes: Prevention is better than Cure</strong><br>Type2Beat can help you prevent diabetes. <a href="{% url 'prevention' %}" class="carousel-hyperlink-page"> <strong>Learn More</strong> </a></p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('{% static 'images/food.jpg' %}')">
-          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-dark t2b-font-serif">
-            <p><strong class="display-4">Healthy diet is a game changer in diabete prevention</strong><br>Check how many carbs you had today <a href="{% url 'login' %}" class="font-weight-bold text-unstyled"> <strong>with us</strong> </a></p>
+        <div class="carousel-item" style="background-image: url('{% static 'images/home-Page3.jpg' %}')">
+          <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-light t2b-font-serif">
+            <p><strong class="display-4">A healthy diet is a game-changer in diabete prevention</strong><br>Check how many carbs you had today <a href="{% url 'login' %}" class="carousel-hyperlink-page"> <strong>with us</strong> </a></p>
           </div>
         </div>
       </div>
@@ -47,10 +47,10 @@
 {% block main %}
 <div class="container-fluid t2b-section-1">
     <div class="container p-5">
-      <h1 class="my-4 t2b-h1">"Start your Healthy Life Journey"</h1>
-      <h4>Track your health everyday</h4>
+      <h1 class="my-4 t2b-h1">"Change your lifestyle today"</h1>
+      <h4>Track your health daily</h4>
       <h6>and</h6>
-      <h4>prevent Diabetes</h4>
+      <h4>Prevent Diabetes</h4>
     </div>
 </div>
 
@@ -62,7 +62,9 @@
         over 1 million hospitalizations were associated with diabetes in 2016-2017, it
         is associated with a myriad of complications which affect the feet, eyes, kidney,
         and cardiovascular health. </p>
-        <button type="button" name="button" class="t2b-btn-3">Know More</button>
+        <div class ="text-center">
+          <a class="t2b-btn-3 align-center" href="https://www.diabetesaustralia.com.au/">Know More</a>
+        </div>
     </div>
   </div>
 </div>
@@ -99,71 +101,41 @@
   </div>
 </div>
 
-<div class="container-fluid bg-t2b-dark h-100 t2b-text-light">
-  <div class="container p-5">
+<!--End of Page Facts-->
+
+<div class="container-fluid t2b-bg-gray h-100 t2b-text-light p-3">
+  <!-- <div class="container p-5"> -->
     <div class="row h-100">
-      <div class="col-md-6 t2b-cause">
-        <h1 class="t2b-h1">CAUSES<br><small>&</small><br>SYMPTOMS</h1>
-        <div class="row p-5">
-          <a href="{% url 'diabetes' %}" class="t2b-btn-light m-3"> know more</a>
+      <div class="col-lg-6">
+        <div class="container-fluid parallax" style="background-image: url('{% static 'images/home-Page1.jpg' %}')">
+          <!-- <div class="container-fluid content">
+          </div> -->
         </div>
       </div>
-<<<<<<< HEAD
-      <div class="col-md-6">
-        <div class="container-fluid parallax" style="background-image: url('{% static 'images/vgdiet.jpg' %}')">
-          <div class="container-fluid content">
-            <div class="heading t2b-bg-dark-alpha">
+
+      <div class="col-lg-6 heading pb-5">
+        <div class="container p-4">
+          <h1 class="t2b-h1">CAUSES</h1>
+          <h1 class="t2b-h1">&</h1>
+          <h1 class="t2b-h1">SYMPTOMS</h1>
+          <div class ="text-center text-justify">
+            <br>
+            <h5 class="t2b-text-white">Diabetes is the excess sugar in the blood and its symptoms differ by type. These symptoms vary depending on the sugar level in the blood. It is hard to tell sometimes that people are pre-diabetic or diabetic because all human beings are different and their body responds differently. </h5>
+            <div class ="text-center ">
+              <br>
+              <br>
+              <a class="t2b-btn-3 align-center" href="{% url 'diabetes' %}" >Know More</a>
 
             </div>
-=======
-      <div class="col-md-6 t2b-text-light t2b-font-serif">
-        <div class="row">
-          <h2 class="pb-2 pt-2">causes</h2>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h4>Type 1</h4>
-            <p class="t2b-text-silver font-weight-light"><i class="fas fa-arrow-circle-right"></i> Viral or bacterial infection</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Chemical toxins within food</p>
-            <p><i class="fas fa-arrow-circle-right"></i> autoimmune reaction</p>
-            <p><i class="fas fa-arrow-circle-right"></i> genetic disposition</p>
-          </div>
-          <div class="col-md-6">
-            <h4>Type 2</h4>
-            <p><i class="fas fa-arrow-circle-right"></i> Obesity</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Living a sedentary lifestyle</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Increasing age</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Bad diet</p>
-          </div>
-        </div>
-        <div class="row">
-          <h2 class="pb-3 pt-3">symptoms</h2>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h4>Type 1</h4>
-            <p class="t2b-text-silver"><i class="fas fa-arrow-circle-right"></i> Excessive thirst</p>
-            <p class="t2b-text-silver"><i class="fas fa-arrow-circle-right"></i> Frequent urination</p>
-            <p class="t2b-text-silver"><i class="fas fa-arrow-circle-right"></i> Excessive hunger</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Unexplained weakness and fatigue</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Unexplained weight loss</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Blurred vision</p>
-          </div>
-          <div class="col-md-6">
-            <h4>Type 2</h4>
-            <p><i class="fas fa-arrow-circle-right"></i> Blurred vision</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Tiredness</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Urinating more frequently</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Feeling thirsty all the time</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Recurrent infections</p>
-            <p><i class="fas fa-arrow-circle-right"></i> Always feeling hungry</p>
->>>>>>> b13bc28b61d0214b99374a9e92e645f0a57af65b
+              <!-- <a class="t2b-btn-3 align-center" href="https://www.diabetesaustralia.com.au/">Know More</a> -->
+
           </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
+
+<!-- Page Causes and Symptoms -->
 
 <div class="container-fluid t2b-bg-gradient-2 p-3 t2b-text-white">
   <div class="container card-content">
@@ -172,7 +144,7 @@
       <p></p>
     </div>
     <div class="row">
-      <div class="col-sm-4 t2b-text-secondary">
+      <div class="col-md-4 t2b-text-secondary">
         <div class="card p-3 t2b-bg-white t2b-center t2b-shadow">
           <h1 class="card-title text-center t2b-text-dark font-weight-bold">Diet</h1>
           <i class="fas fa-salad fa-8x t2b-text-secondary p-3"></i>
@@ -182,7 +154,7 @@
           <a href="{% url 'healthy_diets' %}" class="t2b-btn t2b-btn-dark">Learn More</a>
         </div>
       </div>
-      <div class="col-sm-4 t2b-text-secondary">
+      <div class="col-md-4 t2b-text-secondary">
         <div class="card p-3 t2b-bg-white t2b-center t2b-shadow">
           <h1 class="card-title text-center t2b-text-dark font-weight-bold">Exercise</h1>
           <i class="fas fa-dumbbell fa-8x t2b-text-secondary p-3"></i>
@@ -193,7 +165,7 @@
           <a href="{% url 'exercises' %}" class="t2b-btn t2b-btn-dark">Learn More</a>
         </div>
       </div>
-      <div class="col-sm-4 t2b-text-secondary">
+      <div class="col-md-4 t2b-text-secondary">
         <div class="card p-3 t2b-bg-white t2b-center t2b-shadow">
           <h1 class="card-title text-center t2b-text-dark font-weight-bold">Monitoring</h1>
           <i class="fas fa-chart-pie fa-8x t2b-text-secondary p-3"></i>
@@ -210,8 +182,8 @@
 <div class="container-fluid">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mt-5">
-        <h1 class="t2b-font-serif">OUR PRODUCT</h1>
+      <div class="col-md-6 my-5">
+        <h1 class="t2b-font-serif">REGISTER WITH US</h1>
         <p>It helps you prevent diabetes, by providing a web application
         where you can record your daily Carbs, Protien, Sugar and Fat intake. We offer</p>
         <h5><i class="fas fa-check-circle t2b-text-secondary p-3"></i> 200,000+ Food options to choose from</h5>
@@ -219,10 +191,17 @@
         <h5><i class="fas fa-check-circle t2b-text-secondary p-3"></i> Record diabetes report</h5>
         <h5><i class="fas fa-check-circle t2b-text-secondary p-3"></i> Graphical health record</h5>
         <h5><i class="fas fa-check-circle t2b-text-secondary p-3"></i> Maintain historical Data</h5>
+        <a href="{% url 'register' %}" class="btn btn-primary t2b-btn-1 btn-md">REGISTER WITH US</a>
+
       </div>
-      <div class="col-md-6 t2b-h500 mt-5">
+      <div class="col-md-6 t2b-h500 mt-5 p-5">
         <img src="{% static 'images/dashboard.jpg' %}" alt="" class="img-fluid">
       </div>
+      <!-- <div class="row">
+        <a href="{% url 'fast' %}" class="btn btn-primary t2b-btn-1 btn-md">LEARN MORE</a>
+
+      </div> -->
+
     </div>
   </div>
 </div>

@@ -46,6 +46,7 @@ urlpatterns = [
     url(r'^digestion',awareness_views.digestion,name ='digestion'),
     url(r'^skin',awareness_views.skin,name='skin'),
     url(r'^medical/', dash_views.medical, name='medical'),
+    url(r'^conditions', awareness_views.conditions,name='conditions'),
     url(r'^reminder/', dash_views.glucose, name='reminder'),
     url(r'^register/', user_views.register, name='register'),
     url(r'^login/', user_views.login, name='login'),

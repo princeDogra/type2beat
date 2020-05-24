@@ -374,7 +374,6 @@ body {
 }
 
 .t2b-btn-3 {
-  display: grid;
   margin: 0 auto;
   text-decoration: none;
   padding: 1rem 2.95rem;
@@ -389,6 +388,8 @@ body {
 .t2b-btn-3:hover{
   /* background-color:  */
   transition: .3s ease-in-out;
+  text-decoration: none;
+  color: var(--white);
   -webkit-box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
   -moz-box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
   box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
@@ -771,11 +772,6 @@ img::-moz-selection {
   text-align: center;
 }
 
-<<<<<<< HEAD
-/* .t2b-bg-footer {
-
-} */
-=======
 
 .vr-line {
   position: absolute;
@@ -784,4 +780,3 @@ img::-moz-selection {
   height: 100px;
   right: 0;
 }
->>>>>>> b13bc28b61d0214b99374a9e92e645f0a57af65b

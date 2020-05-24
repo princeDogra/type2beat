@@ -46,11 +46,6 @@
                         <a class="dropdown-item t2b-text-white" href="{% url 'fast' %}">Fasting and Diabetes</a>
                     </div>
                 </li>
-<<<<<<< HEAD
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'services' %}">Services</a>
-                </li> -->
-=======
                 {% if request.user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
@@ -59,7 +54,6 @@
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
                 {% else %}
->>>>>>> b13bc28b61d0214b99374a9e92e645f0a57af65b
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
