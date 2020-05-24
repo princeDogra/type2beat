@@ -52,3 +52,7 @@ def skin(request):
 
 def privacy(request):
     return render(request, 'privacy.html')
+
+def conditions(request):
+    return render(request, 'conditions.html')
+
