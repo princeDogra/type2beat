@@ -1,17 +1,17 @@
 const menuBtn = document.querySelector('.menu-btn');
 const wrapper = document.querySelector('#wrapper');
-let menuOpen = false;
+let menuOpen = true;
 
 menuBtn.addEventListener('click', () => {
-    if (!menuOpen) {
-        menuBtn.classList.add('open');
+    if (menuOpen) {
+        menuBtn.classList.remove('open');
         wrapper.classList.add('toggled');
-        menuOpen = true;
+        menuOpen = false;
     }
     else{
-        menuBtn.classList.remove('open');
+        menuBtn.classList.add('open');
         wrapper.classList.remove('toggled');
-        menuOpen = false;
+        menuOpen = true;
     }
 })
 

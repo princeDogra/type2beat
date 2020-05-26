@@ -555,7 +555,7 @@ body {
 
   @media (min-width: 768px) {
     #sidebar-wrapper {
-      margin-left: -15rem;
+      margin-left: 0rem;
     }
 
     #page-content-wrapper {
@@ -564,7 +564,7 @@ body {
     }
 
     #wrapper.toggled #sidebar-wrapper {
-      margin-left: 0;
+      margin-left: -15rem;
     }
     .t2b-navbar-hero {
         margin-left: 2rem;
