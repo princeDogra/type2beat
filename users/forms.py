@@ -13,12 +13,17 @@ from django.contrib.auth.forms import UserCreationForm
 #     contact = forms.CharField(label='Mobile', max_length=11, required=False, widget=forms.TextInput(attrs={'placeholder':'Enter your Mobile Number here'}))
 #
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(max_length=28, required=True, widget=forms.TextInput(attrs={'placeholder':'email: janedoe@abc.com'}))
+    username = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'placeholder':'username: janedoe'}))
+    first_name = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'placeholder':'first name: jane'}))
+    last_name = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'placeholder':'lastname: doe'}))
+    password1 = forms.CharField(label='Password', max_length=16, required=True, widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
+    password2 = forms.CharField(label='Re-enter password', max_length=16, required=True, widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
     class Meta:
         model = User
-        fields = ['first_name','last_name','username', 'password1', 'password2']
+        fields = ['first_name','last_name','username','email', 'password1', 'password2']
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label='username*', max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder':'example: janedoe'}))
-    password = forms.CharField(label='password*', max_length=16, required=True, widget=forms.TextInput(attrs={'placeholder':'example: abc@123', 'type':'password'}))
+    username = forms.CharField(label='username*', max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder':'username: janedoe'}))
+    password = forms.CharField(label='password*', max_length=16, required=True, widget=forms.TextInput(attrs={'placeholder':'password: abc@123', 'type':'password'}))
