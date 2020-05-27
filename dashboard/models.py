@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator
+
 
 class FoodItem(models.Model):
     id = models.AutoField(primary_key=True)
@@ -20,9 +22,9 @@ class FoodItem(models.Model):
 class MedicalRecord(models.Model):
     timestamp = models.DateField(blank=False)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    h2_plasma_glucose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, default=0.0)
-    fasting_plasma_glucose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, default=0.0)
-    hbA1c = models.DecimalField(max_digits=4, decimal_places=2, blank=True, default=0.0)
+    h2_plasma_glucose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, default=0.0, validators=[MinValueValidator(0.01)])
+    fasting_plasma_glucose = models.DecimalField(max_digits=4, decimal_places=2, blank=True, default=0.0, validators=[MinValueValidator(0.01)])
+    hbA1c = models.DecimalField(max_digits=4, decimal_places=2, blank=True, default=0.0, validators=[MinValueValidator(0.01)])
 
     def __str__(self):
         return (self.user.username + ' - ' + str(self.timestamp))

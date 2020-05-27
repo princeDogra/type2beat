@@ -3,12 +3,21 @@
 {% block title %}Medical Records | Type2Beat{% endblock title %}
 {% block main %}
 {% for message in messages %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  {{message}}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
 {% endfor %}
 <div class="container-fluid">
   <div class="container-fluid t2b-bg-light-gray mt-3">

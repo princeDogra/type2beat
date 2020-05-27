@@ -16,8 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path, include
 from dashboard import views as dash_views
-from dashboard import api_views as dash_api_views
+from dashboard.api import api_views as dash_api_views
 
 urlpatterns = [
     url(r'^dashboard/', dash_views.dashboard, name='dashboard'),

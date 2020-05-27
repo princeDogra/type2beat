@@ -1,5 +1,5 @@
 from rest_framework.generics import ListAPIView, CreateAPIView
-from dashboard.serializers import FoodItemSerializer, NutritionIntakeSerializer, MedialRecordSerializer
+from .serializers import FoodItemSerializer, NutritionIntakeSerializer, MedialRecordSerializer
 from dashboard.models import FoodItem, MedicalRecord, NutritionIntake
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter

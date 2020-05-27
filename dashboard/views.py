@@ -39,6 +39,10 @@ def medical(request):
         if form.is_valid():
             messages.success(request, f'Successfully recorded values')
             form.save()
+        else:
+            if float(request.POST['h2_plasma_glucose']) < 0:
+                messages.error(request, f'Value should be positive')
+            return redirect('medical')
         return redirect('medical')
     else:
         from datetime import date

@@ -237,10 +237,6 @@ body {
     transition: 0.3s ease-in;
 }
 
-.menu-btn:hover{
-    transition: 0.3s ease-in;
-}
-
 .hamburger {
     width: 28px;
     height: 4px;
@@ -282,6 +278,7 @@ body {
 .menu-btn.open .hamburger::after {
     transform: rotate(-45deg) translate(35px, 35px);
 }
+
 
 .navbar-toggle{
     background-color: transparent;
@@ -570,14 +567,3 @@ body {
         margin-left: 2rem;
     }
   }
-
-
-  /* .chart {
-    margin-top: 10px;
-    border: 1px solid var(--light-gray);
-    border-radius: 10px;
-    width: 100%;
-    height: 70%;
-    padding: 20px;
-    background: var(--light-gray);
-  } */

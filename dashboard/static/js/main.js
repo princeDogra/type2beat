@@ -3,15 +3,15 @@ const wrapper = document.querySelector('#wrapper');
 let menuOpen = true;
 
 menuBtn.addEventListener('click', () => {
-    if (menuOpen) {
-        menuBtn.classList.remove('open');
-        wrapper.classList.add('toggled');
-        menuOpen = false;
-    }
-    else{
+    if (!menuOpen) {
         menuBtn.classList.add('open');
         wrapper.classList.remove('toggled');
         menuOpen = true;
+    }
+    else{
+        menuBtn.classList.remove('open');
+        wrapper.classList.add('toggled');
+        menuOpen = false;
     }
 })
 
