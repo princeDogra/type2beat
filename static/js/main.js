@@ -1,16 +1,16 @@
 const menuBtn = document.querySelector('.menu-btn');
 const wrapper = document.querySelector('#wrapper');
-let menuOpen = false;
+let menuOpen = true;
 
 menuBtn.addEventListener('click', () => {
     if (!menuOpen) {
         menuBtn.classList.add('open');
-        wrapper.classList.add('toggled');
+        wrapper.classList.remove('toggled');
         menuOpen = true;
     }
     else{
         menuBtn.classList.remove('open');
-        wrapper.classList.remove('toggled');
+        wrapper.classList.add('toggled');
         menuOpen = false;
     }
 })
@@ -244,24 +244,6 @@ function loadDashBoard(){
 // ++++++++++++++++  H I S T O R Y - F I L E  ++++++++++++++++++++++++++++++++++
 // =============================================================================
 
-
-// function searchFoodItem(ep_url){
-//   const ENDPOINT = ep_url;
-//   $.ajax ({
-//     method: "GET",
-//     url: ENDPOINT,
-//     async: false,
-//     success: function(data) {
-//       return data;
-//     },
-//     error: function(error_data) {
-//       console.log("error")
-//       console.log(error_data)
-//     }
-//   });
-// }
-
-
 function createMedicalHistory(data) {
   const keys = Object.keys(data[0]);
   const ALIASKEYS = {"timestamp":"Date", "h2_plasma_glucose": "H2 Plasma Glucose", "fasting_plasma_glucose":"Fasting Plasma Glucose", "hbA1c":"HbA1c"};
@@ -307,9 +289,6 @@ function createNutritionHistory(data) {
   let tableBody = document.createElement('tbody');
 
   for (let i = 0; i < data.length; i++){
-
-    // search an store food information based on its id
-    // foodItemInfo[data[i]['food']] = searchFoodItem();
 
     let row = document.createElement('tr');
     if (i==0){

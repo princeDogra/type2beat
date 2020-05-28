@@ -1,21 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Source+Sans+Pro:wght@200;400&display=swap');
-
-/* colors {
-    primary: #009389
-    secondary: #69BDBB
-    bg-dark: #272727
-    bg-light: #c0c0c0
-} */
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Source+Sans+Pro:wght@200;400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 
 :root {
-    --font-family-sans-serif: 'Source Sans Pro',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    --font-family-serif: Merriweather, serif;
-
     --gray: #404040;
     --primary: #69BDBB;
     --primary-dark: rgb(105,189,116);
     --primary-light: #b8f2e6;
     --secondary: #009389;
+    --secondary-dark: #007d74;
     --dark: #000;
     --light: #c0c0c0;
     --white: #fff;
@@ -24,14 +16,15 @@
     --dark-secondary: #343a40;
     --text-primary: #d3d3d3;
     --silver: #a9a9a9;
+    --font-family: 'Open Sans',sans-serif;
 
     --color-text: var(--dark);
-    --font-family-text: var(--font-family-serif);
 }
 
 
 body {
     padding-top: 56px;
+    font-family: var(--font-family);
 }
 
 .t2b-bg-primary {
@@ -95,7 +88,7 @@ body {
 }
 
 .t2b-font-serif {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
 }
 
 .t2b-bg-gradient-2 {
@@ -186,13 +179,13 @@ body {
   padding: 12% 12% 4% 12%;
   font-size: 24px;
   color: var(--text-primary);
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
 }
 
 .card-content {
   width: 100%;
   height: auto;
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
 }
 
 .card {
@@ -270,7 +263,7 @@ body {
     margin: 0;
     text-align: center;
     padding: 1.5rem;
-    font-family: var(--font-family-san-serif);
+    font-family: var(--font-family);
 }
 
 
@@ -336,7 +329,7 @@ body {
   color: var(--white);
   border: none;
   border-radius: 5px;
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
   -webkit-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
@@ -382,7 +375,6 @@ body {
   color: var(--white);
   border: 2px solid var(--white);
   border-radius: 10px;
-  font-family: var(--font-family-serif);
 }
 
 .t2b-btn-3:hover{
@@ -393,6 +385,28 @@ body {
   -webkit-box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
   -moz-box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
   box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
+}
+
+.t2b-btn-primary {
+  text-decoration: none;
+  display: grid;
+  margin: 0 auto;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  transition: 0.2s ease-out;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 1px solid var(--secondary);
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.t2b-btn-primary:hover {
+  text-decoration: none;
+  background-color: var(--secondary-dark);
+  transition: .2s ease-in;
+  color: var(--white);
 }
 
 .t2b-btn-dark {
@@ -407,7 +421,7 @@ body {
   color: var(--white);
   border: 1px solid var(--dark);
   text-align: center;
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
 }
 
 .t2b-btn-dark:hover {
@@ -427,7 +441,7 @@ body {
   color: var(--primary);
   border: 2px solid var(--primary);
   border-radius: 10px;
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
 }
 
 .t2b-btn-light:hover {
@@ -525,7 +539,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
   margin-bottom: 4rem;
 }
 
@@ -768,7 +782,7 @@ img::-moz-selection {
 }
 
 .t2b-h1 {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
   text-align: center;
 }
 

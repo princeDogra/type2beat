@@ -36,18 +36,31 @@ def medical(request):
     if request.method == 'POST':
         form = MedicalForm(request.POST)
         form.instance.user = request.user
-        if form.is_valid():
-            messages.success(request, f'Successfully recorded values')
-            form.save()
-        else:
-            if float(request.POST['h2_plasma_glucose']) < 0:
-                messages.error(request, f'Value should be positive')
+        from datetime import datetime
+        queryset = MedicalRecord.objects.filter(user=request.user, timestamp__startswith=datetime.strptime(request.POST['timestamp'], "%Y-%m-%d").date())
+        if queryset:
+            messages.error(request, f'Record with similar date exists')
             return redirect('medical')
-        return redirect('medical')
+        else:
+            if form.is_valid():
+                messages.success(request, f'Successfully recorded values')
+                form.save()
+            else:
+                if datetime.strptime(request.POST['timestamp'], "%Y-%m-%d") > datetime.today():
+                    messages.error(request, f'Selected date cannot be greater than today\'s date')
+                elif float(request.POST['h2_plasma_glucose']) < 0:
+                    messages.error(request, f'2H Plasma Glucose Value should be positive')
+                elif float(request.POST['fasting_plasma_glucose']) < 0:
+                    messages.error(request, f'Fasting Plasma Glucose Value should be positive')
+                elif float(request.POST['hbA1c']) < 0:
+                    messages.error(request, f'HbA1c Value should be positive')
+                elif float(request.POST['hbA1c']) == 0.0 and float(request.POST['fasting_plasma_glucose']) == 0.0 and float(request.POST['h2_plasma_glucose']) == 0.0:
+                    messages.error(request, f'All Parameter values cannot be empty')
+                else:
+                    messages.success(request, f'Successfully recorded values')
+                    form.save()
+            return redirect('medical')
     else:
-        from datetime import date
-        today = date.today()
-
         form = MedicalForm()
         return render(request, 'medical.html', {'medicalform' : form})
 
