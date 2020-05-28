@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.db.models import Q
 from .models import FoodItem, MedicalRecord, NutritionIntake
 from .forms import MedicalForm
 from django.views import View
+from django.views.generic import TemplateView
+from django.http import Http404
 
 @login_required
 def dashboard(request):
@@ -65,20 +68,55 @@ def medical(request):
         return render(request, 'medical.html', {'medicalform' : form})
 
 @login_required
-def reminder(request):
-    return render(request, 'reminder.html')
-
-
-@login_required
-def food(request):
-    return render(request,'food.html')
-
-
-@login_required
 def history(request):
     return render(request, 'history.html')
 
-def HistoryView(View):
+class ManageRecords(TemplateView):
+    template_name = 'manage.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+@login_required
+def medical_records(request):
+    from datetime import datetime
+    data = MedicalRecord.objects.filter(user=request.user).order_by('-timestamp')
+    return render(request, 'manage-medical-records.html', {'records': data})
+
+@login_required
+def update_medical_record(request, pk):
+    try:
+        record = MedicalRecord.objects.get(id=pk)
+        form = MedicalForm(instance=record)
+    except MedicalRecord.DoesNotExist:
+        raise HTTP404('Medical Record Not Found')
+
+    if request.method == 'POST':
+        form = MedicalForm(request.POST, instance=record)
+        print("i am in post")
+        if form.is_valid():
+            print("I am valid too")
+            messages.success(request, f'Successfully recorded values')
+            form.save()
+            return redirect('manage_medical_records')
+
+    return render(request, 'update-medical-record.html', {'form': form})
+
+@login_required
+def delete_medical_record(request, pk):
+    try:
+        record = MedicalRecord.objects.get(id=pk)
+    except MedicalRecord.DoesNotExist:
+        raise HTTP404('Medical Record Not Found')
+
+    if request.method == 'POST':
+        messages.success(request, f'Item Deleted Successfully')
+        record.delete()
+        return redirect('manage_medical_records')
+    return render(request, 'delete-medical-record.html', {'record':record})
+
+def HistoryView(TemplateView):
     template_name = 'history.html'
 
     def get(self, request, *args, **kwargs):

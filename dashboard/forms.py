@@ -8,4 +8,4 @@ class MedicalForm(forms.ModelForm):
     class Meta:
         model = MedicalRecord
         fields = ['timestamp', 'h2_plasma_glucose', 'fasting_plasma_glucose', 'hbA1c']
-        labels = {'timestamp': 'Date', 'h2_plasma_glucose': '2-h plasma glucose', 'fasting_plasma_glucose': 'Fasting plasma glucose', 'hbA1c': 'hbA1c'}
+        labels = {'timestamp': 'Date', 'h2_plasma_glucose': '2-h plasma glucose', 'fasting_plasma_glucose': 'Fasting plasma glucose', 'hbA1c': 'HbA1c'}

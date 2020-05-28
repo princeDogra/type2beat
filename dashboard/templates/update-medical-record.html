@@ -1,6 +1,6 @@
 {% extends "dash-base.html" %}
 {% load static %}
-{% block title %}Medical Records | Type2Beat{% endblock title %}
+{% block title %} Update Medical Record | Type2Beat{% endblock title %}
 {% block main %}
 {% for message in messages %}
   {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
@@ -23,10 +23,10 @@
   <div class="container-fluid t2b-bg-light-gray mt-3">
     <div class="row p-4">
       <div class="col-md-8">
-        <h2 class="py-3">Record you Medical Data</h2>
+        <h2 class="py-3">Update Medical Record</h2>
         {% load widget_tweaks %}
-        <form action="{% url 'medical' %}" method="post">{% csrf_token %}
-          {% for field in medicalform %}
+        <form action="" method="POST">{% csrf_token %}
+          {% for field in form %}
           <div class="form-group row">
             {{ field.errors }}
             <div class="col-sm-4">
@@ -38,7 +38,7 @@
           </div>
           {% endfor %}
           <div class="col-sm-10">
-            <input type="submit" name="Submit" value="Record" class="t2b-btn-1 w-100 my-2">
+            <input type="submit" name="Submit" value="Update" class="t2b-btn-1 w-100 my-2">
           </div>
         </form>
       </div>
@@ -60,59 +60,9 @@
 {% endblock main %}
 
 {% block secondary %}
-<div class="container-fluid my-3">
-  <div class="container-fluid t2b-bg-light-gray mt-3">
-    <div class="row p-4">
-      <div class="col-md-8 overflow-auto">
-        <div class="chart">
-          <canvas id="myChart"></canvas>
-        </div>
-      </div>
-      <div class="col-md-4 t2b-bg-white">
-
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock secondary %}
 
 {% block script %}
 <script>
-const ENDPOINT = '/api/chart/data/medical';
-var defaultData = [];
-var labels = [];
-$.ajax ({
-  method: "GET",
-  url: ENDPOINT,
-  success: function(data) {
-    labels = data.labels
-    defaultData = data.datasets
-    setChart()
-  },
-  error: function(error_data) {
-    console.log("error")
-    console.log(error_data)
-  }
-})
-
-let setChart = ()=>{
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: labels,
-          datasets: defaultData
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
-}
 </script>
 {% endblock script %}

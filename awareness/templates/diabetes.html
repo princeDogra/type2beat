@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Type2Beat | healthy diets {% endblock title %} 
+{% block title %} Symptoms and Cause of Diabetes | Type2Beat {% endblock title %} 
 {% block header %}
 <header>
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-5 mb-3 h1">Symptoms and Cause of Diabetes</h1>
-    
+
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{% url 'home' %}" class="t2b-breadcrumb-a">Home</a>
@@ -16,18 +16,18 @@
             </li> -->
             <li class="breadcrumb-item active">Symptoms and Cause of Diabetes</li>
         </ol>
-    
+
         <!-- Image Header -->
         <img class="img-fluid rounded mb-4" src="{% static 'images/introdiabetes.jpg' %}" alt="">
     </div>
-    
+
     <div class="container t2b-bg-light p-3">
           <h1 class="t2b-h1 " >Symptoms</h1>
 
           <div class ="row">
             <div class="col-lg-6 mb-4">
               <div class="card h-100">
-                <h4 class="card-header"> 
+                <h4 class="card-header">
                   <i class="fad fa-disease"></i>
                   </i> &nbsp &nbsp Type 1 Diabetes</h4>
                 <div class="card-body">
@@ -66,10 +66,10 @@
 
               </div>
             </div>
-            
+
             <div class="col-lg-6 mb-4">
               <div class="card h-100">
-                <h4 class="card-header"> 
+                <h4 class="card-header">
                   <i class="fad fa-disease"></i>
                   </i> &nbsp &nbsp Type 2 Diabetes</h4>
                 <div class="card-body">
@@ -110,7 +110,7 @@
             </div>
           </div>
     </div>
-    
+
     <br>
     <!-- <div class="container t2b-bg-light p-3"> -->
       <div class="container t2b-bg-light p-3">
@@ -124,11 +124,11 @@
         <div class="row mt-4">
           <div class="col-md-4 t2b-bg-light p-3 t2b-center">
             <img class="rounded-image img-fluid" src="{% static 'images/virus.svg' %}" alt="" />
-            <h1 class="h4">Viral or bacterial infection</h1>         
+            <h1 class="h4">Viral or bacterial infection</h1>
           </div>
           <div class="col-md-4 t2b-bg-light p-3 t2b-center">
             <img class="rounded-image img-fluid" src="{% static 'images/biology.svg' %}" alt="" />
-            <h1 class="h4">Chemical toxins within food</h1>          
+            <h1 class="h4">Chemical toxins within food</h1>
           </div>
           <div class="col-md-4 t2b-bg-light p-3 t2b-center">
             <img class="rounded-image img-fluid" src="{% static 'images/dna.svg' %}" alt="" />
@@ -140,14 +140,14 @@
           <h3 class="h3 t2b-text-secondary" >Type 2 Diabetes</h3>
         </div>
         <div class="row mt-4">
-          
+
           <div class="col-md-3 t2b-bg-light p-3 t2b-center">
             <img class="rounded-image img-fluid" src="{% static 'images/obesity.svg' %}" alt="" />
-            <h1 class="h4">Obesity</h1>         
+            <h1 class="h4">Obesity</h1>
           </div>
           <div class="col-md-3 t2b-bg-light p-3 t2b-center">
             <img class="rounded-image img-fluid" src="{% static 'images/side-view.svg' %}" alt="" />
-            <h1 class="h4">Living a sedentary lifestyle</h1>          
+            <h1 class="h4">Living a sedentary lifestyle</h1>
           </div>
           <div class="col-md-3 t2b-bg-light p-3 t2b-center">
             <img class="rounded-image img-fluid" src="{% static 'images/seniorpeople.svg' %}" alt="" />
@@ -175,7 +175,7 @@
             <!-- <h4 class="my-4 t2b-h1">HOW WE CAN HELP YOU</h4> -->
             <h4><strong>Read This Next</strong></h4>
             <div class="row t2b-container">
-      
+
               <div class="col-lg-3 t2b-section-service-1 opp-1">
                 <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/foodforlink.jpg' %}')">
                   <h2>Eat Health Food</h2>
@@ -187,9 +187,9 @@
                   <hr>
                 </div>
               </div>
-      
+
               <div class="col-lg-3 t2b-section-service-1 opp-1">
-                <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/Avoidforlink.jpg' %}')"> 
+                <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/Avoidforlink.jpg' %}')">
                   <h2>Avoid Fasting</h2>
                   <hr class="hr-white">
                   <br>
@@ -198,9 +198,9 @@
                   <a href="{% url 'fast' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
                 </div>
               </div>
-      
+
               <div class="col-lg-3 t2b-section-service-1 opp-1">
-                <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/waterforlink.jpg' %}')"> 
+                <div class="t2b-section-service-1-inner" style="background: url('{% static 'images/waterforlink.jpg' %}')">
                   <h2>Water & Diabetes</h2>
                   <hr class="hr-white">
                   <br>
@@ -220,11 +220,11 @@
                   <a href="{% url 'exercises' %}" class="btn btn-primary t2b-btn-2">EXPLORE MORE</a>
                 </div>
               </div>
-  
+
               <hr class="hr-white">
             </div>
           </div>
         </div>
-      </div> 
+      </div>
   </main>
   {% endblock main %}

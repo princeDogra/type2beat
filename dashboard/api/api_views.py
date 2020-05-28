@@ -1,5 +1,5 @@
 from rest_framework.generics import ListAPIView, CreateAPIView
-from .serializers import FoodItemSerializer, NutritionIntakeSerializer, MedialRecordSerializer
+from .serializers import FoodItemSerializer, NutritionIntakeSerializer, MedicalRecordSerializer
 from dashboard.models import FoodItem, MedicalRecord, NutritionIntake
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -8,6 +8,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from rest_framework import status
 
 class FoodItemList(ListAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -17,15 +18,44 @@ class FoodItemList(ListAPIView):
     filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ('product_name','=id')
 
-class MedicalData(ListAPIView):
+class MedicalData(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
-    serializer_class = MedialRecordSerializer
-    model = serializer_class.Meta.model
 
-    def get_queryset(self):
-        queryset = self.model.objects.filter(user=self.request.user).order_by('-timestamp')
-        return queryset
+    def get(self, request, format=None):
+        queryset = MedicalRecord.objects.filter(user=request.user).order_by('-timestamp')
+        serializer = MedicalRecordSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    # def put(self, request, timestamp, format=None):
+    #     try:
+    #         queryset = MedicalRecord.objects.filter(user=request.user, timestamp=timestamp).order_by('-timestamp')
+    #     except MedicalRecord.DoesNotExist:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    #     # serializer = MedicalRecordSerializer(queryset, many=True)
+    #     data = {}
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         data["success"] = "Update Successful"
+    #         return Response(data=data)
+    #     return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+    #
+    # def delete(self, request, timestamp, format=None):
+    #     try:
+    #         queryset = MedicalRecord.objects.filter(user=request.user, timestamp=timestamp).order_by('-timestamp')
+    #     except MedicalRecord.DoesNotExist:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    #     operation = queryset.delete()
+    #     data = {}
+    #     if operation:
+    #          data["success"] = "Deleted successfully"
+    #     else:
+    #         data["failure"] = "Delete Failed"
+    #     return Response(data=data)
+    #
+    # def post(self, request, *args, **kwargs):
+    #     pass
+
 
 class NutritionIntakeData(ListAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -35,7 +65,6 @@ class NutritionIntakeData(ListAPIView):
 
     def get_queryset(self):
         queryset = self.model.objects.filter(user=self.request.user).order_by('-timestamp')
-        print(queryset)
         return queryset
 
 class MedicalChartData(APIView):

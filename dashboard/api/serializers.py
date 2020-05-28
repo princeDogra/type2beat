@@ -1,5 +1,6 @@
 from  rest_framework import serializers
 from dashboard.models import FoodItem, NutritionIntake, MedicalRecord
+from datetime import datetime
 
 class FoodItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,7 +16,12 @@ class NutritionIntakeSerializer(serializers.ModelSerializer):
         model = NutritionIntake
         fields = ('server_size', 'timestamp','food','food_item')
 
-class MedialRecordSerializer(serializers.ModelSerializer):
+class MedicalRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicalRecord
         fields = ('timestamp', 'h2_plasma_glucose', 'fasting_plasma_glucose', 'hbA1c')
+
+    def to_representation(self, instance):
+        representation = super(MedicalRecordSerializer, self).to_representation(instance)
+        representation['timestamp'] = instance.timestamp.strftime("%d/%m/%Y")
+        return representation
