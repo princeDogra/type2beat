@@ -30,11 +30,21 @@
             <div class="sidebar-heading"><a href="{% url 'home' %}">Type2Beat.live</a></div>
                 <div class="list-group list-group-flush">
                     <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
-                    <a href="{% url 'medical' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Medical Record</a>
+                    <a href="{% url 'medical' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-medkit" aria-hidden="true"></i>Medical Record</a>
                     <a href="{% url 'glucose' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Record Glucose</a>
-                    <a href="{% url 'manage_medical_records' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-table" aria-hidden="true"></i>Manage Record</a>
                     <a href="{% url 'history' %}" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-info-circle" aria-hidden="true"></i>History</a>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="accordionSidebar">
+                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                      <span>Manage Record</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                      <div class="t2b-bg-light collapse-inner">
+                        <a href="{% url 'manage_medical_records' %}" class="collapse-item list-group-item list-group-item-action bg-transparent pl-5"><i class="fa fa-medkit" aria-hidden="true"></i>Medical</a>
+                        <a href="{% url 'nutrition_records' %}" class="collapse-item list-group-item list-group-item-action bg-transparent pl-5"><i class="fa fa-cutlery" aria-hidden="true"></i>Nutrition</a>
+                      </div>
+                    </div>
                     <a href="#" class="t2b-bg-dark list-group-item list-group-item-action"><i class="fa fa-info-circle" aria-hidden="true"></i>Help</a>
+
                 </div>
             </div>
 

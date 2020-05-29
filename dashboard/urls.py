@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^medical/', dash_views.medical, name='medical'),
     url(r'^manage/', dash_views.ManageRecords.as_view(), name="manage"),
     url(r'^manage-medical-records/',dash_views.medical_records, name='manage_medical_records'),
+    url(r'^nutrition-records', dash_views.nutrition_records, name="nutrition_records"),
     url(r'^update-medical-record/(\d+)/',dash_views.update_medical_record, name='update_medical_record'),
     url(r'^delete-medical-record/(\d+)/',dash_views.delete_medical_record, name='delete_medical_record'),
     url(r'^api/chart/data/medical', dash_api_views.MedicalChartData.as_view()),

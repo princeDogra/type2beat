@@ -79,6 +79,11 @@ class ManageRecords(TemplateView):
         return super().dispatch(*args, **kwargs)
 
 @login_required
+def nutrition_records(request):
+    data = NutritionIntake.objects.filter(user=request.user).order_by('-timestamp')
+    return render(request, 'manage-nutrition-records.html', {'records': data})
+
+@login_required
 def medical_records(request):
     from datetime import datetime
     data = MedicalRecord.objects.filter(user=request.user).order_by('-timestamp')

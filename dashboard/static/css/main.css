@@ -585,6 +585,11 @@ body {
     transition: 0.2s ease-out;
 }
 
+.list-group div a{
+  background-color: var(--dark-primary);
+  color: var(--light);
+}
+
 .list-group a:hover{
     padding-left: 40px;
     transition: 0.2s ease-in;

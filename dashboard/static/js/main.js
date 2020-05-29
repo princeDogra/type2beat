@@ -54,8 +54,11 @@ document.querySelector('#search-food-button').addEventListener('click', (e)=> {
 
 let item = null;
 
+// dislay method is responsible for displaying the API fetched food data
 let displayData = () => {
+  // query selector for container holding recieved food items from API
   let parent = document.querySelector('#food-item-holder');
+  // setting value of container to null so that it won't append new values into previous values
   parent.innerHTML = "";
   let projector=document.querySelector('#projector');
   projector.innerHTML = "";
@@ -65,6 +68,12 @@ let displayData = () => {
     childNode.appendChild(textnode);
     childNode.addEventListener('click', (e)=>{
       item = element;
+      // setting background color of all child nodes to white
+      for (let i=0;i<parent.childNodes.length; i++){
+        parent.childNodes[i].style.backgroundColor = "#fff";
+      }
+      // now assigning new color to the clicked item
+      e.currentTarget.style.backgroundColor = "#adf0ee";
       projector.innerHTML = element.product_name;
       projector.append(createDiv(element));
       calServingSize(element.serving_size);
@@ -170,20 +179,32 @@ function totalNutrition() {
   console.log(cabs + "KJ | " + sugar + "mg | ");
 }
 
-let calServingSize = (food) => {
-  let quant = null;
-  if (food.length === 0){
-    console.log('its empty')
-    quant = 1
+//==============================================================
+//==== display the serving in the serving size input field =====
+//==============================================================
+let calServingSize = (serveSize) => {
+  // fetch input field using query
+  node = document.querySelector("input[name='serveSize']");
+  // fetch unit measure using queryselector
+  unitNode = document.querySelector('#units');
+  // declaring the regular expression to be searched
+  let re = /\d+/;
+  // fetch numeric item based on regular expression
+  numericValue = parseInt(re.exec(serveSize));
+  if (serveSize.length === 0){
+    node.value = 1;
   }
-  else if(food.match('g')){
-    console.log('its a gram');
+  else if(serveSize.match('g')){
+    unitNode.innerHTML = " /g";
+    node.value = ""+numericValue;
   }
-  else if(food.match('ml')){
-    console.log('its is a ml')
+  else if(serveSize.match('ml')){
+    unitNode.innerHTML = " /ml";
+    node.value = ""+numericValue;
   }
   else{
-    console.log('idk');
+    unitNode.innerHTML = " /qty";
+    node.value = ""+numericValue;
   }
 };
 
