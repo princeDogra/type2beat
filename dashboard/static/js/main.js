@@ -108,19 +108,44 @@ let createDiv = (item)=>{
 
 // cart contains the objects of selected food
 let cart = []
+const Food = {
+  "serve size": null,
+  "food": null
+};
 
 // adding item to cart and displaying on cartview
 document.querySelector(".projection button").addEventListener('click', ()=>{
-  cart.push(item);
+  // declaring the regular expression to be searched
+  let re = /\d+/;
+  // fetch numeric item based on regular expression
+  // numericValue = parseInt(re.exec(item.serving_size));
+  let food = Object.create(Food);
+  food["serve size"] = parseInt(re.exec(item.serving_size));
+  food["food"] = Object.assign({}, item);
+  cart.push(food);
   if (cart.length > 0) {
     document.querySelector('#record-nutrition').disabled = false;
   }
   document.querySelector('#cart-view ul').innerHTML = "";
-  cart.forEach(updateCart);
-})
+  for(let counter=0; counter < cart.length; counter++){
+    // console.log(cart[counter]);
+    updateCart(cart[counter]["food"]);
+  }
 
+  // update nutrition intake banner
 
-let updateCart = (element, index, array)=>{
+});
+
+// let nutritionCalculator = ()=>{
+//   let serveSize = null;
+//   let fooditem = null;
+//   for (let counter = 0; counter < cart.length; counter++){
+//     serveSize = cart[counter]["serve size"];
+//
+//   }
+// };
+
+let updateCart = (element)=>{
   listItem = document.createElement('li');
   delButton = document.createElement('button');
   delButton.innerHTML = "Delete";
@@ -141,16 +166,27 @@ let updateCart = (element, index, array)=>{
 
 // record button functionality onclick
 document.querySelector('#record-nutrition').addEventListener('click',()=>{
+  // creating hidden input field to store the ids of the selected food items
   inputField = document.createElement('input');
   inputField.setAttribute("name", "foodItems")
   inputField.setAttribute("type","text");
   inputField.hidden = true;
   let val = "";
+  // adding values to a string with a space character in between them
   for (let counter=0; counter<cart.length; counter++){
-    val = val + cart[counter].id + " ";
+    val = val + cart[counter]["food"].id + " ";
   }
+  // removing the last white space from the newly created string
   val = val.substring(0, val.length-1);
   inputField.setAttribute('value', val);
+
+  let serveSizeVal = "";
+  // adding values to a string with a space character in between them
+  for (let counter=0; counter<cart.length; counter++){
+    serveSizeVal = serveSizeVal + cart[counter]["serve size"] + " ";
+  }
+  serveSizeVal = serveSizeVal.substring(0, val.length-1);
+
   form = document.querySelector('#nutritionIntakeForm');
   form.appendChild(inputField);
   if (document.querySelector('#datetimepicker1 .datetimepicker-input').value === ''){
@@ -164,7 +200,17 @@ document.querySelector('#record-nutrition').addEventListener('click',()=>{
     if(form.elements['serveSize'] === ''){
       form.elements['serveSize'].value = 1;
     }
-    form.submit();
+    if (cart.length) {
+      form.elements['serveSize'].value = serveSizeVal;
+      form.submit();
+    }
+    else{
+      let error = document.createElement('p');
+      error.append(document.createTextNode('**You have not selected any food item'));
+      error.setAttribute('color','red');
+      error.setAttribute('id','error-tag');
+      document.querySelector('#nutritionIntakeForm').appendChild(error);
+    }
   }
 })
 
@@ -195,15 +241,15 @@ let calServingSize = (serveSize) => {
     node.value = 1;
   }
   else if(serveSize.match('g')){
-    unitNode.innerHTML = " /g";
+    unitNode.innerHTML = " g";
     node.value = ""+numericValue;
   }
-  else if(serveSize.match('ml')){
-    unitNode.innerHTML = " /ml";
+  else if(serveSize.match('ml') || serveSize.match('m')){
+    unitNode.innerHTML = " ml";
     node.value = ""+numericValue;
   }
   else{
-    unitNode.innerHTML = " /qty";
+    unitNode.innerHTML = " qty";
     node.value = ""+numericValue;
   }
 };

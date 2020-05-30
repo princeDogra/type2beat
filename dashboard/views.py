@@ -23,12 +23,16 @@ def glucose(request):
         from datetime import datetime
         timestamp = datetime.strptime(timestamp, "%m/%d/%Y %H:%M")
         server_size = request.POST['serveSize']
+        # server_size = server_size.split(" ") # splitting the string
+
+        counter=0
         for item in foodItems.split(" "):
             nutrition_intake.food = FoodItem.objects.get(pk=int(item))
             nutrition_intake.timestamp = timestamp
-            nutrition_intake.server_size = server_size
+            nutrition_intake.server_size = int(server_size[counter])
             nutrition_intake.user =  request.user
             nutrition_intake.save()
+            counter+=1
         messages.success(request, f'Successfully recorded your meal intake')
         return redirect('glucose')
     else:
