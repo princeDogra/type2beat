@@ -133,17 +133,23 @@ document.querySelector(".projection button").addEventListener('click', ()=>{
   }
 
   // update nutrition intake banner
-
+  nutritionCalculator();
 });
 
-// let nutritionCalculator = ()=>{
-//   let serveSize = null;
-//   let fooditem = null;
-//   for (let counter = 0; counter < cart.length; counter++){
-//     serveSize = cart[counter]["serve size"];
-//
-//   }
-// };
+let nutritionCalculator = ()=>{
+  let serveSize = 0, carbs = 0, fat = 0, protein = 0;
+  let fooditem = null;
+  for (let counter = 0; counter < cart.length; counter++){
+    let re = /\d+/;
+    // fetch numeric item based on regular expression
+    numericValue = parseInt(re.exec(item.serving_size));
+    serveSize = numericValue/cart[counter]["serve size"];
+    carbs = carbs + parseFloat(cart[counter]["food"]["carbohydrates_100g"]);
+    protein = protein +parseFloat(cart[counter]["food"]["proteins_100g"]);
+    fat = fat + parseFloat(cart[counter]["food"]["fat_100g"]);
+  }
+  document.querySelector("#nutrition-board").innerHTML = `Total nutrition intake </br>carbs ${carbs} g | protein ${protein} g | sugar ${fat} g`;
+};
 
 let updateCart = (element)=>{
   listItem = document.createElement('li');
@@ -158,6 +164,7 @@ let updateCart = (element)=>{
     indexOfItemToDelete = Array.from(e.currentTarget.parentNode.parentNode.children).indexOf(e.currentTarget.parentNode);
     e.currentTarget.parentNode.remove();
     cart.splice(indexOfItemToDelete, 1);
+    nutritionCalculator();
     if(cart.length == 0){
       document.querySelector('#record-nutrition').disabled = true;
     }

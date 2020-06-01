@@ -115,7 +115,7 @@ class NutritionIntakeChartData(APIView):
         queryset = NutritionIntake.objects.filter(user=request.user).order_by('timestamp')
         data = {'labels':[], 'productName':[],'sugar': [], 'fat':[], 'carbohydrate': [], 'protein': []}
         for item in queryset:
-            data['labels'].append(str(item.timestamp))
+            data['labels'].append(item.timestamp.strftime("%d/%m/%Y"))
             data['productName'].append(item.food.product_name)
             data['sugar'].append(item.food.sugars_100g)
             data['fat'].append(item.food.fat_100g)

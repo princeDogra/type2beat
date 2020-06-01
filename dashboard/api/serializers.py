@@ -16,6 +16,11 @@ class NutritionIntakeSerializer(serializers.ModelSerializer):
         model = NutritionIntake
         fields = ('server_size', 'timestamp','food','food_item')
 
+    def to_representation(self, instance):
+        representation = super(NutritionIntakeSerializer, self).to_representation(instance)
+        representation['timestamp'] = instance.timestamp.strftime("%d/%m/%Y %H:%M")
+        return representation
+
 class MedicalRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicalRecord

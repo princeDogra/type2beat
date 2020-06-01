@@ -13,20 +13,31 @@ from django.http import Http404
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+# ==============================================================================
+# glucose(request) -->
+#  - returns glucose html page if method type is get
+#  - loads user preferences about meal to databae when method type is POST
+# ==============================================================================
 @login_required
 def glucose(request):
+    # check if request type is post
     if request.method == 'POST':
-        nutrition_intake = NutritionIntake()
+        # get the fooditems selected by the user
         foodItems = request.POST['foodItems']
+        # get the date and time selected by user
         timestamp = request.POST['mealTimestamp']
         timestamp = timestamp[:-3]
         from datetime import datetime
+        from pytz import timezone
         timestamp = datetime.strptime(timestamp, "%m/%d/%Y %H:%M")
+        timestamp = timestamp.replace(tzinfo=timezone('UTC'))
+        # print('timestamp: {}'.format(timestamp))
         server_size = request.POST['serveSize']
-        # server_size = server_size.split(" ") # splitting the string
-
+        server_size = server_size.split(" ") # splitting the string
+        # print('foodItems: {}'.format(foodItems))
         counter=0
         for item in foodItems.split(" "):
+            nutrition_intake = NutritionIntake()
             nutrition_intake.food = FoodItem.objects.get(pk=int(item))
             nutrition_intake.timestamp = timestamp
             nutrition_intake.server_size = int(server_size[counter])
