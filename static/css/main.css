@@ -16,6 +16,9 @@
     --primary-dark: rgb(105,189,116);
     --primary-light: #b8f2e6;
     --secondary: #009389;
+    --secondary-dark: #007d74;
+    --red: #f03949;
+    --red-dark: #d92232;
     --dark: #000;
     --light: #c0c0c0;
     --white: #fff;
@@ -54,6 +57,10 @@ body {
   background: var(--gray);
 }
 
+.t2b-bg-red {
+  background-color: var(--red);
+}
+
 .t2b-bg-dark-primary {
   background: var(--dark-primary);
 }
@@ -87,7 +94,7 @@ body {
 }
 
 .t2b-text-light {
-  color: var(--light-gray);
+  color: var(--light);
 }
 
 .t2b-text-dark {
@@ -361,6 +368,50 @@ body {
   transition: .3s ease-in-out;
 }
 
+.t2b-btn-primary {
+  text-decoration: none;
+  display: grid;
+  margin: 0 auto;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  transition: 0.2s ease-out;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 1px solid var(--secondary);
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.t2b-btn-primary:hover {
+  text-decoration: none;
+  background-color: var(--secondary-dark);
+  transition: .2s ease-in;
+  color: var(--white);
+}
+
+.t2b-btn-view {
+  text-decoration: none;
+  display: grid;
+  margin: 0 auto;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  transition: 0.2s ease-out;
+  background-color: #0096e2;
+  color: var(--white);
+  border: 1px solid var(--secondary);
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.t2b-btn-view:hover {
+  text-decoration: none;
+  background-color: #0083ce;
+  transition: .2s ease-in;
+  color: var(--white);
+}
+
 .t2b-btn-delete {
   padding: 4px 10px;
   border: 2px solid #e00404;
@@ -370,8 +421,31 @@ body {
 }
 
 .t2b-btn-delete:hover {
+  text-decoration: none;
   background: #d40d0d;
   border-color: #e00404;
+  color: var(--white);
+}
+
+.t2b-btn-delete-primary {
+  text-decoration: none;
+  display: grid;
+  margin: 0 auto;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  transition: 0.2s ease-out;
+  background-color: var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.t2b-btn-delete-primary:hover {
+  text-decoration: none;
+  background-color: var(--red-dark);
+  transition: .2s ease-in;
   color: var(--white);
 }
 
@@ -531,6 +605,11 @@ body {
 .list-group a {
     padding-left: 1.75rem;
     transition: 0.2s ease-out;
+}
+
+.list-group div a{
+  background-color: var(--dark-primary);
+  color: var(--light);
 }
 
 .list-group a:hover{

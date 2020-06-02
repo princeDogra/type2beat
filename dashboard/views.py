@@ -27,14 +27,13 @@ def glucose(request):
         # get the date and time selected by user
         timestamp = request.POST['mealTimestamp']
         timestamp = timestamp[:-3]
-        from datetime import datetime
-        from pytz import timezone
+        from datetime import datetime   # import datetime
+        from pytz import timezone       # import timezone
         timestamp = datetime.strptime(timestamp, "%m/%d/%Y %H:%M")
+        # change format of datetime to timexone because it takes timezone as a time
         timestamp = timestamp.replace(tzinfo=timezone('UTC'))
-        # print('timestamp: {}'.format(timestamp))
         server_size = request.POST['serveSize']
         server_size = server_size.split(" ") # splitting the string
-        # print('foodItems: {}'.format(foodItems))
         counter=0
         for item in foodItems.split(" "):
             nutrition_intake = NutritionIntake()
@@ -94,13 +93,48 @@ class ManageRecords(TemplateView):
         return super().dispatch(*args, **kwargs)
 
 @login_required
+def nutrition_details(request, timestamp):
+    from datetime import datetime
+    timestamp = datetime.strptime(timestamp, "%d/%m/%Y")
+    queryset = NutritionIntake.objects.filter(user=request.user, timestamp__startswith=timestamp.strftime("%Y-%m-%d")).order_by('-timestamp')
+    return render(request, 'nutrition-details.html',{'records':queryset})
+
+@login_required
 def nutrition_records(request):
-    data = NutritionIntake.objects.filter(user=request.user).order_by('-timestamp')
+    queryset = NutritionIntake.objects.filter(user=request.user).order_by('-timestamp')
+    data = {}
+    for result in queryset:
+        if result.timestamp.strftime("%d/%m/%Y") in data:
+            data[result.timestamp.strftime("%d/%m/%Y")]["carbohydrates"] += result.food.carbohydrates_100g
+            data[result.timestamp.strftime("%d/%m/%Y")]["protein"] += result.food.proteins_100g
+            data[result.timestamp.strftime("%d/%m/%Y")]["fat"] += result.food.fat_100g
+            data[result.timestamp.strftime("%d/%m/%Y")]["sugar"] += result.food.sugars_100g
+        else:
+            data[result.timestamp.strftime("%d/%m/%Y")] = {"carbohydrates": result.food.carbohydrates_100g,
+                                                           "protein": result.food.proteins_100g,
+                                                           "fat": result.food.fat_100g,
+                                                           "sugar": result.food.sugars_100g}
     return render(request, 'manage-nutrition-records.html', {'records': data})
 
 @login_required
-def medical_records(request):
+def delete_nutrition_all(request, timestamp):
     from datetime import datetime
+    timestamp = datetime.strptime(timestamp, "%d/%m/%Y")
+    queryset = NutritionIntake.objects.filter(user=request.user, timestamp__startswith=timestamp.strftime("%Y-%m-%d")).order_by('-timestamp')
+
+    if request.method == "POST":
+        messages.success(request, f'Item Deleted Successfully')
+        queryset.delete()
+        return redirect('nutrition_records')
+    return render(request, 'delete-nutrition-all.html',{'records':queryset})
+
+@login_required
+def delete_nutrition(request, pk):
+    querset = NutritionIntake.objects.get(id=pk)
+    return render(request, 'delete-nutrition-all.html',{'records':queryset})
+
+@login_required
+def medical_records(request):
     data = MedicalRecord.objects.filter(user=request.user).order_by('-timestamp')
     return render(request, 'manage-medical-records.html', {'records': data})
 
@@ -114,9 +148,7 @@ def update_medical_record(request, pk):
 
     if request.method == 'POST':
         form = MedicalForm(request.POST, instance=record)
-        print("i am in post")
         if form.is_valid():
-            print("I am valid too")
             messages.success(request, f'Successfully recorded values')
             form.save()
             return redirect('manage_medical_records')

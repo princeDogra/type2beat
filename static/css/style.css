@@ -387,6 +387,28 @@ body {
   box-shadow: 0px 10px 20px -6px rgba(1,1,1,1);
 }
 
+.t2b-btn-4 {
+    margin-top: 15px;
+    text-decoration: none;
+    padding: 1rem;
+    transition: 0.3s ease-in-out;
+    background-color: #009389;
+    color: white;
+    border: none;
+    -webkit-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.75);
+    font-family: 'Roboto', sans-serif;
+}
+
+.t2b-btn-4:hover{
+  background-color: var(--secondary);
+  color: var(--white);
+  text-decoration: none;
+  box-shadow: 1px 1px 4px var(--dark);
+  transition: .3s ease-in-out;
+}
+
 .t2b-btn-primary {
   text-decoration: none;
   display: grid;

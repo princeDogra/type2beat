@@ -54,8 +54,11 @@ document.querySelector('#search-food-button').addEventListener('click', (e)=> {
 
 let item = null;
 
+// dislay method is responsible for displaying the API fetched food data
 let displayData = () => {
+  // query selector for container holding recieved food items from API
   let parent = document.querySelector('#food-item-holder');
+  // setting value of container to null so that it won't append new values into previous values
   parent.innerHTML = "";
   let projector=document.querySelector('#projector');
   projector.innerHTML = "";
@@ -65,6 +68,12 @@ let displayData = () => {
     childNode.appendChild(textnode);
     childNode.addEventListener('click', (e)=>{
       item = element;
+      // setting background color of all child nodes to white
+      for (let i=0;i<parent.childNodes.length; i++){
+        parent.childNodes[i].style.backgroundColor = "#fff";
+      }
+      // now assigning new color to the clicked item
+      e.currentTarget.style.backgroundColor = "#adf0ee";
       projector.innerHTML = element.product_name;
       projector.append(createDiv(element));
       calServingSize(element.serving_size);
@@ -99,19 +108,50 @@ let createDiv = (item)=>{
 
 // cart contains the objects of selected food
 let cart = []
+const Food = {
+  "serve size": null,
+  "food": null
+};
 
 // adding item to cart and displaying on cartview
 document.querySelector(".projection button").addEventListener('click', ()=>{
-  cart.push(item);
+  // declaring the regular expression to be searched
+  let re = /\d+/;
+  // fetch numeric item based on regular expression
+  // numericValue = parseInt(re.exec(item.serving_size));
+  let food = Object.create(Food);
+  food["serve size"] = parseInt(re.exec(item.serving_size));
+  food["food"] = Object.assign({}, item);
+  cart.push(food);
   if (cart.length > 0) {
     document.querySelector('#record-nutrition').disabled = false;
   }
   document.querySelector('#cart-view ul').innerHTML = "";
-  cart.forEach(updateCart);
-})
+  for(let counter=0; counter < cart.length; counter++){
+    // console.log(cart[counter]);
+    updateCart(cart[counter]["food"]);
+  }
 
+  // update nutrition intake banner
+  nutritionCalculator();
+});
 
-let updateCart = (element, index, array)=>{
+let nutritionCalculator = ()=>{
+  let serveSize = 0, carbs = 0, fat = 0, protein = 0;
+  let fooditem = null;
+  for (let counter = 0; counter < cart.length; counter++){
+    let re = /\d+/;
+    // fetch numeric item based on regular expression
+    numericValue = parseInt(re.exec(item.serving_size));
+    serveSize = numericValue/cart[counter]["serve size"];
+    carbs = carbs + parseFloat(cart[counter]["food"]["carbohydrates_100g"]);
+    protein = protein +parseFloat(cart[counter]["food"]["proteins_100g"]);
+    fat = fat + parseFloat(cart[counter]["food"]["fat_100g"]);
+  }
+  document.querySelector("#nutrition-board").innerHTML = `Total nutrition intake </br>carbs ${carbs} g | protein ${protein} g | sugar ${fat} g`;
+};
+
+let updateCart = (element)=>{
   listItem = document.createElement('li');
   delButton = document.createElement('button');
   delButton.innerHTML = "Delete";
@@ -124,6 +164,7 @@ let updateCart = (element, index, array)=>{
     indexOfItemToDelete = Array.from(e.currentTarget.parentNode.parentNode.children).indexOf(e.currentTarget.parentNode);
     e.currentTarget.parentNode.remove();
     cart.splice(indexOfItemToDelete, 1);
+    nutritionCalculator();
     if(cart.length == 0){
       document.querySelector('#record-nutrition').disabled = true;
     }
@@ -132,16 +173,27 @@ let updateCart = (element, index, array)=>{
 
 // record button functionality onclick
 document.querySelector('#record-nutrition').addEventListener('click',()=>{
+  // creating hidden input field to store the ids of the selected food items
   inputField = document.createElement('input');
   inputField.setAttribute("name", "foodItems")
   inputField.setAttribute("type","text");
   inputField.hidden = true;
   let val = "";
+  // adding values to a string with a space character in between them
   for (let counter=0; counter<cart.length; counter++){
-    val = val + cart[counter].id + " ";
+    val = val + cart[counter]["food"].id + " ";
   }
+  // removing the last white space from the newly created string
   val = val.substring(0, val.length-1);
   inputField.setAttribute('value', val);
+
+  let serveSizeVal = "";
+  // adding values to a string with a space character in between them
+  for (let counter=0; counter<cart.length; counter++){
+    serveSizeVal = serveSizeVal + cart[counter]["serve size"] + " ";
+  }
+  serveSizeVal = serveSizeVal.substring(0, val.length-1);
+
   form = document.querySelector('#nutritionIntakeForm');
   form.appendChild(inputField);
   if (document.querySelector('#datetimepicker1 .datetimepicker-input').value === ''){
@@ -155,7 +207,17 @@ document.querySelector('#record-nutrition').addEventListener('click',()=>{
     if(form.elements['serveSize'] === ''){
       form.elements['serveSize'].value = 1;
     }
-    form.submit();
+    if (cart.length) {
+      form.elements['serveSize'].value = serveSizeVal;
+      form.submit();
+    }
+    else{
+      let error = document.createElement('p');
+      error.append(document.createTextNode('**You have not selected any food item'));
+      error.setAttribute('color','red');
+      error.setAttribute('id','error-tag');
+      document.querySelector('#nutritionIntakeForm').appendChild(error);
+    }
   }
 })
 
@@ -170,20 +232,32 @@ function totalNutrition() {
   console.log(cabs + "KJ | " + sugar + "mg | ");
 }
 
-let calServingSize = (food) => {
-  let quant = null;
-  if (food.length === 0){
-    console.log('its empty')
-    quant = 1
+//==============================================================
+//==== display the serving in the serving size input field =====
+//==============================================================
+let calServingSize = (serveSize) => {
+  // fetch input field using query
+  node = document.querySelector("input[name='serveSize']");
+  // fetch unit measure using queryselector
+  unitNode = document.querySelector('#units');
+  // declaring the regular expression to be searched
+  let re = /\d+/;
+  // fetch numeric item based on regular expression
+  numericValue = parseInt(re.exec(serveSize));
+  if (serveSize.length === 0){
+    node.value = 1;
   }
-  else if(food.match('g')){
-    console.log('its a gram');
+  else if(serveSize.match('g')){
+    unitNode.innerHTML = " g";
+    node.value = ""+numericValue;
   }
-  else if(food.match('ml')){
-    console.log('its is a ml')
+  else if(serveSize.match('ml') || serveSize.match('m')){
+    unitNode.innerHTML = " ml";
+    node.value = ""+numericValue;
   }
   else{
-    console.log('idk');
+    unitNode.innerHTML = " qty";
+    node.value = ""+numericValue;
   }
 };
 
