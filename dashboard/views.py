@@ -130,8 +130,15 @@ def delete_nutrition_all(request, timestamp):
 
 @login_required
 def delete_nutrition(request, pk):
-    querset = NutritionIntake.objects.get(id=pk)
-    return render(request, 'delete-nutrition-all.html',{'records':queryset})
+    try:
+        queryset = NutritionIntake.objects.get(id=pk)
+    except NutritionIntake.DoesNotExist:
+        raise HTTP404('Nutrition Intake record not found')
+    if request.method == "POST":
+        messages.success(request, f'Item Deleted Successfully')
+        queryset.delete()
+        return redirect('nutrition_records')
+    return render(request, 'delete-nutrition.html',{'records':queryset})
 
 @login_required
 def medical_records(request):
