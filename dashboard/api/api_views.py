@@ -112,40 +112,45 @@ class NutritionIntakeChartData(APIView):
     permission_classes = [IsAuthenticated]
 
     def generate_data(self, request):
-        queryset = NutritionIntake.objects.filter(user=request.user).order_by('timestamp')
-        data = {'labels':[], 'productName':[],'sugar': [], 'fat':[], 'carbohydrate': [], 'protein': []}
-        for item in queryset:
-            data['labels'].append(item.timestamp.strftime("%d/%m/%Y"))
-            data['productName'].append(item.food.product_name)
-            data['sugar'].append(item.food.sugars_100g)
-            data['fat'].append(item.food.fat_100g)
-            data['carbohydrate'].append(item.food.carbohydrates_100g)
-            data['protein'].append(item.food.proteins_100g)
+        queryset = NutritionIntake.objects.filter(user=request.user).order_by('-timestamp')
+        # data = {'labels':[], 'productName':[],'sugar': [], 'fat':[], 'carbohydrate': [], 'protein': []}
+        data = {}
+        for result in queryset:
+            if result.timestamp.strftime("%d/%m/%Y") in data:
+                data[result.timestamp.strftime("%d/%m/%Y")]["carbohydrates"] += result.food.carbohydrates_100g
+                data[result.timestamp.strftime("%d/%m/%Y")]["protein"] += result.food.proteins_100g
+                data[result.timestamp.strftime("%d/%m/%Y")]["fat"] += result.food.fat_100g
+                data[result.timestamp.strftime("%d/%m/%Y")]["sugar"] += result.food.sugars_100g
+            else:
+                data[result.timestamp.strftime("%d/%m/%Y")] = {"carbohydrates": result.food.carbohydrates_100g,
+                                                               "protein": result.food.proteins_100g,
+                                                               "fat": result.food.fat_100g,
+                                                               "sugar": result.food.sugars_100g}
         return data
 
     def get(self, request, format=None):
         data = self.generate_data(request)
-        labels = data['labels']
+        labels = [keys for keys in data.keys()]
         default_items = [
         {
             'label': 'Sugar',
             'backgroundColor': 'rgba(0, 63, 92, 1)',
-            'data': data['sugar']
+            'data': [values['sugar'] for values in data.values()]
         },
         {
             'label': "Carbs",
             'backgroundColor': 'rgba(122, 81, 149, 1)',
-            'data': data['carbohydrate']
+            'data': [values['carbohydrates'] for values in data.values()]
         },
         {
             'label': "Fat",
             'backgroundColor': 'rgba(239, 86, 117, 1)',
-            'data': data['fat']
+            'data': [values['fat'] for values in data.values()]
         },
         {
             'label': 'protein',
             'backgroundColor': 'rgba(255, 166, 0, 1)',
-            'data': data['protein']
+            'data': [values['protein'] for values in data.values()]
         }]
         data = {
             "labels": labels,

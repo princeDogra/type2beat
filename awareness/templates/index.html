@@ -15,7 +15,7 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image: url('{% static 'images/home-Page1.jpg' %}')">
           <div class="carousel-caption d-flex h-100 align-items-center justify-content-center t2b-text-light t2b-font-serif">
-            <p><strong class="display-4">Do you know Diabetes can be prevented?</strong><br>If you are new to type2beat, then come <a href="{% url 'services' %}" class="carousel-hyperlink-page"> <strong>register with us</strong></a> and prevent diabetes.</p>
+            <p><strong class="display-4">Do you know Diabetes can be prevented?</strong><br>If you are new to type2beat, then come <a href="{% url 'register' %}" class="carousel-hyperlink-page"> <strong>register with us</strong></a> and prevent diabetes.</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -50,10 +50,6 @@
       <h4>Track your health daily</h4>
       <h6>and</h6>
       <h4>Prevent Diabetes</h4>
-      <div class="mt-4 rounded">
-        <a href="#" class="t2b-btn-4">Register with us</a>
-      </div>
-
     </div>
 </div>
 
@@ -66,7 +62,7 @@
         is associated with a myriad of complications which affect the feet, eyes, kidney,
         and cardiovascular health. </p>
         <div class ="text-center">
-          <a class="t2b-btn-3 align-center" href="https://www.diabetesaustralia.com.au/">Know More</a>
+          <a class="t2b-btn-3 align-center" href="https://www.diabetesaustralia.com.au/" target="_blank">Know More</a>
         </div>
     </div>
   </div>
@@ -128,11 +124,7 @@
               <br>
               <br>
               <a class="t2b-btn-3 align-center" href="{% url 'diabetes' %}" >Know More</a>
-
             </div>
-              <!-- <a class="t2b-btn-3 align-center" href="https://www.diabetesaustralia.com.au/">Know More</a> -->
-
-
           </div>
         </div>
       </div>
